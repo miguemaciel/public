@@ -1,0 +1,1397 @@
+{
+  "PartyReferenceDataDirectoryEntry": {
+    "PartyReference": {
+      "PartyName": {
+        "Name": "string"
+      },
+      "PartyType": "Person",
+      "PartyDateTime": {
+        "DateTimeContent": "string",
+        "TimeZoneCode": "string",
+        "DaylightSavingIndicator": "string"
+      },
+      "PartyIdentification": {
+        "PartyIdentificationType": "Taxidentificationnumber",
+        "PartyIdentification": {
+          "IdentifierValue": {
+            "Value": "string"
+          },
+          "IdentifierIssuingAuthority": {
+            "PartyReference": "string",
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          },
+          "IdentifierStartDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "IdentifierEndDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        }
+      },
+      "PartyLegalStructureType": "Individual"
+    },
+    "DirectoryEntryDateType": "OpenDate",
+    "DirectoryEntryDate": {
+      "DateTimeContent": "string",
+      "TimeZoneCode": "string",
+      "DaylightSavingIndicator": "string"
+    },
+    "PartyType": "Person",
+    "Status": {
+      "Text": "string"
+    },
+    "Reference": {
+      "PartyLegalEntityReference": {
+        "PartyName": {
+          "Name": "string"
+        },
+        "PartyType": "Person",
+        "PartyDateTime": {
+          "DateTimeContent": "string",
+          "TimeZoneCode": "string",
+          "DaylightSavingIndicator": "string"
+        },
+        "PartyIdentification": {
+          "PartyIdentificationType": "Taxidentificationnumber",
+          "PartyIdentification": {
+            "IdentifierValue": {
+              "Value": "string"
+            },
+            "IdentifierIssuingAuthority": {
+              "PartyReference": "string",
+              "PartyInvolvement": {
+                "PartyRoleType": {
+                  "Text": "string"
+                },
+                "PartyRoleName": {
+                  "Name": "string"
+                },
+                "PartyRoleValidityPeriod": {
+                  "FromDateTime": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  },
+                  "ToDateTime": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  }
+                },
+                "PartyInvolvementType": "Agreementinvolvement"
+              }
+            },
+            "IdentifierStartDate": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "IdentifierEndDate": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          }
+        },
+        "PartyLegalStructureType": "Individual"
+      },
+      "PartyNameSalutation": {
+        "Name": "string"
+      },
+      "GovernmentIssuedIdentityReference": {
+        "PartyIdentificationType": "Taxidentificationnumber",
+        "PartyIdentification": {
+          "IdentifierValue": {
+            "Value": "string"
+          },
+          "IdentifierIssuingAuthority": {
+            "PartyReference": "string",
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          },
+          "IdentifierStartDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "IdentifierEndDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        }
+      },
+      "GovernmentIssuedDocumentDetails": {
+        "PartyReference": {
+          "PartyName": {
+            "Name": "string"
+          },
+          "PartyType": "Person",
+          "PartyDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "PartyIdentification": {
+            "PartyIdentificationType": "Taxidentificationnumber",
+            "PartyIdentification": {
+              "IdentifierValue": {
+                "Value": "string"
+              },
+              "IdentifierIssuingAuthority": {
+                "PartyReference": "string",
+                "PartyInvolvement": {
+                  "PartyRoleType": {
+                    "Text": "string"
+                  },
+                  "PartyRoleName": {
+                    "Name": "string"
+                  },
+                  "PartyRoleValidityPeriod": {
+                    "FromDateTime": {
+                      "DateTimeContent": "string",
+                      "TimeZoneCode": "string",
+                      "DaylightSavingIndicator": "string"
+                    },
+                    "ToDateTime": {
+                      "DateTimeContent": "string",
+                      "TimeZoneCode": "string",
+                      "DaylightSavingIndicator": "string"
+                    }
+                  },
+                  "PartyInvolvementType": "Agreementinvolvement"
+                }
+              },
+              "IdentifierStartDate": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "IdentifierEndDate": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              }
+            }
+          },
+          "PartyLegalStructureType": "Individual"
+        },
+        "DocumentReference": {
+          "DocumentIdentification": {
+            "IdentifierValue": {
+              "Value": "string"
+            },
+            "IdentifierIssuingAuthority": {
+              "PartyReference": "string",
+              "PartyInvolvement": {
+                "PartyRoleType": {
+                  "Text": "string"
+                },
+                "PartyRoleName": {
+                  "Name": "string"
+                },
+                "PartyRoleValidityPeriod": {
+                  "FromDateTime": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  },
+                  "ToDateTime": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  }
+                },
+                "PartyInvolvementType": "Agreementinvolvement"
+              }
+            },
+            "IdentifierStartDate": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "IdentifierEndDate": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          },
+          "DocumentVersion": "string",
+          "DocumentType": "Meteredserviceinvoice",
+          "DocumentStatus": {
+            "StatusReason": {
+              "Text": "string"
+            },
+            "StatusDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "StatusValidityPeriod": {
+              "FromDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "ToDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              }
+            },
+            "StatusInvolvedParty": {
+              "PartyReference": "string",
+              "PartyInvolvement": {
+                "PartyRoleType": {
+                  "Text": "string"
+                },
+                "PartyRoleName": {
+                  "Name": "string"
+                },
+                "PartyRoleValidityPeriod": {
+                  "FromDateTime": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  },
+                  "ToDateTime": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  }
+                },
+                "PartyInvolvementType": "Agreementinvolvement"
+              }
+            }
+          },
+          "DocumentDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "DocumentName": {
+            "Name": "string"
+          },
+          "DocumentDateTimeType": "CreationDate",
+          "DocumentPurpose": {
+            "Text": "string"
+          },
+          "DocumentFormat": {
+            "Text": "string"
+          },
+          "DocumentSubject": {
+            "Text": "string"
+          },
+          "DocumentDescription": {
+            "Text": "string"
+          },
+          "DocumentValidityPeriod": {
+            "FromDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "ToDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          }
+        },
+        "PartyDocumentType": "WorkDocument"
+      },
+      "DocumentDirectoryEntryInstanceReference": {
+        "DocumentDirectoryEntryIdentification": "string"
+      },
+      "ResidencyStatus": {
+        "StatusReason": {
+          "Text": "string"
+        },
+        "StatusDateTime": {
+          "DateTimeContent": "string",
+          "TimeZoneCode": "string",
+          "DaylightSavingIndicator": "string"
+        },
+        "StatusValidityPeriod": {
+          "FromDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "ToDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        },
+        "StatusInvolvedParty": {
+          "PartyReference": "string",
+          "PartyInvolvement": {
+            "PartyRoleType": {
+              "Text": "string"
+            },
+            "PartyRoleName": {
+              "Name": "string"
+            },
+            "PartyRoleValidityPeriod": {
+              "FromDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "ToDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              }
+            },
+            "PartyInvolvementType": "Agreementinvolvement"
+          }
+        }
+      },
+      "DateofBirth": {
+        "DateTimeContent": "string",
+        "TimeZoneCode": "string",
+        "DaylightSavingIndicator": "string"
+      },
+      "Nationality": {
+        "NationalRegulatoryAuthority": {
+          "PartyReference": "string",
+          "PartyInvolvement": {
+            "PartyRoleType": {
+              "Text": "string"
+            },
+            "PartyRoleName": {
+              "Name": "string"
+            },
+            "PartyRoleValidityPeriod": {
+              "FromDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "ToDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              }
+            },
+            "PartyInvolvementType": "Agreementinvolvement"
+          }
+        }
+      },
+      "ResidentialAddress": {
+        "AddressType": "Business",
+        "AddressLine": {
+          "Text": "string"
+        },
+        "StreetName": {
+          "Name": "string"
+        },
+        "BuildingNumber": "string",
+        "PostCode": {
+          "IdentifierValue": {
+            "Value": "string"
+          },
+          "IdentifierIssuingAuthority": {
+            "PartyReference": "string",
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          },
+          "IdentifierStartDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "IdentifierEndDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        },
+        "TownName": {
+          "Name": "string"
+        },
+        "CountrySubDivision": "Continent",
+        "Country": {
+          "NationalRegulatoryAuthority": {
+            "PartyReference": "string",
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          }
+        },
+        "Department": {
+          "Text": "string"
+        },
+        "SubDepartment": {
+          "Text": "string"
+        }
+      },
+      "eMailAddress": {
+        "ContactPointType": "ElectronicAddress"
+      },
+      "CellPhoneNumber": {
+        "ContactPointType": "ElectronicAddress"
+      },
+      "SocialNetworkContacts": {
+        "ContactPointType": "ElectronicAddress"
+      },
+      "PoliticalExposureType": "Politicalexposureforeign",
+      "PoliticalExposureDescriptionRecord": {
+        "Text": "string"
+      },
+      "CorporateCustomerReference": {
+        "PartyReference": "string",
+        "PartyInvolvement": {
+          "PartyRoleType": {
+            "Text": "string"
+          },
+          "PartyRoleName": {
+            "Name": "string"
+          },
+          "PartyRoleValidityPeriod": {
+            "FromDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "ToDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          },
+          "PartyInvolvementType": "Agreementinvolvement"
+        }
+      },
+      "CorporateCustomerLegalEntityReference": {
+        "PartyReference": "string",
+        "PartyInvolvement": {
+          "PartyRoleType": {
+            "Text": "string"
+          },
+          "PartyRoleName": {
+            "Name": "string"
+          },
+          "PartyRoleValidityPeriod": {
+            "FromDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "ToDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          },
+          "PartyInvolvementType": "Agreementinvolvement"
+        }
+      },
+      "CorporateAddress": {
+        "AddressType": "Business",
+        "AddressLine": {
+          "Text": "string"
+        },
+        "StreetName": {
+          "Name": "string"
+        },
+        "BuildingNumber": "string",
+        "PostCode": {
+          "IdentifierValue": {
+            "Value": "string"
+          },
+          "IdentifierIssuingAuthority": {
+            "PartyReference": "string",
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          },
+          "IdentifierStartDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "IdentifierEndDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        },
+        "TownName": {
+          "Name": "string"
+        },
+        "CountrySubDivision": "Continent",
+        "Country": {
+          "NationalRegulatoryAuthority": {
+            "PartyReference": "string",
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          }
+        },
+        "Department": {
+          "Text": "string"
+        },
+        "SubDepartment": {
+          "Text": "string"
+        }
+      },
+      "CompanyOfficerReference": {
+        "PartyReference": "string",
+        "PartyInvolvement": {
+          "PartyRoleType": {
+            "Text": "string"
+          },
+          "PartyRoleName": {
+            "Name": "string"
+          },
+          "PartyRoleValidityPeriod": {
+            "FromDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "ToDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          },
+          "PartyInvolvementType": "Agreementinvolvement"
+        }
+      },
+      "CompanyOfficerRole": {
+        "PartyRoleType": {
+          "Text": "string"
+        },
+        "PartyRoleName": {
+          "Name": "string"
+        },
+        "PartyRoleValidityPeriod": {
+          "FromDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "ToDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        },
+        "PartyInvolvementType": "Agreementinvolvement"
+      },
+      "CustomerSinceDate": {
+        "DateTimeContent": "string",
+        "TimeZoneCode": "string",
+        "DaylightSavingIndicator": "string"
+      },
+      "PartyFullLegalName": {
+        "Name": "string"
+      },
+      "PartyLegalStructure": "Individual",
+      "PartyAddress": {
+        "AddressType": "Business",
+        "AddressLine": {
+          "Text": "string"
+        },
+        "StreetName": {
+          "Name": "string"
+        },
+        "BuildingNumber": "string",
+        "PostCode": {
+          "IdentifierValue": {
+            "Value": "string"
+          },
+          "IdentifierIssuingAuthority": {
+            "PartyReference": "string",
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          },
+          "IdentifierStartDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "IdentifierEndDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        },
+        "TownName": {
+          "Name": "string"
+        },
+        "CountrySubDivision": "Continent",
+        "Country": {
+          "NationalRegulatoryAuthority": {
+            "PartyReference": "string",
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          }
+        },
+        "Department": {
+          "Text": "string"
+        },
+        "SubDepartment": {
+          "Text": "string"
+        }
+      },
+      "PartyCountryOfResidence": {
+        "NationalRegulatoryAuthority": {
+          "PartyReference": "string",
+          "PartyInvolvement": {
+            "PartyRoleType": {
+              "Text": "string"
+            },
+            "PartyRoleName": {
+              "Name": "string"
+            },
+            "PartyRoleValidityPeriod": {
+              "FromDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "ToDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              }
+            },
+            "PartyInvolvementType": "Agreementinvolvement"
+          }
+        }
+      },
+      "PartyCountryOfResidenceCode": {
+        "IdentifierValue": {
+          "Value": "string"
+        },
+        "IdentifierIssuingAuthority": {
+          "PartyReference": "string",
+          "PartyInvolvement": {
+            "PartyRoleType": {
+              "Text": "string"
+            },
+            "PartyRoleName": {
+              "Name": "string"
+            },
+            "PartyRoleValidityPeriod": {
+              "FromDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "ToDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              }
+            },
+            "PartyInvolvementType": "Agreementinvolvement"
+          }
+        },
+        "IdentifierStartDate": {
+          "DateTimeContent": "string",
+          "TimeZoneCode": "string",
+          "DaylightSavingIndicator": "string"
+        },
+        "IdentifierEndDate": {
+          "DateTimeContent": "string",
+          "TimeZoneCode": "string",
+          "DaylightSavingIndicator": "string"
+        }
+      }
+    },
+    "BankRelations": {
+      "BankRelationType": {
+        "Text": "string"
+      },
+      "BusinessUnitEmployeeReference": {
+        "PartyReference": {
+          "PartyName": {
+            "Name": "string"
+          },
+          "PartyType": "Person",
+          "PartyDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "PartyIdentification": {
+            "PartyIdentificationType": "Taxidentificationnumber",
+            "PartyIdentification": {
+              "IdentifierValue": {
+                "Value": "string"
+              },
+              "IdentifierIssuingAuthority": "string",
+              "IdentifierStartDate": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "IdentifierEndDate": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              }
+            }
+          },
+          "PartyLegalStructureType": "Individual"
+        },
+        "PartyInvolvement": {
+          "PartyRoleType": {
+            "Text": "string"
+          },
+          "PartyRoleName": {
+            "Name": "string"
+          },
+          "PartyRoleValidityPeriod": {
+            "FromDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "ToDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          },
+          "PartyInvolvementType": "Agreementinvolvement"
+        }
+      },
+      "BankRelationReference": {
+        "RelationshipType": {
+          "Text": "string"
+        },
+        "RelationshipValidityPeriod": {
+          "FromDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "ToDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        },
+        "RelationshipStartDate": {
+          "DateTimeContent": "string",
+          "TimeZoneCode": "string",
+          "DaylightSavingIndicator": "string"
+        },
+        "RelationshipEndDate": {
+          "DateTimeContent": "string",
+          "TimeZoneCode": "string",
+          "DaylightSavingIndicator": "string"
+        },
+        "RelationshipLifecycleStatus": {
+          "StatusReason": {
+            "Text": "string"
+          },
+          "StatusDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "StatusValidityPeriod": {
+            "FromDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "ToDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          },
+          "StatusInvolvedParty": {
+            "PartyReference": {
+              "PartyName": {
+                "Name": "string"
+              },
+              "PartyType": "Person",
+              "PartyDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "PartyIdentification": {
+                "PartyIdentificationType": "Taxidentificationnumber",
+                "PartyIdentification": {
+                  "IdentifierValue": {
+                    "Value": "string"
+                  },
+                  "IdentifierIssuingAuthority": "string",
+                  "IdentifierStartDate": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  },
+                  "IdentifierEndDate": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  }
+                }
+              },
+              "PartyLegalStructureType": "Individual"
+            },
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          }
+        }
+      }
+    },
+    "Demographics": {
+      "Socio-EconomicClassification": {
+        "Text": "string"
+      },
+      "EthnicityReligion": {
+        "Text": "string"
+      },
+      "Employment": {
+        "PartyReference": {
+          "PartyName": {
+            "Name": "string"
+          },
+          "PartyType": "Person",
+          "PartyDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "PartyIdentification": {
+            "PartyIdentificationType": "Taxidentificationnumber",
+            "PartyIdentification": {
+              "IdentifierValue": {
+                "Value": "string"
+              },
+              "IdentifierIssuingAuthority": "string",
+              "IdentifierStartDate": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "IdentifierEndDate": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              }
+            }
+          },
+          "PartyLegalStructureType": "Individual"
+        },
+        "PartyInvolvement": {
+          "PartyRoleType": {
+            "Text": "string"
+          },
+          "PartyRoleName": {
+            "Name": "string"
+          },
+          "PartyRoleValidityPeriod": {
+            "FromDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "ToDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          },
+          "PartyInvolvementType": "Agreementinvolvement"
+        }
+      },
+      "EmploymentHistory": {
+        "Text": "string"
+      },
+      "EducationHistory": {
+        "Text": "string"
+      },
+      "ServicingConstraints": {
+        "Text": "string"
+      }
+    },
+    "BranchLocation": {
+      "BranchReference": {
+        "BranchIdentification": {
+          "IdentifierValue": {
+            "Value": "string"
+          },
+          "IdentifierIssuingAuthority": "string",
+          "IdentifierStartDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "IdentifierEndDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        },
+        "BranchLegalEntityIdentification": {
+          "IdentifierValue": {
+            "Value": "string"
+          },
+          "IdentifierIssuingAuthority": "string",
+          "IdentifierStartDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "IdentifierEndDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        },
+        "BranchAddress": {
+          "AddressType": "PostalAddress",
+          "LocationReference": {
+            "LocationDescription": {
+              "Text": "string"
+            },
+            "LocationDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "LocationStatus": {
+              "StatusReason": {
+                "Text": "string"
+              },
+              "StatusDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "StatusValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "StatusInvolvedParty": {
+                "PartyReference": {
+                  "PartyName": {
+                    "Name": "string"
+                  },
+                  "PartyType": "Person",
+                  "PartyDateTime": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  },
+                  "PartyIdentification": {
+                    "PartyIdentificationType": "Taxidentificationnumber",
+                    "PartyIdentification": {
+                      "IdentifierValue": {
+                        "Value": "string"
+                      },
+                      "IdentifierIssuingAuthority": "string",
+                      "IdentifierStartDate": {
+                        "DateTimeContent": "string",
+                        "TimeZoneCode": "string",
+                        "DaylightSavingIndicator": "string"
+                      },
+                      "IdentifierEndDate": {
+                        "DateTimeContent": "string",
+                        "TimeZoneCode": "string",
+                        "DaylightSavingIndicator": "string"
+                      }
+                    }
+                  },
+                  "PartyLegalStructureType": "Individual"
+                },
+                "PartyInvolvement": {
+                  "PartyRoleType": {
+                    "Text": "string"
+                  },
+                  "PartyRoleName": {
+                    "Name": "string"
+                  },
+                  "PartyRoleValidityPeriod": {
+                    "FromDateTime": {
+                      "DateTimeContent": "string",
+                      "TimeZoneCode": "string",
+                      "DaylightSavingIndicator": "string"
+                    },
+                    "ToDateTime": {
+                      "DateTimeContent": "string",
+                      "TimeZoneCode": "string",
+                      "DaylightSavingIndicator": "string"
+                    }
+                  },
+                  "PartyInvolvementType": "Agreementinvolvement"
+                }
+              }
+            },
+            "LocationType": "Continent",
+            "LocationZoningType": {
+              "Text": "string"
+            },
+            "LocationNeighborhoodType": {
+              "Text": "string"
+            },
+            "LocationConstructionType": {
+              "Text": "string"
+            },
+            "LocationOccupancyType": {
+              "Text": "string"
+            },
+            "LocationValue": {
+              "Value": "string"
+            },
+            "LocationCapacity": {
+              "Text": "string"
+            },
+            "LocationIdentification": {
+              "IdentifierValue": {
+                "Value": "string"
+              },
+              "IdentifierIssuingAuthority": "string",
+              "IdentifierStartDate": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "IdentifierEndDate": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              }
+            },
+            "LocationAddress": "string",
+            "LocationName": {
+              "Name": "string"
+            },
+            "LocationTimeZone": {
+              "Text": "string"
+            },
+            "Location": "string"
+          },
+          "Address": "string"
+        },
+        "BranchName": {
+          "Name": "string"
+        }
+      },
+      "LocationReference": {
+        "LocationDescription": {
+          "Text": "string"
+        },
+        "LocationDateTime": {
+          "DateTimeContent": "string",
+          "TimeZoneCode": "string",
+          "DaylightSavingIndicator": "string"
+        },
+        "LocationStatus": {
+          "StatusReason": {
+            "Text": "string"
+          },
+          "StatusDateTime": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "StatusValidityPeriod": {
+            "FromDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            },
+            "ToDateTime": {
+              "DateTimeContent": "string",
+              "TimeZoneCode": "string",
+              "DaylightSavingIndicator": "string"
+            }
+          },
+          "StatusInvolvedParty": {
+            "PartyReference": {
+              "PartyName": {
+                "Name": "string"
+              },
+              "PartyType": "Person",
+              "PartyDateTime": {
+                "DateTimeContent": "string",
+                "TimeZoneCode": "string",
+                "DaylightSavingIndicator": "string"
+              },
+              "PartyIdentification": {
+                "PartyIdentificationType": "Taxidentificationnumber",
+                "PartyIdentification": {
+                  "IdentifierValue": {
+                    "Value": "string"
+                  },
+                  "IdentifierIssuingAuthority": "string",
+                  "IdentifierStartDate": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  },
+                  "IdentifierEndDate": {
+                    "DateTimeContent": "string",
+                    "TimeZoneCode": "string",
+                    "DaylightSavingIndicator": "string"
+                  }
+                }
+              },
+              "PartyLegalStructureType": "Individual"
+            },
+            "PartyInvolvement": {
+              "PartyRoleType": {
+                "Text": "string"
+              },
+              "PartyRoleName": {
+                "Name": "string"
+              },
+              "PartyRoleValidityPeriod": {
+                "FromDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                },
+                "ToDateTime": {
+                  "DateTimeContent": "string",
+                  "TimeZoneCode": "string",
+                  "DaylightSavingIndicator": "string"
+                }
+              },
+              "PartyInvolvementType": "Agreementinvolvement"
+            }
+          }
+        },
+        "LocationType": "Continent",
+        "LocationZoningType": {
+          "Text": "string"
+        },
+        "LocationNeighborhoodType": {
+          "Text": "string"
+        },
+        "LocationConstructionType": {
+          "Text": "string"
+        },
+        "LocationOccupancyType": {
+          "Text": "string"
+        },
+        "LocationValue": {
+          "Value": "string"
+        },
+        "LocationCapacity": {
+          "Text": "string"
+        },
+        "LocationIdentification": {
+          "IdentifierValue": {
+            "Value": "string"
+          },
+          "IdentifierIssuingAuthority": "string",
+          "IdentifierStartDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          },
+          "IdentifierEndDate": {
+            "DateTimeContent": "string",
+            "TimeZoneCode": "string",
+            "DaylightSavingIndicator": "string"
+          }
+        },
+        "LocationAddress": "string",
+        "LocationName": {
+          "Name": "string"
+        },
+        "LocationTimeZone": {
+          "Text": "string"
+        },
+        "Location": "string"
+      }
+    }
+  }
+}

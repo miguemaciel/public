@@ -1,0 +1,24 @@
+info:
+  title: Party Reference Data Directorybcbc
+  description: 'This service domain maintains a range of party reference information covering aspects including general reference details, contacts and associations and demographic information'
+  contact:
+    name: BIAN
+    url: https://bian.org
+  version: 12.0.0
+components:
+  schemas:
+    CustomReference:
+      allOf:
+        - $ref: './bian-components.yaml#/components/schemas/Reference'
+        - type: Object
+          properties:
+            PartyCountryOfResidenceCode:
+              $ref: './bian-components.yaml#/components/schemas/identifier'
+    
+    CustomPartyReferenceDataDirectoryEntryResponse:
+      - type: Object
+        properties:
+          PartyReferenceDataDirectoryEntry:
+            $ref: './bian-components.yaml#/components/schemas/identifier'
+          Reference:
+            $ref: '#/components/schemas/CustomReference'
