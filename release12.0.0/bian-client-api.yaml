@@ -62,11 +62,38 @@ components:
               $ref: '#/components/schemas/Demographics'
             BranchLocation:
               $ref: './bian-components.yaml#/components/schemas/BranchLocation'
+    CustomValueName:
+      allOf:
+          - $ref: '#/components/schemas/value'
+          - type: object
+            properties:
+              Name: 
+                type: string
+    CustomParty:
+      allOf:
+        - $ref: '#/components/schemas/party'
+        - type: object
+          properties:
+            PartyLegalStructure:
+              $ref: '#/components/schemas/CustomValueName'
+            PartyLegalStructureType:
+              $ref: '#/components/schemas/custompartylegalstructuretypevalues'
+    custompartylegalstructuretypevalues:
+      allOf:
+        - $ref: '#/components/schemas/partylegalstructuretypevalues'
+        - type: string
+          enum:
+            - SA
+            - SAE
+            - EAS
+
     CustomPartyReferenceDataDirectoryEntryResponseV2:
       type: object
       properties:
+        ClientIdentification:
+          $ref: '#/components/schemas/CustomValueName'
         PartyReference:
-          $ref: '#/components/schemas/party'
+          $ref: '#/components/schemas/CustomParty'
         Status:
           $ref: './bian-components.yaml#/components/schemas/text'
         Reference:
