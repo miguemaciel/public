@@ -1,0 +1,415 @@
+info:
+  title: Componentes 
+  description: ''
+  contact:
+    name: 'Banco Familiar'
+    email: 'cecilia.godoy@familiar.com.py'
+  version: 1.0.0
+components:
+  schemas:
+    HTTPError:
+      type: object
+      properties:
+        status_code:
+          type: string
+          format: string
+          description: 'Codigo HTTP de la respuesta'
+        status:
+          type: string
+          format: string
+          description: 'Nombre de la respuesta HTTP'
+        message:
+          type: string
+          format: string
+          description: 'Mensaje de la aplicacion'
+        descripcion:
+          type: string
+          format: string
+          description: 'Descripcion del error o validacion para el usuario'
+      required:
+        - status_code
+        - status
+        - message
+      description: 'Atributos de un mensaje de error generico'
+    text:
+      type: string
+      description: ''
+    datetime:
+      type: string
+      description: YYYY-MM-DDThh:mm:ssTZD - Key dates associated with the account ISODateTime|ISODateTime (https://www.iso20022.org/standardsrepository/type/ISODateTime)|Standard|ISO20022 BM ()
+    datetimeperiod:
+      type: object
+      properties:
+        FromDateTime:
+          $ref: '#/components/schemas/datetime'
+        ToDateTime:
+          $ref: '#/components/schemas/datetime'
+      description: ''
+    estado:
+      type: object
+      properties:
+        codigo:
+          $ref: '#/components/schemas/text'
+        razon:
+          $ref: '#/components/schemas/text'
+        fecha:
+          $ref: '#/components/schemas/datetime'
+        periodo:
+          $ref: '#/components/schemas/datetimeperiod'
+        StatusInvolvedParty:
+          $ref: '#/components/schemas/involvedparty'
+      required:
+        - codigo
+        - razon
+      description: 'The tracked status (e.g. under construction or repair, inhabited, vacant).'
+    name:
+      type: string
+      description: The name of the CA product used for marketing purposes from a customer perspective. I.e. what the customer would recognise. Name|Name (https://www.iso20022.org/standardsrepository/type/Name)|Standard|ISO20022 ()
+    partytypevalues:
+      enum:
+        - Fisica
+        - Juridica
+      type: string
+      description: ">\r\n* `Person` - Human entity, as distinguished from a corporate entity (which is sometimes referred to as an 'artificial person'). ISO20022\r\n* `Organisation` - Organised structure that is set up for a particular purpose. For example, a business, government body, department, charity, or financial institution. ISO20022\r\n"
+    partyidentificationtypevalues:
+      enum:
+        - RUC
+        - CI
+        - Pasaporte
+      type: string
+      description: ">\r\n* `Taxidentificationnumber` - Number assigned by a tax authority to an entity.\r\n* `Nationalregistrationnumber` - Number assigned by a national registration authority to an entity. In Singapore this is known as the NRIC. (ISO20022)\r\n* `Registrationauthorityidentification` - An identifier for the Legal Entity in a business registry in the jurisdiction of legal registration, or in the appropriate registration authority. (ISO20022)\r\n* `LEI(LegalEntityIdentifier)` - \r\n* `Alienregistrationnumber` - Number assigned by a government agency to identify foreign nationals.\r\n* `Passportnumber` - Number assigned by a passport authority.\r\n* `Taxexemptidentificationnumber` - Number assigned to a tax exempt entity.\r\n* `Corporateidentification` - Number assigned to a corporate entity.\r\n* `Driverlicensenumber` - Number assigned to a driver's license.\r\n* `Foreigninvestmentidentitynumber` - Number assigned to a foreign investor (other than the alien number).\r\n* `Socialsecuritynumber` - Number assigned by a social security agency.\r\n* `Identitycardnumber` - Number assigned by a national authority to an identity card.\r\n* `Concat` - Number assigned by an issuer to identify a customer via the concatenation of the birthdate and characters of the first name and surname.\r\n* `Nationalregistrationidentificationnumber` - National registration identification number. In Singapore this is known as the NRIC.\r\n"
+    identifier:
+      type: object
+      properties:
+        codigo:
+          $ref: '#/components/schemas/text'
+        valor:
+          $ref: '#/components/schemas/value'
+        autoridadEmisora:
+          $ref: '#/components/schemas/involvedparty'
+        fechaEmision:
+          $ref: '#/components/schemas/datetime'
+        fechaVencimiento:
+          $ref: '#/components/schemas/datetime'
+      description: Identifier within the parent organisation for the product. Must be unique in the organisation. GenericIdentification|GenericIdentification (https://www.iso20022.org/standardsrepository/type/GenericIdentification)|Standard|ISO20022 BM ()
+    partyidentification:
+      type: object
+      properties:
+        PartyIdentificationType:
+          $ref: '#/components/schemas/partyidentificationtypevalues'
+        PartyIdentification:
+          $ref: '#/components/schemas/identifier'
+      description: ''
+    party:
+      type: object
+      properties:
+        nombre:
+          $ref: '#/components/schemas/name'
+        tipo:
+          $ref: '#/components/schemas/partytypevalues'
+        fecha:
+          $ref: '#/components/schemas/datetime'
+        identificacion:
+          $ref: '#/components/schemas/partyidentification'
+        tipoEstructuraLegal:
+          $ref: '#/components/schemas/partylegalstructuretypevalues'
+      description: Reference to the associated party Party|Party (https://www.iso20022.org/standardsrepository/type/Party)|Standard|ISO20022BM ()
+    partylegalstructuretypevalues:
+      enum:
+        - Individual
+        - CommunityInterestCompany
+        - CharitableIncorporatedOrganisation
+        - Co-Operative
+        - Charity
+        - GeneralPartnership
+        - LimitedLiabilityPartnership
+        - ScottishLimitedPartnership
+        - LimitedPartnership
+        - PrivateLimitedCompany
+        - PublicLimitedCompany
+        - Sole(SoleTrader)
+      type: string
+      description: ">\r\n* `Individual` - \r\n* `CommunityInterestCompany` - \r\n* `CharitableIncorporatedOrganisation` - \r\n* `Co-Operative` - \r\n* `Charity` - \r\n* `GeneralPartnership` - \r\n* `LimitedLiabilityPartnership` - \r\n* `ScottishLimitedPartnership` - \r\n* `LimitedPartnership` - \r\n* `PrivateLimitedCompany` - \r\n* `PublicLimitedCompany` - \r\n* `Sole(SoleTrader)` - \r\n"
+    partyinvolvementtypevalues:
+      enum:
+        - Emisor
+        - Agreementinvolvement
+        - Partyinvolvement
+        - Arrangementinvolvement
+        - Designspecificationinvolvement
+        - Relationshipinvolvement
+        - Locationinvolvement
+        - Bankguaranteeinvolvement
+      type: string
+      description: ">\r\n* `Agreementinvolvement` - \r\n* `Partyinvolvement` - \r\n* `Arrangementinvolvement` - \r\n* `Designspecificationinvolvement` - \r\n* `Relationshipinvolvement` - \r\n* `Locationinvolvement` - \r\n* `Bankguaranteeinvolvement` - \r\n"
+    partyrole:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/text'
+        nombre:
+          $ref: '#/components/schemas/name'
+        periodo:
+          $ref: '#/components/schemas/datetimeperiod'
+        tipoInvolucramiento:
+          $ref: '#/components/schemas/partyinvolvementtypevalues'
+      description: ''
+    involvedparty:
+      type: object
+      properties:
+        parte:
+          $ref: '#/components/schemas/party'
+        rol:
+          $ref: '#/components/schemas/partyrole'
+      description: "Reference to the account primary party/owner ||\r\n|"
+    accountstatustypevalues:
+      enum:
+        - Activa
+        - Inactiva
+        - Deshabilitada
+        - Eliminada
+        - Proforma
+        - Pendiente
+      type: string
+      description: ">\r\n* `Enabled` - Account can be used for its intended purpose.\r\n* `Disabled` - Account cannot be used for its intended purpose, either temporarily or permanently.\r\n* `Deleted` - Account cannot be used any longer.\r\n* `Proforma` - Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.\r\n* `Pending` - Account change is pending approval.\r\n"
+    estadocuenta:
+      type: object
+      properties:
+        estadoCuenta:
+          $ref: '#/components/schemas/estado'
+        tipoEstado:
+          $ref: '#/components/schemas/accountstatustypevalues'
+      description: "A characteristic of account which refers to the LifecycleStatus of account like opened, closed, blocked, etc.\n\nSpecifies the current state of an account. (ISO20022)"
+    accountidentificationtypevalues:
+      enum:
+        - BBAN
+        - IBAN
+        - UPIC
+        - NumeroCuenta
+        - PAN
+        - Paym
+        - Wallet
+      type: string
+      description: ">\r\n* `BBAN` - Basic Bank Account Number (BBAN) - identifier used nationally by financial institutions, ie, in individual countries, generally as part of a National Account Numbering Scheme(s), to uniquely identify the account of a customer. (ISO20022)\n\n.\r\n* `IBAN` - International Bank Account Number (IBAN) - identifier used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 \"Banking and related financial services - International Bank Account Number (IBAN)\" version 1997-10-01, or later revisions. (ISO20022)\n\nAn identifier used internationally by financial institutions to uniquely identify the account of a customer at a financial institution, as described in the latest edition of the international standard ISO 13616. \"Banking and related financial services - International Bank Account Number (IBAN)\". (OBExternalAccountIdentification4Code)\r\n* `UPIC` - Universal Payment Identification Code (UPIC) - identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes. (ISO20022)\r\n* `AccountNumber` - String of characters (mainly numbers) used to identify an account.(ISO20022)\n\nSort Code and Account Number - identifier scheme used in the UK by financial institutions to identify the account of a customer. The identifier is the concatenation of the 6 digit UK sort code and 8 digit account number. (OBExternalAccountIdentification4Code)\nThe regular expression for this identifier is: ^[0-9]{6}[0-9]{8}$\r\n* `PAN` - Primary Account Number - identifier scheme used to identify a card account. (OBExternalAccountIdentification4Code)\r\n* `Paym` - Paym Scheme to make payments via mobile (OBExternalAccountIdentification4Code)\r\n* `Wallet` - A primary and unique account identifier used to identify a wallet.\nAn ASPSP must document on their developer portal, the payment methods that supports this account identifier.(OBExternalAccountIdentification4Code)\r\n"
+    accountidentification:
+      type: object
+      properties:
+        tipoIdentificadorCuenta:
+          $ref: '#/components/schemas/accountidentificationtypevalues'
+        identificacion:
+          $ref: '#/components/schemas/identifier'
+      description: The associated account number in any suitable format (e.g. IBAN) AccountIdentification |AccountIdentification  (https://www.iso20022.org/standardsrepository/type/AccountIdentification)|Standard|ISO20022 BM ()
+    accountdatetypevalues:
+      enum:
+        - FechaApertura
+        - FechaCierre
+        - FechaBloqueo
+        - FechaMadurez
+        - FechaActivacion
+      type: string
+      description: 'Type of key dates associated with the account (e.g. opening date, closing date) Account/OpeningDate|Account/OpeningDate (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()'
+    accountdate:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/accountdatetypevalues'
+        fecha:
+          $ref: '#/components/schemas/datetime'
+      description: 'A characteristic of account which refers to LifecycleDate of account (e.g., ClosingDate, OpeningDate, LiveDate, etc.) '
+    accounttypevalues:
+      enum:
+        - CajaAhorro
+        - CuentaCorriente
+        - CuentaDebito
+        - CuentaCredito
+        - CuentaPagoSalario
+        - CuentaEfectivo
+        - CuentaPrestamo
+      type: string
+      description: 'The type of current account (e.g. checking, student, small business) OBExternalAccountSubType1Code| ()|Standard|UK Open Banking ()'
+    accounttype:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/accounttypevalues'
+        nombre:
+          $ref: '#/components/schemas/name'
+      description: 'Specifies the category of account like payment account, loan account, cash account, securities account, etc. '
+    value:
+      type: object
+      properties:
+        Value:
+          type: string
+          description: "Data or set of data \n\n- A value is the concept of worth in general that is assigned or is determined by measurement, assessment or calculation. (UN/CEFACT)"
+          format: datatype
+      description: "The current calculated position ||\r\n|"
+    amounttypevalues:
+      enum:
+        - Principal
+        - Actual
+        - Estimated
+        - Maximum
+        - Default
+        - Replacement
+        - Incremental
+        - Decremental
+        - Reserved
+        - Available
+        - Used
+      type: string
+      description: ">\r\n* `Principal` - \r\n* `Actual` - Actual amount.\r\n* `Estimated` - Estimated amount (the final amount could be above or below).\r\n* `Maximum` - Maximum amount (the final amount must be less or equal).\r\n* `Default` - Default amount.\r\n* `Replacement` - Replacement amount.\r\n* `Incremental` - Incremental amount for reservation.\r\n* `Decremental` - Decremental amount for reservation.\r\n* `Reserved` - Reserved or updated reserved amount for reservation.\r\n* `Available` - \r\n* `Used` - \r\n"
+    amount:
+      type: object
+      properties:
+        AmountValue:
+          $ref: '#/components/schemas/value'
+        AmountCurrency:
+          $ref: '#/components/schemas/currencycode'
+        DecimalPointPosition:
+          type: string
+          description: "Decimal point position starts calulating from the right\n"
+          format: string
+        AmountType:
+          $ref: '#/components/schemas/amounttypevalues'
+      description: "The amount of funds entered on the account\n\nhas a plus or minus sign"
+    balancetypevalues:
+      enum:
+        - SaldoDisponible
+        - SaldoActual
+        - SaldoRetenido
+        - SaldoBloqueado
+        - Sobregiro
+      type: string
+      description: ">\r\n* `Openingbalance` - Book balance of the account at the beginning of the account servicer's business day. It always equals the closing book balance from the previous business day. Note: the available balance at the beginning of the account servicer's business day may be different from the closing book balance from the previous business day. (ISO20022)\r\n* `Closingbalance` - Balance of the account at the end of the account servicer's business day. It is the sum of the opening balance at the beginning of the day and all entries booked to the account during the account servicer's business day. (ISO20022)\r\n* `Currentbalance` - Balance of the account at a precise moment in time. (ISO20022)\r\n* `Availablebalance` - Balance of money or securities that is at the disposal of the account owner on the date specified. (ISO20022)\r\n* `Ledgerbalance` - Ledger balance refers to posted transactions (e.g. limit authorisation amount - posted transactions). (ISO20022)\r\n* `Reservebalance` - \r\n* `Freebalance` - \r\n* `Principalbalance` - \r\n"
+    debitcreditindicatortvalues:
+      enum:
+        - Debito
+        - Credito
+      type: string
+      description: ">\r\n* `Debit` - Transaction is a debt entry\r\n* `Credit` - Transaction is a credit entry\r\n"
+    accountbalance:
+      type: object
+      properties:
+        saldo:
+          $ref: '#/components/schemas/amount'
+        tipo:
+          $ref: '#/components/schemas/balancetypevalues'
+        fecha:
+          $ref: '#/components/schemas/datetime'
+        indicador:
+          $ref: '#/components/schemas/debitcreditindicatortvalues'
+      description: ' Balance|Balance (https://www.iso20022.org/standardsrepository/type/Balance)|Standard|ISO20022 BM ()'
+    currencytypevalues:
+      enum:
+        - MonedaLocal
+        - MonedaExtranjera
+      type: string
+      description: ">\r\n* `BaseCurrency` - Base currency of the account. (ISO20022)\n\r\n* `ReportingCurrency` - Currency used to calculate and report the balance and related entries of an account. (ISO20022)\n\r\n* `SecondaryCurrency` - \r\n* `TransferCurrency` - Currency of the amount to be transferred which may be different from the currency of the debtor's account. (ISO20022)\r\n"
+    currencycode:
+      type: object
+      properties:
+        Currencycode:
+          type: string
+          description: "A code identifying a currency according to ISO-4217.\nA currency is a system of money in general use in a particular country.\n\nCode allocated to a currency, by a maintenance agency, under an international identification scheme as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\". Valid currency codes are registered with the ISO 4217 Maintenance Agency, and consist of three contiguous letters. (ISO20022)\n\n"
+          format: datatype
+      description: ''
+    accountcurrency:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/currencytypevalues'
+        id:
+          $ref: '#/components/schemas/text'
+        codigo:
+          $ref: '#/components/schemas/currencycode'
+        descripcion:
+          $ref: '#/components/schemas/text'
+      description: The primary account currency CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()
+    cuenta:
+      type: object
+      properties:
+        estadoCuenta:
+          $ref: '#/components/schemas/estadocuenta'
+        identificacion:
+          $ref: '#/components/schemas/accountidentification'
+        fecha:
+          $ref: '#/components/schemas/accountdate'
+        tipoCuenta:
+          $ref: '#/components/schemas/accounttype'
+        proposito:
+          $ref: '#/components/schemas/text'
+        balance:
+          $ref: '#/components/schemas/accountbalance'
+        moneda:
+          $ref: '#/components/schemas/accountcurrency'
+        descripcion:
+          $ref: '#/components/schemas/text'
+        nombre:
+          $ref: '#/components/schemas/name'
+      description: Details of the linked account Account|Account  (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()
+    CuentaListarResponse:
+      type: object
+      properties:
+        cuentas: 
+            items: 
+              $ref: '#/components/schemas/cuenta'
+
+  parameters:
+    codigo-cliente:
+      name: codigo-cliente
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+    tipo-documento:
+      name: tipo-documento
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+
+  responses:
+    Cuenta:
+      description: Cuenta
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/CuentaListarResponse'
+    BadRequest:
+      description: BadRequest
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    NotFound:
+      description: NotFound
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    TooManyRequests:
+      description: TooManyRequests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
+    InternalServerError:
+      description: InternalServerError
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/HTTPError'
