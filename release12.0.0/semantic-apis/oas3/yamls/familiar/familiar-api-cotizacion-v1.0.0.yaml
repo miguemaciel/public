@@ -1,0 +1,112 @@
+openapi: 3.0.1
+info:
+  title: Cotización de Divisas API
+  description: Servicio para obtener tasas de cambio entre monedas.
+  contact:
+    name: Cecilia Godoy
+    email: cecilia.godoy@familiar.com.py
+  version: 1.0.0
+servers:
+  - url: https://api.example.com/v1
+    description: Servidor principal (producción)
+  - url: https://staging-api.example.com
+    description: Servidor interno de pruebas
+paths:
+  /cotizacion:
+    get:
+      summary: Obtiene las tasas de cambio
+      description: Devuelve las tasas de cambio entre monedas.
+      parameters:
+        - name: origen
+          in: query
+          description: Moneda origen (por ejemplo, GS)
+          required: true
+          schema:
+            type: string
+        - name: destinos
+          in: query
+          description: Monedas Desintos a convertir (por ejemplo, EUR, USD)
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum: ["EUR", "USD", "GBP"]
+        - name: sucursal
+          in: query
+          description: indica la sucursal 
+          required: false
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  origen:
+                    type: string
+                  destinos:
+                    type: array
+                    items:
+                      $ref: '#/components/responses/CurrencyCustom'
+        '400':
+          $ref: './familiar-components.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components.yaml#/components/responses/NotFound'
+        '429':
+          $ref: './familiar-components.yaml#/components/responses/TooManyRequests'
+        '500':
+          $ref: './familiar-components.yaml#/components/responses/InternalServerError'
+
+
+  '/cotizacion/{codigo-cliente}/prepactada':
+    get:
+      summary: Obtiene las tasas de cambio prepactada de un cliente
+      description: Devuelve las tasas de cambio prepactada de un cliente
+      parameters:
+        - $ref: './familiar-components.yaml#/components/parameters/codigo-cliente'
+
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  codOperacion:
+                    type: string
+components:
+  schemas:
+    accountcurrency:
+      type: object
+      properties:
+        id:
+          type: string
+        codigo:
+          type: string
+        compra:
+          type: number
+        venta:
+          type: number
+      description: The primary account currency CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()
+    
+
+  responses:
+    CurrencyCustom:
+      description: Moneda
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/accountcurrency'
+
+    
+    
