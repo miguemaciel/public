@@ -31,40 +31,33 @@ components:
         - status
         - message
       description: 'Atributos de un mensaje de error generico'
-    text:
-      type: string
-      description: ''
-    datetime:
-      type: string
-      description: YYYY-MM-DDThh:mm:ssTZD - Key dates associated with the account ISODateTime|ISODateTime (https://www.iso20022.org/standardsrepository/type/ISODateTime)|Standard|ISO20022 BM ()
     datetimeperiod:
       type: object
       properties:
+        test:
+          type: string
         FromDateTime:
-          $ref: '#/components/schemas/datetime'
+          type: string
         ToDateTime:
-          $ref: '#/components/schemas/datetime'
+          type: string
       description: ''
     estado:
       type: object
       properties:
         codigo:
-          $ref: '#/components/schemas/text'
+          type: string
         razon:
-          $ref: '#/components/schemas/text'
+          type: string
         fecha:
-          $ref: '#/components/schemas/datetime'
+          type: string
         periodo:
-          $ref: '#/components/schemas/datetimeperiod'
-        StatusInvolvedParty:
-          $ref: '#/components/schemas/involvedparty'
+          type: string
+        #StatusInvolvedParty:
+        #  $ref: '#/components/schemas/involvedparty'
       required:
         - codigo
         - razon
       description: 'The tracked status (e.g. under construction or repair, inhabited, vacant).'
-    name:
-      type: string
-      description: The name of the CA product used for marketing purposes from a customer perspective. I.e. what the customer would recognise. Name|Name (https://www.iso20022.org/standardsrepository/type/Name)|Standard|ISO20022 ()
     partytypevalues:
       enum:
         - Fisica
@@ -82,15 +75,15 @@ components:
       type: object
       properties:
         codigo:
-          $ref: '#/components/schemas/text'
+          type: string
         valor:
-          $ref: '#/components/schemas/value'
-        autoridadEmisora:
-          $ref: '#/components/schemas/involvedparty'
+          type: string
+        #autoridadEmisora:
+        #  $ref: '#/components/schemas/involvedparty'
         fechaEmision:
-          $ref: '#/components/schemas/datetime'
+          type: string
         fechaVencimiento:
-          $ref: '#/components/schemas/datetime'
+          type: string
       description: Identifier within the parent organisation for the product. Must be unique in the organisation. GenericIdentification|GenericIdentification (https://www.iso20022.org/standardsrepository/type/GenericIdentification)|Standard|ISO20022 BM ()
     partyidentification:
       type: object
@@ -104,11 +97,11 @@ components:
       type: object
       properties:
         nombre:
-          $ref: '#/components/schemas/name'
+          type: string
         tipo:
           $ref: '#/components/schemas/partytypevalues'
         fecha:
-          $ref: '#/components/schemas/datetime'
+          type: string
         identificacion:
           $ref: '#/components/schemas/partyidentification'
         tipoEstructuraLegal:
@@ -133,6 +126,7 @@ components:
     partyinvolvementtypevalues:
       enum:
         - Emisor
+        - Gestor
         - Agreementinvolvement
         - Partyinvolvement
         - Arrangementinvolvement
@@ -146,11 +140,11 @@ components:
       type: object
       properties:
         tipo:
-          $ref: '#/components/schemas/text'
+          type: string
         nombre:
-          $ref: '#/components/schemas/name'
+          type: string
         periodo:
-          $ref: '#/components/schemas/datetimeperiod'
+          type: string
         tipoInvolucramiento:
           $ref: '#/components/schemas/partyinvolvementtypevalues'
       description: ''
@@ -214,7 +208,7 @@ components:
         tipo:
           $ref: '#/components/schemas/accountdatetypevalues'
         fecha:
-          $ref: '#/components/schemas/datetime'
+          type: string
       description: 'A characteristic of account which refers to LifecycleDate of account (e.g., ClosingDate, OpeningDate, LiveDate, etc.) '
     accounttypevalues:
       enum:
@@ -233,7 +227,7 @@ components:
         tipo:
           $ref: '#/components/schemas/accounttypevalues'
         nombre:
-          $ref: '#/components/schemas/name'
+          type: string
       description: 'Specifies the category of account like payment account, loan account, cash account, securities account, etc. '
     value:
       type: object
@@ -241,7 +235,6 @@ components:
         Value:
           type: string
           description: "Data or set of data \n\n- A value is the concept of worth in general that is assigned or is determined by measurement, assessment or calculation. (UN/CEFACT)"
-          format: datatype
       description: "The current calculated position ||\r\n|"
     amounttypevalues:
       enum:
@@ -262,9 +255,9 @@ components:
       type: object
       properties:
         AmountValue:
-          $ref: '#/components/schemas/value'
+          type: string
         AmountCurrency:
-          $ref: '#/components/schemas/currencycode'
+          type: string
         DecimalPointPosition:
           type: string
           description: "Decimal point position starts calulating from the right\n"
@@ -295,7 +288,7 @@ components:
         tipo:
           $ref: '#/components/schemas/balancetypevalues'
         fecha:
-          $ref: '#/components/schemas/datetime'
+          type: string
         indicador:
           $ref: '#/components/schemas/debitcreditindicatortvalues'
       description: ' Balance|Balance (https://www.iso20022.org/standardsrepository/type/Balance)|Standard|ISO20022 BM ()'
@@ -305,27 +298,15 @@ components:
         - MonedaExtranjera
       type: string
       description: ">\r\n* `BaseCurrency` - Base currency of the account. (ISO20022)\n\r\n* `ReportingCurrency` - Currency used to calculate and report the balance and related entries of an account. (ISO20022)\n\r\n* `SecondaryCurrency` - \r\n* `TransferCurrency` - Currency of the amount to be transferred which may be different from the currency of the debtor's account. (ISO20022)\r\n"
-    currencycode:
-      type: object
-      properties:
-        Currencycode:
-          type: string
-          description: "A code identifying a currency according to ISO-4217.\nA currency is a system of money in general use in a particular country.\n\nCode allocated to a currency, by a maintenance agency, under an international identification scheme as described in the latest edition of the international standard ISO 4217 \"Codes for the representation of currencies and funds\". Valid currency codes are registered with the ISO 4217 Maintenance Agency, and consist of three contiguous letters. (ISO20022)\n\n"
-          format: datatype
-      description: ''
     accountcurrency:
       type: object
       properties:
-        tipo:
-          $ref: '#/components/schemas/currencytypevalues'
         id:
-          $ref: '#/components/schemas/text'
+          type: string
         codigo:
-          $ref: '#/components/schemas/currencycode'
-        descripcion:
-          $ref: '#/components/schemas/text'
+          type: string
       description: The primary account currency CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()
-    cuenta:
+    Cuenta:
       type: object
       properties:
         estadoCuenta:
@@ -337,26 +318,33 @@ components:
         tipoCuenta:
           $ref: '#/components/schemas/accounttype'
         proposito:
-          $ref: '#/components/schemas/text'
+          type: string
         balance:
           $ref: '#/components/schemas/accountbalance'
         moneda:
           $ref: '#/components/schemas/accountcurrency'
         descripcion:
-          $ref: '#/components/schemas/text'
+          type: string
         nombre:
-          $ref: '#/components/schemas/name'
+          type: string
       description: Details of the linked account Account|Account  (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()
-    CuentaListarResponse:
+    CuentaListar:
       type: object
       properties:
         cuentas: 
             items: 
-              $ref: '#/components/schemas/cuenta'
+              $ref: '#/components/schemas/Cuenta'
 
   parameters:
     codigo-cliente:
       name: codigo-cliente
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: string
+    codigo-cuenta:
+      name: codigo-cuenta
       in: path
       required: true
       style: simple
@@ -371,12 +359,6 @@ components:
         type: string
 
   responses:
-    Cuenta:
-      description: Cuenta
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/CuentaListarResponse'
     BadRequest:
       description: BadRequest
       content:
