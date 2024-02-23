@@ -41,18 +41,7 @@ paths:
 
       responses:
         '200':
-          description: Respuesta exitosa
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  origen:
-                    type: string
-                  destinos:
-                    type: array
-                    items:
-                      $ref: '#/components/responses/CurrencyCustom'
+          $ref: '#/components/responses/MonedaListar'
         '400':
           $ref: './familiar-components.yaml#/components/responses/BadRequest'
         '401':
@@ -84,8 +73,27 @@ paths:
                 properties:
                   codOperacion:
                     type: string
+
 components:
   schemas:
+    MonedaListar:
+      type: object
+      properties:
+        cotizacion:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/Moneda'
+
+    Moneda:
+      allOf:
+        - $ref: './familiar-components.yaml#/components/schemas/accountcurrency'
+        - type: object
+          properties:
+            compra:
+              type: number
+            venta:
+              type: number
+
     accountcurrency:
       type: object
       properties:
@@ -101,12 +109,12 @@ components:
     
 
   responses:
-    CurrencyCustom:
+    MonedaListar:
       description: Moneda
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/accountcurrency'
+            $ref: '#/components/schemas/MonedaListar'
 
     
     
