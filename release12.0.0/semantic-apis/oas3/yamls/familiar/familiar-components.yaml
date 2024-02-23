@@ -283,10 +283,10 @@ components:
       properties:
         monto:
           $ref: '#/components/schemas/amount'
-        # saldo:
-        #   $ref: '#/components/schemas/amount'
-        # tipo:
-        #   $ref: '#/components/schemas/balancetypevalues'
+        saldo:
+          $ref: '#/components/schemas/amount'
+        tipo:
+          $ref: '#/components/schemas/balancetypevalues'
         fecha:
           type: string
         indicador:
@@ -401,8 +401,8 @@ components:
           $ref: '#/components/schemas/Movimiento'
         sipap:
           $ref: '#/components/schemas/Sipap'
-        # monto:
-        #   $ref: '#/components/schemas/accountbalance'
+        monto:
+          $ref: '#/components/schemas/accountbalance'
         saldo:
           type: object
           properties:
@@ -410,8 +410,8 @@ components:
               type: array 
               items: 
                 $ref: '#/components/schemas/balance'
-        # moneda:
-        #   $ref: '#/components/schemas/accountcurrency'
+        moneda:
+          $ref: '#/components/schemas/accountcurrency'
 
   parameters:
     codigo-cliente:
