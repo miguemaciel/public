@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Cotización de Divisas API
-  description: Servicio para obtener tasas de cambio entre monedas.
+  description: API para obtener cotizaciones de monedas
   contact:
     name: Cecilia Godoy
     email: cecilia.godoy@familiar.com.py
@@ -12,36 +12,108 @@ servers:
   - url: https://staging-api.example.com
     description: Servidor interno de pruebas
 paths:
-  /cotizacion:
+  /cotizacion/{moneda-origen}:
     get:
-      summary: Obtiene las tasas de cambio
-      description: Devuelve las tasas de cambio entre monedas.
+      summary: Cotizaciones por moneda origen
+      description: Obtiene las cotizaciones para una moneda de origen específica
       parameters:
-        - name: origen
-          in: query
+        - name: moneda-origen
+          in: path
           description: Moneda origen (por ejemplo, GS)
           required: true
           schema:
             type: string
-        - name: destinos
+        - name: fecha
           in: query
-          description: Monedas Desintos a convertir (por ejemplo, EUR, USD)
-          required: false
-          schema:
-            type: array
-            items:
-              type: string
-              enum: ["EUR", "USD", "GBP"]
-        - name: sucursal
-          in: query
-          description: indica la sucursal 
+          description: filtro por fecha del cambio. Por defecto es la cotización del día
           required: false
           schema:
             type: string
-
       responses:
         '200':
           $ref: '#/components/responses/MonedaListar'
+        '400':
+          $ref: './familiar-components.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components.yaml#/components/responses/NotFound'
+        '429':
+          $ref: './familiar-components.yaml#/components/responses/TooManyRequests'
+        '500':
+          $ref: './familiar-components.yaml#/components/responses/InternalServerError'
+
+  /cotizacion/{moneda-origen}/sucursales/{sucursal}:
+    get:
+      summary: Obtiene las cotizaciones para una moneda de origen específica
+      parameters:
+        - name: moneda-origen
+          in: path
+          required: true
+          description: Código de la moneda de origen (por ejemplo, PYG)
+          schema:
+            type: string
+        - name: sucursal
+          in: path
+          required: true
+          description: nombre de la sucursal
+          schema:
+            type: string
+        - name: fecha
+          in: query
+          description: filtro por fecha del cambio. Por defecto es la cotización del día
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/Sucursales'
+        '400':
+          $ref: './familiar-components.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components.yaml#/components/responses/NotFound'
+        '429':
+          $ref: './familiar-components.yaml#/components/responses/TooManyRequests'
+        '500':
+          $ref: './familiar-components.yaml#/components/responses/InternalServerError'
+
+  /cotizacion/{moneda-origen}/sucursales/{sucursal}/monedas/{codigo-moneda}:
+    get:
+      summary: Obtiene las cotizaciones para una moneda de origen específica
+      parameters:
+        - name: moneda-origen
+          in: path
+          required: true
+          description: Código de la moneda de origen (por ejemplo, PYG)
+          schema:
+            type: string
+        - name: sucursal
+          in: path
+          required: true
+          description: nombre de la sucursal
+          schema:
+            type: string
+        - name: codigo-moneda
+          in: path
+          required: true
+          description: nombre de la sucursal
+          schema:
+            type: string
+        - name: fecha
+          in: query
+          description: filtro por fecha del cambio. Por defecto es la cotización del día
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/Moneda'
         '400':
           $ref: './familiar-components.yaml#/components/responses/BadRequest'
         '401':
@@ -76,7 +148,7 @@ paths:
 
 components:
   schemas:
-    MonedaListar:
+    Cotizaciones:
       type: object
       properties:
         cotizacion:
@@ -94,19 +166,27 @@ components:
             venta:
               type: number
 
-    accountcurrency:
+    Sucursales:
       type: object
       properties:
-        id:
+        nombreSucursal:
           type: string
-        codigo:
+        cotizaciones:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/Moneda'
+
+    Pizarra:
+      type: object
+      properties:
+        monedaOrigen:
           type: string
-        compra:
-          type: number
-        venta:
-          type: number
-      description: The primary account currency CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()
-    
+        fecha:
+          type: string
+        sucursales:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/Sucursales'
 
   responses:
     MonedaListar:
@@ -114,7 +194,18 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/MonedaListar'
+            $ref: '#/components/schemas/Pizarra'
+    Sucursal:
+      description: sucursal
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Sucursales'
 
-    
+    Moneda:
+      description: sucursal
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Moneda'   
     
