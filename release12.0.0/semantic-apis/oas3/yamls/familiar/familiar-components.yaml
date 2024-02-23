@@ -261,7 +261,6 @@ components:
         DecimalPointPosition:
           type: string
           description: "Decimal point position starts calulating from the right\n"
-          format: string
         AmountType:
           $ref: '#/components/schemas/amounttypevalues'
       description: "The amount of funds entered on the account\n\nhas a plus or minus sign"
@@ -273,7 +272,6 @@ components:
         - SaldoBloqueado
         - Sobregiro
       type: string
-      description: ">\r\n* `Openingbalance` - Book balance of the account at the beginning of the account servicer's business day. It always equals the closing book balance from the previous business day. Note: the available balance at the beginning of the account servicer's business day may be different from the closing book balance from the previous business day. (ISO20022)\r\n* `Closingbalance` - Balance of the account at the end of the account servicer's business day. It is the sum of the opening balance at the beginning of the day and all entries booked to the account during the account servicer's business day. (ISO20022)\r\n* `Currentbalance` - Balance of the account at a precise moment in time. (ISO20022)\r\n* `Availablebalance` - Balance of money or securities that is at the disposal of the account owner on the date specified. (ISO20022)\r\n* `Ledgerbalance` - Ledger balance refers to posted transactions (e.g. limit authorisation amount - posted transactions). (ISO20022)\r\n* `Reservebalance` - \r\n* `Freebalance` - \r\n* `Principalbalance` - \r\n"
     debitcreditindicatortvalues:
       enum:
         - Debito
@@ -283,14 +281,26 @@ components:
     accountbalance:
       type: object
       properties:
+        monto:
+          $ref: '#/components/schemas/amount'
+        # saldo:
+        #   $ref: '#/components/schemas/amount'
+        # tipo:
+        #   $ref: '#/components/schemas/balancetypevalues'
+        fecha:
+          type: string
+        indicador:
+          $ref: '#/components/schemas/debitcreditindicatortvalues'
+      description: ' Balance|Balance (https://www.iso20022.org/standardsrepository/type/Balance)|Standard|ISO20022 BM ()'
+    balance:
+      type: object
+      properties:
         saldo:
           $ref: '#/components/schemas/amount'
         tipo:
           $ref: '#/components/schemas/balancetypevalues'
         fecha:
           type: string
-        indicador:
-          $ref: '#/components/schemas/debitcreditindicatortvalues'
       description: ' Balance|Balance (https://www.iso20022.org/standardsrepository/type/Balance)|Standard|ISO20022 BM ()'
     currencytypevalues:
       enum:
@@ -306,6 +316,13 @@ components:
         codigo:
           type: string
       description: The primary account currency CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()
+    alias:
+      type: object
+      properties:
+        tipo: 
+          type: string
+        alias:
+          type: string
     Cuenta:
       type: object
       properties:
@@ -327,13 +344,74 @@ components:
           type: string
         nombre:
           type: string
+        saldo:
+          type: object
+          properties:
+            saldos:
+              type: array 
+              items: 
+                $ref: '#/components/schemas/accountbalance'
+        alias:
+          $ref: '#/components/schemas/alias'
       description: Details of the linked account Account|Account  (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()
     CuentaListar:
       type: object
       properties:
-        cuentas: 
-            items: 
-              $ref: '#/components/schemas/Cuenta'
+        cuentas:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/Cuenta'
+    Transaccion:
+      type: object
+      properties:
+        fechaConfirmacion:
+          type: string
+        fechaTransaccion:
+          type: string
+        numero:
+          type: string
+        descripcion:
+          type: string
+    Movimiento:
+      type: object
+      properties:
+        id:
+          type: string
+        codigo:
+          type: string
+        descripcion:
+          type: string
+    Sipap:
+      type: object
+      properties:
+        referencia:
+          type: string
+        banco:
+          type: string
+        cuenta:
+          type: string
+        nombre:
+          type: string
+    RegistroTransaccion:
+      type: object
+      properties:
+        transaccion:
+          $ref: '#/components/schemas/Transaccion'
+        movimiento:
+          $ref: '#/components/schemas/Movimiento'
+        sipap:
+          $ref: '#/components/schemas/Sipap'
+        # monto:
+        #   $ref: '#/components/schemas/accountbalance'
+        saldo:
+          type: object
+          properties:
+            saldos:
+              type: array 
+              items: 
+                $ref: '#/components/schemas/balance'
+        # moneda:
+        #   $ref: '#/components/schemas/accountcurrency'
 
   parameters:
     codigo-cliente:

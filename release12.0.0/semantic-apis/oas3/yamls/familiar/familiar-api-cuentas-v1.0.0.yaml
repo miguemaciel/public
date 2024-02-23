@@ -9,13 +9,13 @@ info:
 servers:
   - url: https://localhost/cuentas
 paths:
-  '/listar/{codigo-cliente}':
+  '/cuentas/{codigo-cliente}':
     get:
       tags:
         - cuentas
       summary: cuentas
       description: cuentas
-      operationId: listar
+      operationId: get all
       parameters:
         - $ref: './familiar-components.yaml#/components/parameters/codigo-cliente'
       responses:
@@ -33,10 +33,11 @@ paths:
           $ref: './familiar-components.yaml#/components/responses/TooManyRequests'
         '500':
           $ref: './familiar-components.yaml#/components/responses/InternalServerError'
-  '/listar/{codigo-cliente}/cuenta/{codigo-cuenta}':
+
+  '/cuentas/{codigo-cliente}/cuenta/{codigo-cuenta}':
     get:
       tags:
-        - cuentas.
+        - cuentas
       summary: obtner una cuenta
       description: obtener una cuenta
       operationId: get
@@ -59,24 +60,50 @@ paths:
         '500':
           $ref: './familiar-components.yaml#/components/responses/InternalServerError'
 
-components:
-  schemas:
-    Cuenta:
-      $ref: './familiar-components.yaml#/components/schemas/Cuenta'
-    CuentaListar:
-      $ref: './familiar-components.yaml#/components/schemas/CuentaListar'
+  '/cuentas/{codigo-cliente}/cuenta/{codigo-cuenta}/movimientos':
+    get:
+      tags:
+        - cuentas
+      summary: obtner una cuenta
+      description: obtener una cuenta
+      operationId: get transacions
+      parameters:
+        - $ref: './familiar-components.yaml#/components/parameters/codigo-cliente'
+        - $ref: './familiar-components.yaml#/components/parameters/codigo-cuenta'
+      responses:
+        '200':
+          $ref: '#/components/responses/RegistroTransaccion'
+        '400':
+          $ref: './familiar-components.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components.yaml#/components/responses/NotFound'
+        '429':
+          $ref: './familiar-components.yaml#/components/responses/TooManyRequests'
+        '500':
+          $ref: './familiar-components.yaml#/components/responses/InternalServerError'
 
+components:
   responses:
     CuentaListarResponse:
       description: Listar Cuenta
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/CuentaListar'
+            $ref: './familiar-components.yaml#/components/schemas/CuentaListar'
     CuentaResponse:
       description: Cuenta
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/Cuenta'
+            $ref: './familiar-components.yaml#/components/schemas/Cuenta'
+    RegistroTransaccion:
+      description: Cuenta
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components.yaml#/components/schemas/RegistroTransaccion'
     
