@@ -64,7 +64,7 @@ paths:
     get:
       tags:
         - cuentas
-      summary: obtner una cuenta
+      summary: obtener una cuenta
       description: obtener una cuenta
       operationId: get transacions
       parameters:
