@@ -1,0 +1,80 @@
+{
+  "estadoCuenta": {
+    "estado": {
+      "codigo": "AC",
+      "valor": "Activo",
+      "fecha": null
+    },
+    "tipoEstado": "Activa"
+  },
+  "identificacion": {
+    "tipoIdentificadorCuenta": "NumeroCuenta",
+    "identificacion": {
+      "codigo": "81-25",
+      "valor": "José Samaniego",
+      "fechaEmision": null,
+      "fechaVencimiento": null
+    }
+  },
+  "fecha": {
+    "tipo": "FechaApertura",
+    "fecha": "04-01-2023"
+  },
+  "relacion": {
+    "codigo": "E",
+    "valor": "Empresa",
+    "fecha": null
+  },
+  "producto": {
+    "tipo": "CuentaCorriente",
+    "nombre": "Cuenta Corriente",
+    "codigo": "101"
+  }, 
+  "moneda": {
+    "id": "GS",
+    "codigo": "6900"
+  },
+  "balance": {
+    "saldos": [
+      {
+        "monto": null,
+        "saldo": "5000000",
+        "tipo": "SaldoDisponible",
+        "fecha": null,
+        "indicador": null
+      },
+      {
+        "monto": null,
+        "saldo": "5000000",
+        "tipo": "SaldoRetenido",
+        "fecha": null,
+        "indicador": null
+      },
+      {
+        "monto": null,
+        "saldo": "5000000",
+        "tipo": "SaldoActual",
+        "fecha": null,
+        "indicador": null
+      },
+      {
+        "monto": null,
+        "saldo": "5000000",
+        "tipo": "SaldoBloqueado",
+        "fecha": null,
+        "indicador": null
+      },
+      {
+        "monto": null,
+        "saldo": "5000000",
+        "tipo": "Sobregiro",
+        "fecha": null,
+        "indicador": null
+      }
+    ]
+  },
+  "alias": {
+    "tipo": "CI",
+    "alias": "4409003"
+  }
+}

@@ -41,22 +41,23 @@ components:
         ToDateTime:
           type: string
       description: ''
-    estado:
+    codeValue:
       type: object
       properties:
         codigo:
           type: string
-        razon:
+          description: 'Abreviatura o codigo'
+        valor:
           type: string
+          description: 'Valor o descripcion del codigo'
         fecha:
           type: string
-        periodo:
-          type: string
+          description: 'Fecha de cambio de valor/codigo.'
         #StatusInvolvedParty:
         #  $ref: '#/components/schemas/involvedparty'
       required:
         - codigo
-        - razon
+        - valor
       description: 'The tracked status (e.g. under construction or repair, inhabited, vacant).'
     partytypevalues:
       enum:
@@ -169,20 +170,16 @@ components:
     estadocuenta:
       type: object
       properties:
-        estadoCuenta:
-          $ref: '#/components/schemas/estado'
+        estado:
+          $ref: '#/components/schemas/codeValue'
         tipoEstado:
           $ref: '#/components/schemas/accountstatustypevalues'
+      required:
+        - tipoEstado 
       description: "A characteristic of account which refers to the LifecycleStatus of account like opened, closed, blocked, etc.\n\nSpecifies the current state of an account. (ISO20022)"
     accountidentificationtypevalues:
       enum:
-        - BBAN
-        - IBAN
-        - UPIC
         - NumeroCuenta
-        - PAN
-        - Paym
-        - Wallet
       type: string
       description: ">\r\n* `BBAN` - Basic Bank Account Number (BBAN) - identifier used nationally by financial institutions, ie, in individual countries, generally as part of a National Account Numbering Scheme(s), to uniquely identify the account of a customer. (ISO20022)\n\n.\r\n* `IBAN` - International Bank Account Number (IBAN) - identifier used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 \"Banking and related financial services - International Bank Account Number (IBAN)\" version 1997-10-01, or later revisions. (ISO20022)\n\nAn identifier used internationally by financial institutions to uniquely identify the account of a customer at a financial institution, as described in the latest edition of the international standard ISO 13616. \"Banking and related financial services - International Bank Account Number (IBAN)\". (OBExternalAccountIdentification4Code)\r\n* `UPIC` - Universal Payment Identification Code (UPIC) - identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes. (ISO20022)\r\n* `AccountNumber` - String of characters (mainly numbers) used to identify an account.(ISO20022)\n\nSort Code and Account Number - identifier scheme used in the UK by financial institutions to identify the account of a customer. The identifier is the concatenation of the 6 digit UK sort code and 8 digit account number. (OBExternalAccountIdentification4Code)\nThe regular expression for this identifier is: ^[0-9]{6}[0-9]{8}$\r\n* `PAN` - Primary Account Number - identifier scheme used to identify a card account. (OBExternalAccountIdentification4Code)\r\n* `Paym` - Paym Scheme to make payments via mobile (OBExternalAccountIdentification4Code)\r\n* `Wallet` - A primary and unique account identifier used to identify a wallet.\nAn ASPSP must document on their developer portal, the payment methods that supports this account identifier.(OBExternalAccountIdentification4Code)\r\n"
     accountidentification:
@@ -210,7 +207,7 @@ components:
         fecha:
           type: string
       description: 'A characteristic of account which refers to LifecycleDate of account (e.g., ClosingDate, OpeningDate, LiveDate, etc.) '
-    accounttypevalues:
+    producttypevalues:
       enum:
         - CajaAhorro
         - CuentaCorriente
@@ -221,11 +218,13 @@ components:
         - CuentaPrestamo
       type: string
       description: 'The type of current account (e.g. checking, student, small business) OBExternalAccountSubType1Code| ()|Standard|UK Open Banking ()'
-    accounttype:
+    producttype:
       type: object
       properties:
         tipo:
-          $ref: '#/components/schemas/accounttypevalues'
+          $ref: '#/components/schemas/producttypevalues'
+        codigo:
+          type: string
         nombre:
           type: string
       description: 'Specifies the category of account like payment account, loan account, cash account, securities account, etc. '
@@ -254,15 +253,15 @@ components:
     amount:
       type: object
       properties:
-        AmountValue:
+        valor:
           type: string
-        AmountCurrency:
+        moneda:
           type: string
-        DecimalPointPosition:
+        puntosDecimales:
           type: string
           description: "Decimal point position starts calulating from the right\n"
-        AmountType:
-          $ref: '#/components/schemas/amounttypevalues'
+      required:
+        - valor
       description: "The amount of funds entered on the account\n\nhas a plus or minus sign"
     balancetypevalues:
       enum:
@@ -282,15 +281,18 @@ components:
       type: object
       properties:
         monto:
-          $ref: '#/components/schemas/amount'
+          type: string
         saldo:
-          $ref: '#/components/schemas/amount'
+          type: string
         tipo:
           $ref: '#/components/schemas/balancetypevalues'
         fecha:
           type: string
         indicador:
           $ref: '#/components/schemas/debitcreditindicatortvalues'
+      required:
+        - saldo
+        - tipo
       description: ' Balance|Balance (https://www.iso20022.org/standardsrepository/type/Balance)|Standard|ISO20022 BM ()'
     balance:
       type: object
@@ -332,19 +334,15 @@ components:
           $ref: '#/components/schemas/accountidentification'
         fecha:
           $ref: '#/components/schemas/accountdate'
-        tipoCuenta:
-          $ref: '#/components/schemas/accounttype'
-        proposito:
-          type: string
-        balance:
-          $ref: '#/components/schemas/accountbalance'
+        producto:
+          $ref: '#/components/schemas/producttype'
+        relacion:
+          $ref: '#/components/schemas/codeValue'
+        categoria:
+          $ref: '#/components/schemas/codeValue'
         moneda:
           $ref: '#/components/schemas/accountcurrency'
-        descripcion:
-          type: string
-        nombre:
-          type: string
-        saldo:
+        balance:
           type: object
           properties:
             saldos:
@@ -353,6 +351,13 @@ components:
                 $ref: '#/components/schemas/accountbalance'
         alias:
           $ref: '#/components/schemas/alias'
+      required:
+        - estadoCuenta
+        - identificacion
+        - producto
+        - relacion
+        - moneda
+        - balance
       description: Details of the linked account Account|Account  (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()
     CuentaListar:
       type: object
