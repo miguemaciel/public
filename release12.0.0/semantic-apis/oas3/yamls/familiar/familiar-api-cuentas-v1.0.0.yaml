@@ -1,21 +1,23 @@
 openapi: 3.0.1
 info:
-  title: Cuentas
-  description: 'Este servicio obtiene datos de las Cuentas de un cliente'
+  title: CLientes
+  description: 'Este servicio obtiene datos relacioandos al Clientes, sus productos y servicios, movimientos y configuracion relacionada al cliente'
   contact:
     name: Cecilia Godoy
     email: cecilia.godoy@familiar.com.py
   version: 1.0.0
 servers:
-  - url: https://localhost/cuentas
+  - url: https://localhost/clientes/v1
 paths:
-  '/cuentas/{codigo-cliente}':
+  '/clientes/{codigo-cliente}/productos/cuentas':
     get:
       tags:
         - cuentas
-      summary: cuentas
-      description: cuentas
-      operationId: get all
+        - clientes
+        - List
+      summary: Obtener lista de cuentas de un cliente
+      description: Obtener informacion sobre todas las cuentas del clientes. Cajas de ahorro, cuentas corrientes, cuentas digitales, etc.
+      operationId: getall
       parameters:
         - $ref: './familiar-components.yaml#/components/parameters/codigo-cliente'
       responses:
@@ -34,12 +36,14 @@ paths:
         '500':
           $ref: './familiar-components.yaml#/components/responses/InternalServerError'
 
-  '/cuentas/{codigo-cliente}/cuenta/{codigo-cuenta}':
+  '/clientes/{codigo-cliente}/productos/cuentas/{codigo-cuenta}':
     get:
       tags:
         - cuentas
-      summary: obtner una cuenta
-      description: obtener una cuenta
+        - clientes
+        - Get
+      summary: Obtener detalles de una cuenta
+      description: Obtiene todos los detalles de una cuenta en especifico, sus saldos y configuracion.
       operationId: get
       parameters:
         - $ref: './familiar-components.yaml#/components/parameters/codigo-cliente'
@@ -60,19 +64,24 @@ paths:
         '500':
           $ref: './familiar-components.yaml#/components/responses/InternalServerError'
 
-  '/cuentas/{codigo-cliente}/cuenta/{codigo-cuenta}/movimientos':
-    get:
+  '/clientes/{codigo-cliente}/productos/cuentas/{codigo-cuenta}/movimientos':
+    post:
       tags:
         - cuentas
-      summary: obtener una cuenta
-      description: obtener una cuenta
-      operationId: get transacions
+        - clientes
+        - movimientos
+        - List
+      summary: Moviemntos de una cuenta
+      description: Obtiene todos los movimientos de una cuenta de un rango en especifico
+      operationId: list
       parameters:
         - $ref: './familiar-components.yaml#/components/parameters/codigo-cliente'
         - $ref: './familiar-components.yaml#/components/parameters/codigo-cuenta'
+      requestBody:
+        $ref: '#/components/requestBodies/MovimientosCuentaRequest'
       responses:
         '200':
-          $ref: '#/components/responses/RegistroTransaccion'
+          $ref: '#/components/responses/MovimientoList'
         '400':
           $ref: './familiar-components.yaml#/components/responses/BadRequest'
         '401':
@@ -87,6 +96,14 @@ paths:
           $ref: './familiar-components.yaml#/components/responses/InternalServerError'
 
 components:
+  requestBodies:
+    MovimientosCuentaRequest:
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components.yaml#/components/schemas/MovimientosCuentaRequest'
+      required: true
+
   responses:
     CuentaListarResponse:
       description: Listar Cuenta
@@ -100,10 +117,10 @@ components:
         application/json:
           schema:
             $ref: './familiar-components.yaml#/components/schemas/Cuenta'
-    RegistroTransaccion:
+    MovimientoList:
       description: Cuenta
       content:
         application/json:
           schema:
-            $ref: './familiar-components.yaml#/components/schemas/RegistroTransaccion'
+            $ref: './familiar-components.yaml#/components/schemas/MovimientoList'
     

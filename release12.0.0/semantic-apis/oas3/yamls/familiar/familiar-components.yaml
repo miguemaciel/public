@@ -412,6 +412,37 @@ components:
                 $ref: '#/components/schemas/balance'
         moneda:
           $ref: '#/components/schemas/accountcurrency'
+    MovimientoList:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        registros:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/RegistroTransaccion'
+    MovimientosCuentaRequest:
+      type: object
+      properties:
+        fechaInicio:
+          type: string
+        fechaFin:
+          type: string
+        limite:
+          type: integer
+        pagina:
+          type: integer
+    Metadata:
+      type: object
+      properties:
+        registrosPorPagina:
+          type: integer
+        CantidadPagina:
+          type: integer
+        total:
+          type: integer
+        paginaActual:
+          type: integer
 
   parameters:
     codigo-cliente:
