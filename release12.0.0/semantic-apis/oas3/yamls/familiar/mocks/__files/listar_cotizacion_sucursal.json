@@ -1,0 +1,27 @@
+{
+  "monedaOrigen": "GS",
+  "sucursales": [
+    {
+      "nombreSucursal": "25 DE MAYO",
+      "cotizaciones": [
+        {
+          "id": "1",
+          "codigo": "USD",
+          "compra": 7000,
+          "venta": 7300
+        },
+        {
+          "id": "2",
+          "codigo": "EUR",
+          "compra": 7600,
+          "venta": 8300
+        },
+        {
+          "id": "5",
+          "codigo": "CHF",
+          "compra": 0,
+          "venta": 0
+        }
+      ]
+    }
+}  

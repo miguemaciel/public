@@ -169,6 +169,13 @@ components:
         estado:
           type: string
 
+    movimientoListar:
+      type: object
+      properties:
+        movimientos:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/movimiento'
   parameters:
     monedaBase:
       name: codigoMoneda
@@ -214,9 +221,9 @@ components:
             $ref: '#/components/schemas/moneda'   
     
     movimientoListar:
-      description: sucursal
+      description: lista de operaciones prepactadas
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/movimiento'  
+            $ref: '#/components/schemas/movimientoListar'  
     

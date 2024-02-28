@@ -1,0 +1,22 @@
+{
+    "movimientos": [
+      {
+        "identificador": "193",
+        "codigoCliente": "KOVE171005",
+        "monedaBase": "GS",
+        "monedaDestino": "USD",
+        "monto": "7300",
+        "fecha": "2023-11-06T08:58:32Z",
+        "estado": "PL"
+      },
+      {
+        "identificador": "193",
+        "codigoCliente": "KOVE171005",
+        "monedaBase": "GS",
+        "monedaDestino": "USD",
+        "monto": "7290",
+        "fecha": "2023-11-05T08:58:32Z",
+        "estado": "PL"
+      }
+    ]
+  }
