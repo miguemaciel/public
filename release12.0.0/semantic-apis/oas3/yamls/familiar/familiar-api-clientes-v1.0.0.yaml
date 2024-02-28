@@ -24,15 +24,7 @@ paths:
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
       responses:
         '200':
-          description: 'Respuesta Varias cuentas'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/CuentaListarResponse'
-              examples:
-                example:
-                  value: '[{"estadoCuenta":{"estado":{"codigo":"AC","valor":"Activo","fecha":null},"tipoEstado":"Activa"},"identificacion":{"tipoIdentificadorCuenta":"NumeroCuenta","identificacion":{"codigo":"81-25","valor":"José Samaniego","fechaEmision":null,"fechaVencimiento":null}},"fecha":{"tipo":"FechaApertura","fecha":"04-01-2023"},"relacion":{"codigo":"E","valor":"Empresa","fecha":null},"producto":{"tipo":"CuentaCorriente","nombre":"Cuenta Corriente","codigo":"101"},"moneda":{"id":"GS","codigo":"6900"},"balance":{"saldos":[{"monto":null,"saldo":"5000000","tipo":"SaldoDisponible","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"SaldoRetenido","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"SaldoActual","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"SaldoBloqueado","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"Sobregiro","fecha":null,"indicador":null}]},"alias":{"tipo":"CI","alias":"4409003"}},{"estadoCuenta":{"estado":{"codigo":"AC","valor":"Activo","fecha":null},"tipoEstado":"Activa"},"identificacion":{"tipoIdentificadorCuenta":"NumeroCuenta","identificacion":{"codigo":"81-25","valor":"José Samaniego","fechaEmision":null,"fechaVencimiento":null}},"fecha":{"tipo":"FechaApertura","fecha":"04-01-2023"},"relacion":{"codigo":"E","valor":"Empresa","fecha":null},"producto":{"tipo":"CuentaCorriente","nombre":"Cuenta Corriente","codigo":"101"},"moneda":{"id":"GS","codigo":"6900"},"balance":{"saldos":[{"monto":null,"saldo":"5000000","tipo":"SaldoDisponible","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"SaldoRetenido","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"SaldoActual","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"SaldoBloqueado","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"Sobregiro","fecha":null,"indicador":null}]},"alias":{"tipo":"CI","alias":"4409003"}}]'
-        
+          $ref: '#/components/responses/CuentaListarResponse'
         '400':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
         '401':
@@ -60,14 +52,7 @@ paths:
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
       responses:
         '200':
-          description: 'Respuesta Cuenta Corriente'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/CuentaResponse'
-              examples:
-                example:
-                  value: '{"estadoCuenta":{"estado":{"codigo":"AC","valor":"Activo","fecha":null},"tipoEstado":"Activa"},"identificacion":{"tipoIdentificadorCuenta":"NumeroCuenta","identificacion":{"codigo":"81-25","valor":"José Samaniego","fechaEmision":null,"fechaVencimiento":null}},"fecha":{"tipo":"FechaApertura","fecha":"04-01-2023"},"relacion":{"codigo":"E","valor":"Empresa","fecha":null},"producto":{"tipo":"CuentaCorriente","nombre":"Cuenta Corriente","codigo":"101"},"moneda":{"id":"GS","codigo":"6900"},"balance":{"saldos":[{"monto":null,"saldo":"5000000","tipo":"SaldoDisponible","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"SaldoRetenido","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"SaldoActual","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"SaldoBloqueado","fecha":null,"indicador":null},{"monto":null,"saldo":"5000000","tipo":"Sobregiro","fecha":null,"indicador":null}]},"alias":{"tipo":"CI","alias":"4409003"}}'
+          $ref: '#/components/responses/CuentaResponse'
         '400':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
         '401':
@@ -140,12 +125,6 @@ components:
         application/json:
           schema:
             $ref: './familiar-components-v1.0.0.yaml#/components/schemas/MovimientoList'
-
-  examples:
-    Cuenta:
-      value:
-        externalValue: './cuenta.json'
-
 
   securitySchemes:
     default:
