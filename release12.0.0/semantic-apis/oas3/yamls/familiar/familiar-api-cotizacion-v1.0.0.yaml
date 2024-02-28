@@ -23,17 +23,17 @@ paths:
         '200':
           $ref: '#/components/responses/monedaListar'
         '400':
-          $ref: './familiar-components.yaml#/components/responses/BadRequest'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
         '401':
-          $ref: './familiar-components.yaml#/components/responses/Unauthorized'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
         '403':
-          $ref: './familiar-components.yaml#/components/responses/Forbidden'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
-          $ref: './familiar-components.yaml#/components/responses/NotFound'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
         '429':
-          $ref: './familiar-components.yaml#/components/responses/TooManyRequests'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
         '500':
-          $ref: './familiar-components.yaml#/components/responses/InternalServerError'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
   /cotizacion/{codigoMoneda}/sucursales/{sucursal}:
     get:
@@ -47,17 +47,17 @@ paths:
         '200':
           $ref: '#/components/responses/sucursalesListar'
         '400':
-          $ref: './familiar-components.yaml#/components/responses/BadRequest'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
         '401':
-          $ref: './familiar-components.yaml#/components/responses/Unauthorized'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
         '403':
-          $ref: './familiar-components.yaml#/components/responses/Forbidden'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
-          $ref: './familiar-components.yaml#/components/responses/NotFound'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
         '429':
-          $ref: './familiar-components.yaml#/components/responses/TooManyRequests'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
         '500':
-          $ref: './familiar-components.yaml#/components/responses/InternalServerError'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
   /cotizacion/{codigoMoneda}/sucursales/{sucursal}/monedas/{codigoMoneda}:
     get:
@@ -73,17 +73,17 @@ paths:
         '200':
           $ref: '#/components/responses/moneda'
         '400':
-          $ref: './familiar-components.yaml#/components/responses/BadRequest'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
         '401':
-          $ref: './familiar-components.yaml#/components/responses/Unauthorized'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
         '403':
-          $ref: './familiar-components.yaml#/components/responses/Forbidden'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
-          $ref: './familiar-components.yaml#/components/responses/NotFound'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
         '429':
-          $ref: './familiar-components.yaml#/components/responses/TooManyRequests'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
         '500':
-          $ref: './familiar-components.yaml#/components/responses/InternalServerError'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
 
   '/cotizacion/{codigo-cliente}/prepactada':
@@ -91,23 +91,23 @@ paths:
       summary: Obtiene las tasas de cambio prepactada con un cliente
       description: Devuelve las tasas de cambio prepactada de un cliente
       parameters:
-        - $ref: './familiar-components.yaml#/components/parameters/codigo-cliente'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
 
       responses:
         '200':
           $ref: '#/components/responses/movimientoListar'
         '400':
-          $ref: './familiar-components.yaml#/components/responses/BadRequest'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
         '401':
-          $ref: './familiar-components.yaml#/components/responses/Unauthorized'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
         '403':
-          $ref: './familiar-components.yaml#/components/responses/Forbidden'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
-          $ref: './familiar-components.yaml#/components/responses/NotFound'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
         '429':
-          $ref: './familiar-components.yaml#/components/responses/TooManyRequests'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
         '500':
-          $ref: './familiar-components.yaml#/components/responses/InternalServerError'
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 components:
   schemas:
     cotizaciones:
@@ -120,7 +120,7 @@ components:
 
     moneda:
       allOf:
-        - $ref: './familiar-components.yaml#/components/schemas/accountcurrency'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/accountcurrency'
         - type: object
           properties:
             compra:
