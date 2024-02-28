@@ -386,7 +386,7 @@ components:
           type: string
         descripcion:
           type: string
-    Sipap:
+    transferencia:
       type: object
       properties:
         referencia:
@@ -404,17 +404,15 @@ components:
           $ref: '#/components/schemas/Transaccion'
         movimiento:
           $ref: '#/components/schemas/Movimiento'
-        sipap:
-          $ref: '#/components/schemas/Sipap'
-        monto:
-          $ref: '#/components/schemas/accountbalance'
-        saldo:
+        transferencia:
+          $ref: '#/components/schemas/transferencia'
+        balance:
           type: object
           properties:
             saldos:
               type: array 
               items: 
-                $ref: '#/components/schemas/balance'
+                $ref: '#/components/schemas/accountbalance'
         moneda:
           $ref: '#/components/schemas/accountcurrency'
     MovimientoList:

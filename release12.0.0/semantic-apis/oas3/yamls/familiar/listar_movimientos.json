@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "registrosPorPagina": 2,
+    "CantidadPagina": 2,
+    "total": 4,
+    "paginaActual": 1
+  },
+  "registros": [
+    {
+      "transaccion": {
+        "fechaConfirmacion": "27-01-2024 10:35:33",
+        "fechaTransaccion": "27-01-2024 10:35:33",
+        "numero": "9879879897",
+        "descripcion": "TRANSFERENCIAS NACIONALES"
+      },
+      "movimiento": {
+        "id": "34545564",
+        "codigo": "405",
+        "descripcion": "CR-TRANSF.NACIONALE"
+      },
+      "transferencia": {
+        "referencia": "FYAAAAAAAAAA",
+        "banco": "Itau",
+        "cuenta": "71234567",
+        "nombre": "Cliente del otro banc"
+      },
+      "balance": {
+        "saldos": [
+          {
+            "monto": "18000",
+            "saldo": "180000",
+            "tipo": "SaldoActual",
+            "fecha": "27-01-2024 10:35:33",
+            "indicador": "Debito"
+          },
+          {
+            "monto": "18000",
+            "saldo": "180000",
+            "tipo": "SaldoActual",
+            "fecha": "27-01-2024 10:35:33",
+            "indicador": "Credito"
+          }
+        ]
+      },
+      "moneda": {
+        "id": "PYG",
+        "codigo": "6900"
+      }
+    },
+    {
+      "transaccion": {
+        "fechaConfirmacion": "27-01-2024 10:35:33",
+        "fechaTransaccion": "27-01-2024 10:35:33",
+        "numero": "9879879897",
+        "descripcion": "TRANSFERENCIAS NACIONALES"
+      },
+      "movimiento": {
+        "id": "34545564",
+        "codigo": "405",
+        "descripcion": "CR-TRANSF.NACIONALE"
+      },
+      "transferencia": {
+        "referencia": "FYAAAAAAAAAA",
+        "banco": "Itau",
+        "cuenta": "71234567",
+        "nombre": "Cliente del otro banc"
+      },
+      "balance": {
+        "saldos": [
+          {
+            "monto": "18000",
+            "saldo": "180000",
+            "tipo": "SaldoActual",
+            "fecha": "27-01-2024 10:35:33",
+            "indicador": "Debito"
+          },
+          {
+            "monto": "18000",
+            "saldo": "180000",
+            "tipo": "SaldoActual",
+            "fecha": "27-01-2024 10:35:33",
+            "indicador": "Credito"
+          }
+        ]
+      },
+      "moneda": {
+        "id": "PYG",
+        "codigo": "6900"
+      }
+    }
+  ]
+}
