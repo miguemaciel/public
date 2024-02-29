@@ -397,6 +397,8 @@ components:
           type: string
         nombre:
           type: string
+        documento:
+          type: string
     RegistroTransaccion:
       type: object
       properties:
