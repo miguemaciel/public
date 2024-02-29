@@ -408,13 +408,8 @@ components:
           $ref: '#/components/schemas/Movimiento'
         transferencia:
           $ref: '#/components/schemas/transferencia'
-        balance:
-          type: object
-          properties:
-            saldos:
-              type: array 
-              items: 
-                $ref: '#/components/schemas/accountbalance'
+        saldo:
+          $ref: '#/components/schemas/accountbalance'
         moneda:
           $ref: '#/components/schemas/accountcurrency'
     MovimientoList:
