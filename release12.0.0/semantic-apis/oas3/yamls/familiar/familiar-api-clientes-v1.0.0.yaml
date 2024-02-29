@@ -3,8 +3,8 @@ info:
   title: Clientes
   description: 'Este servicio obtiene datos relacioandos al Clientes, sus productos y servicios, movimientos y configuracion relacionada al cliente'
   contact:
-    name: Cecilia Godoy
-    email: cecilia.godoy@familiar.com.py
+    name: Banco Familiar
+    email: 'desarrollo_bf@familiar.com.py'
   version: 1.0.0
 servers:
   - url: https://localhost/clientes/v1
@@ -16,7 +16,7 @@ paths:
       tags:
         - cuentas
         - clientes
-        - List
+        - list
       summary: Obtener lista de cuentas de un cliente
       description: Obtener informacion sobre todas las cuentas del clientes. Cajas de ahorro, cuentas corrientes, cuentas digitales, etc.
       operationId: getall
@@ -43,7 +43,7 @@ paths:
       tags:
         - cuentas
         - clientes
-        - Get
+        - get
       summary: Obtener detalles de una cuenta
       description: Obtiene todos los detalles de una cuenta en especifico, sus saldos y configuracion.
       operationId: get
@@ -72,7 +72,7 @@ paths:
         - cuentas
         - clientes
         - movimientos
-        - List
+        - list
       summary: Moviemntos de una cuenta
       description: Obtiene todos los movimientos de una cuenta de un rango en especifico
       operationId: list

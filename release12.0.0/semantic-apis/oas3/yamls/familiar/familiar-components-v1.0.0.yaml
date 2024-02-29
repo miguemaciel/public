@@ -3,7 +3,7 @@ info:
   description: ''
   contact:
     name: 'Banco Familiar'
-    email: 'cecilia.godoy@familiar.com.py'
+    email: 'desarrollo_bf@familiar.com.py'
   version: 1.0.0
 components:
   schemas:

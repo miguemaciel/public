@@ -3,19 +3,25 @@ info:
   title: Cotización de Divisas API
   description: API para obtener taza de cambios.
   contact:
-    name: Cecilia Godoy
-    email: cecilia.godoy@familiar.com.py
+    name: Banco Familiar
+    email: 'desarrollo_bf@familiar.com.py'
   version: 1.0.0
 servers:
   - url: https://api.example.com/v1
     description: Servidor principal (producción)
   - url: https://staging-api.example.com
     description: Servidor interno de pruebas
+security:
+  - default: []  
 paths:
   /cotizacion/{codigoMoneda}:
     get:
+      tags:
+        - list
+        - cambio
       summary: Tasa de cambio de todas las sucursales.
       description: Obtiene las tasas de cambio actuales de todas las sucursales desde una moneda base hacia otras monedas. 
+      operationId: getCotizaciones
       parameters:
         - $ref: '#/components/parameters/monedaBase'
         - $ref: '#/components/parameters/fecha'
@@ -37,8 +43,12 @@ paths:
 
   /cotizacion/{codigoMoneda}/sucursales/{sucursal}:
     get:
+      tags:
+        - list
+        - cambio
       summary: Tasa de cambio de una sucursal
       description: Obtiene las tasas de cambio actuales de una sucursal desde una moneda base hacia otras monedas. 
+      operationId: getCotizacionesSucursal
       parameters:
         - $ref: '#/components/parameters/monedaBase'
         - $ref: '#/components/parameters/sucursal'
@@ -61,7 +71,11 @@ paths:
 
   /cotizacion/{codigoMoneda}/sucursales/{sucursal}/monedas/{codigoMoneda}:
     get:
+      tags:
+        - get
+        - cambio     
       summary: Tasa de cambio de una moneda especifica en una sucursal.
+      operationId: getCotizacionesSucursalMoneda
       description: Obtiene las tasas de cambio actual de una moneda de una sucursal desde una moneda base.
       parameters:
         - $ref: '#/components/parameters/monedaBase'
@@ -88,8 +102,11 @@ paths:
 
   '/cotizacion/{codigo-cliente}/prepactada':
     get:
+      tags:
+        - list
       summary: Obtiene las tasas de cambio prepactada con un cliente
       description: Devuelve las tasas de cambio prepactada de un cliente
+      operationId: getCotizacioPrepactada
       parameters:
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
 
@@ -226,4 +243,10 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/movimientoListar'  
-    
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: 'https://test.com'
+          scopes: {}       
