@@ -443,7 +443,31 @@ components:
           type: integer
         paginaActual:
           type: integer
+    prepactado:
+        type: object
+        properties:
+          identificador:
+            type: string
+          codigoCliente:
+            type: string
+          monedaBase:
+            type: string
+          monedaDestino:
+            type: string
+          monto:
+            type: string
+          fecha:
+            type: string
+          estado:
+            type: string
 
+    prepactadoListar:
+      type: object
+      properties:
+        movimientos:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/prepactado'
   parameters:
     codigo-cliente:
       name: codigo-cliente

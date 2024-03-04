@@ -5,7 +5,7 @@ info:
   contact:
     name: Banco Familiar
     email: 'desarrollo_bf@familiar.com.py'
-  version: 1.0.0
+  version: v1
 servers:
   - url: https://localhost/clientes/v1
 security:
@@ -13,10 +13,6 @@ security:
 paths:
   '/clientes/{codigo-cliente}/productos/cuentas':
     get:
-      tags:
-        - cuentas
-        - clientes
-        - list
       summary: Obtener lista de cuentas de un cliente
       description: Obtener informacion sobre todas las cuentas del clientes. Cajas de ahorro, cuentas corrientes, cuentas digitales, etc.
       operationId: getall
@@ -40,10 +36,6 @@ paths:
 
   '/clientes/{codigo-cliente}/productos/cuentas/{codigo-cuenta}':
     get:
-      tags:
-        - cuentas
-        - clientes
-        - get
       summary: Obtener detalles de una cuenta
       description: Obtiene todos los detalles de una cuenta en especifico, sus saldos y configuracion.
       operationId: get
@@ -68,11 +60,6 @@ paths:
 
   '/clientes/{codigo-cliente}/productos/cuentas/{codigo-cuenta}/movimientos':
     post:
-      tags:
-        - cuentas
-        - clientes
-        - movimientos
-        - list
       summary: Moviemntos de una cuenta
       description: Obtiene todos los movimientos de una cuenta de un rango en especifico
       operationId: list
@@ -84,6 +71,30 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/MovimientoList'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '429':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+
+  '/clientes/{codigo-cliente}/servicios/cotizaciones/':
+    get:
+      summary: Obtiene las tasas de cambio prepactada con un cliente
+      description: Devuelve las tasas de cambio prepactada de un cliente
+      operationId: getCotizacioPrepactada
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+
+      responses:
+        '200':
+          $ref: '#/components/responses/prepactadoListar'
         '400':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
         '401':
@@ -125,6 +136,12 @@ components:
         application/json:
           schema:
             $ref: './familiar-components-v1.0.0.yaml#/components/schemas/MovimientoList'
+    prepactadoListar:
+      description: lista de operaciones prepactadas
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/prepactadoListar'  
 
   securitySchemes:
     default:

@@ -5,7 +5,7 @@ info:
   contact:
     name: Banco Familiar
     email: 'desarrollo_bf@familiar.com.py'
-  version: 1.0.0
+  version: v1
 servers:
   - url: https://api.example.com/v1
     description: Servidor principal (producción)
@@ -14,11 +14,8 @@ servers:
 security:
   - default: []  
 paths:
-  /cotizacion/{codigoMoneda}:
+  /servicios/{codigoMoneda}:
     get:
-      tags:
-        - list
-        - cambio
       summary: Tasa de cambio de todas las sucursales.
       description: Obtiene las tasas de cambio actuales de todas las sucursales desde una moneda base hacia otras monedas. 
       operationId: getCotizaciones
@@ -41,11 +38,8 @@ paths:
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
-  /cotizacion/{codigoMoneda}/sucursales/{sucursal}:
+  /servicios/{codigoMoneda}/sucursales/{sucursal}:
     get:
-      tags:
-        - list
-        - cambio
       summary: Tasa de cambio de una sucursal
       description: Obtiene las tasas de cambio actuales de una sucursal desde una moneda base hacia otras monedas. 
       operationId: getCotizacionesSucursal
@@ -69,18 +63,15 @@ paths:
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
-  /cotizacion/{codigoMoneda}/sucursales/{sucursal}/monedas/{codigoMoneda}:
-    get:
-      tags:
-        - get
-        - cambio     
+  /servicios/{codigoMoneda}/sucursales/{sucursal}/monedas/{codigoMonedaDestino}:
+    get:    
       summary: Tasa de cambio de una moneda especifica en una sucursal.
       operationId: getCotizacionesSucursalMoneda
       description: Obtiene las tasas de cambio actual de una moneda de una sucursal desde una moneda base.
       parameters:
         - $ref: '#/components/parameters/monedaBase'
         - $ref: '#/components/parameters/sucursal'
-        - $ref: '#/components/parameters/monedaBase'
+        - $ref: '#/components/parameters/monedaDestino'
         - $ref: '#/components/parameters/fecha'
 
       responses:
@@ -99,32 +90,6 @@ paths:
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
-
-  '/cotizacion/{codigo-cliente}/prepactada':
-    get:
-      tags:
-        - list
-      summary: Obtiene las tasas de cambio prepactada con un cliente
-      description: Devuelve las tasas de cambio prepactada de un cliente
-      operationId: getCotizacioPrepactada
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-
-      responses:
-        '200':
-          $ref: '#/components/responses/movimientoListar'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '429':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 components:
   schemas:
     cotizaciones:
@@ -168,34 +133,18 @@ components:
           items: 
             $ref: '#/components/schemas/sucursales'
     
-    movimiento:
-      type: object
-      properties:
-        identificador:
-          type: string
-        codigoCliente:
-          type: string
-        monedaBase:
-          type: string
-        monedaDestino:
-          type: string
-        monto:
-          type: string
-        fecha:
-          type: string
-        estado:
-          type: string
-
-    movimientoListar:
-      type: object
-      properties:
-        movimientos:
-          type: array 
-          items: 
-            $ref: '#/components/schemas/movimiento'
+  
   parameters:
     monedaBase:
       name: codigoMoneda
+      in: path
+      description: Codigo Moneda. Ejemplo GS.
+      required: true
+      style: simple
+      schema:
+        type: string
+    monedaDestino:
+      name: codigoMonedaDestino
       in: path
       description: Codigo Moneda. Ejemplo GS.
       required: true
@@ -237,12 +186,7 @@ components:
           schema:
             $ref: '#/components/schemas/moneda'   
     
-    movimientoListar:
-      description: lista de operaciones prepactadas
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/movimientoListar'  
+
   securitySchemes:
     default:
       type: oauth2
