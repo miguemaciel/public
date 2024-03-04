@@ -14,7 +14,7 @@ servers:
 security:
   - default: []  
 paths:
-  /servicios/{codigoMoneda}:
+  /cotizaciones/{codigoMoneda}:
     get:
       summary: Tasa de cambio de todas las sucursales.
       description: Obtiene las tasas de cambio actuales de todas las sucursales desde una moneda base hacia otras monedas. 
@@ -33,12 +33,12 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '429':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
-  /servicios/{codigoMoneda}/sucursales/{sucursal}:
+  /cotizaciones/{codigoMoneda}/sucursales/{sucursal}:
     get:
       summary: Tasa de cambio de una sucursal
       description: Obtiene las tasas de cambio actuales de una sucursal desde una moneda base hacia otras monedas. 
@@ -58,12 +58,12 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '429':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
-  /servicios/{codigoMoneda}/sucursales/{sucursal}/monedas/{codigoMonedaDestino}:
+  /cotizaciones/{codigoMoneda}/sucursales/{sucursal}/monedas/{codigoMonedaDestino}:
     get:    
       summary: Tasa de cambio de una moneda especifica en una sucursal.
       operationId: getCotizacionesSucursalMoneda
@@ -85,8 +85,8 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '429':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 

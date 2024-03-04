@@ -4,7 +4,7 @@ info:
   contact:
     name: 'Banco Familiar'
     email: 'desarrollo_bf@familiar.com.py'
-  version: 1.0.0
+  version: v1
 components:
   schemas:
     HTTPError:
@@ -517,7 +517,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/HTTPError'
-    TooManyRequests:
+    UnprocessableEntity:
       description: TooManyRequests
       content:
         application/json:

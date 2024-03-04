@@ -29,8 +29,8 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '429':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
@@ -53,8 +53,8 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '429':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
@@ -79,8 +79,8 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '429':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
@@ -103,8 +103,8 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
         '404':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '429':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/TooManyRequests'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
