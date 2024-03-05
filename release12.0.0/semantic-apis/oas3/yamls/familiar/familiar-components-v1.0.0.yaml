@@ -10,15 +10,15 @@ components:
     HTTPError:
       type: object
       properties:
-        status_code:
+        codigo:
           type: string
           format: string
           description: 'Codigo HTTP de la respuesta'
-        status:
+        tipo:
           type: string
           format: string
           description: 'Nombre de la respuesta HTTP'
-        message:
+        mensaje:
           type: string
           format: string
           description: 'Mensaje de la aplicacion'
