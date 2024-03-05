@@ -5,6 +5,3 @@ services:
     image: custom-wiremock
     ports:
       - "9080:8080"
-    #volumes:
-    #  - ./mappings:/home/wiremock
-    #  - ./recordings:/home/wiremock/recordings

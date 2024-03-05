@@ -1,0 +1,18 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPattern": "/clientes/999/productos/cuentas",
+        "headers": {
+            "Accept": {
+                "matches": "application/json"
+            }
+        }
+    },
+    "response": {
+        "status": 404,
+        "bodyFileName": "familiar-api-clientes-v1.0.0_listar_cuenta_404.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
