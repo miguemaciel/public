@@ -522,6 +522,14 @@ components:
       style: simple
       schema:
         type: string
+    codigo-etapa:
+      name: codigo-etapa
+      in: path
+      required: true
+      style: simple
+      schema:
+        type: number
+    
 
 
   responses:
