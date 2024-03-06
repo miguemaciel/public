@@ -463,7 +463,6 @@ components:
             type: string
           estado:
             type: string
-
     evento:
       type: object
       properties:
@@ -485,7 +484,6 @@ components:
           type: string
         deuda:
           $ref: '#/components/schemas/deuda'
-
     deuda:
       type: object
       properties:
@@ -495,9 +493,6 @@ components:
         monto:
           type: string
           description: Monto de la deuda
-
-
-
     prepactadoListar:
       type: object
       properties:

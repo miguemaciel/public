@@ -7,7 +7,7 @@ info:
     email: 'desarrollo_bf@familiar.com.py'
   version: v1
 servers:
-  - url: https://localhost/clientes/v1
+  - url: https://api-test.familiar.com.py
 security:
   - default: []    
 paths:

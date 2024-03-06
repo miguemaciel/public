@@ -7,10 +7,7 @@ info:
     email: 'desarrollo_bf@familiar.com.py'
   version: v1
 servers:
-  - url: https://api.example.com/v1
-    description: Servidor principal (producción)
-  - url: https://staging-api.example.com
-    description: Servidor interno de pruebas
+  - url: https://api-test.familiar.com.py
 security:
   - default: []  
 paths:
