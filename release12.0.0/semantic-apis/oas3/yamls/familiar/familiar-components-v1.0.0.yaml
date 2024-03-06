@@ -7,7 +7,7 @@ info:
   version: v1
 components:
   schemas:
-    HTTPError:
+    httpError:
       type: object
       properties:
         codigo:
@@ -328,7 +328,7 @@ components:
           type: string
         alias:
           type: string
-    Cuenta:
+    cuenta:
       type: object
       properties:
         estadoCuenta:
@@ -362,14 +362,14 @@ components:
         - moneda
         - balance
       description: Details of the linked account Account|Account  (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()
-    CuentaListar:
+    cuentaListar:
       type: object
       properties:
         cuentas:
           type: array 
           items: 
-            $ref: '#/components/schemas/Cuenta'
-    Transaccion:
+            $ref: '#/components/schemas/cuenta'
+    transaccion:
       type: object
       properties:
         fechaConfirmacion:
@@ -380,7 +380,7 @@ components:
           type: string
         descripcion:
           type: string
-    Movimiento:
+    movimiento:
       type: object
       properties:
         id:
@@ -402,29 +402,29 @@ components:
           type: string
         documento:
           type: string
-    RegistroTransaccion:
+    registroTransaccion:
       type: object
       properties:
         transaccion:
-          $ref: '#/components/schemas/Transaccion'
+          $ref: '#/components/schemas/transaccion'
         movimiento:
-          $ref: '#/components/schemas/Movimiento'
+          $ref: '#/components/schemas/movimiento'
         transferencia:
           $ref: '#/components/schemas/transferencia'
         saldo:
           $ref: '#/components/schemas/accountbalance'
         moneda:
           $ref: '#/components/schemas/accountcurrency'
-    MovimientoList:
+    movimientoList:
       type: object
       properties:
         metadata:
-          $ref: '#/components/schemas/Metadata'
+          $ref: '#/components/schemas/metadata'
         registros:
           type: array 
           items: 
-            $ref: '#/components/schemas/RegistroTransaccion'
-    MovimientosCuentaRequest:
+            $ref: '#/components/schemas/registroTransaccion'
+    paginadoRequest:
       type: object
       properties:
         fechaInicio:
@@ -435,7 +435,7 @@ components:
           type: integer
         pagina:
           type: integer
-    Metadata:
+    metadata:
       type: object
       properties:
         registrosPorPagina:
@@ -463,6 +463,40 @@ components:
             type: string
           estado:
             type: string
+
+    evento:
+      type: object
+      properties:
+        evento:
+          $ref: '#/components/schemas/codeValue'
+        tigoGestion: 
+          $ref: '#/components/schemas/codeValue'
+        gestor:
+          $ref: '#/components/schemas/identification'
+        respuesta:
+          $ref: '#/components/schemas/codeValue'
+        fechaEvento:
+          type: string
+        fechaAgendado:
+          type: string
+        fechaContacto:
+          type: string
+        comentario:
+          type: string
+        deuda:
+          $ref: '#/components/schemas/deuda'
+
+    deuda:
+      type: object
+      properties:
+        etapa:
+          type: string
+          description: "Etapa de la deuda asignado al cliente"
+        monto:
+          type: string
+          description: Monto de la deuda
+
+
 
     prepactadoListar:
       type: object
@@ -501,34 +535,34 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/HTTPError'
+            $ref: '#/components/schemas/httpError'
     Unauthorized:
       description: Unauthorized
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/HTTPError'
+            $ref: '#/components/schemas/httpError'
     Forbidden:
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/HTTPError'
+            $ref: '#/components/schemas/httpError'
     NotFound:
       description: NotFound
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/HTTPError'
+            $ref: '#/components/schemas/httpError'
     UnprocessableEntity:
       description: TooManyRequests
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/HTTPError'
+            $ref: '#/components/schemas/httpError'
     InternalServerError:
       description: InternalServerError
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/HTTPError'
+            $ref: '#/components/schemas/httpError'

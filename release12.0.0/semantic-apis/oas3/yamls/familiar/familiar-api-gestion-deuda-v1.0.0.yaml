@@ -1,0 +1,105 @@
+openapi: 3.0.1
+info:
+  title: Gestión Deuda clientes
+  description: API para obtener los seguimientos de gestores a clientes.
+  contact:
+    name: Banco Familiar
+    email: 'desarrollo_bf@familiar.com.py'
+  version: v1
+servers:
+  - url: https://api.example.com/v1
+    description: Servidor principal (producción)
+  - url: https://staging-api.example.com
+    description: Servidor interno de pruebas
+security:
+  - default: []  
+paths:
+  /clientes/{codigo-cliente}/cobranzas/gestores:
+    get:
+      summary: Gestor asignado
+      description: Retorna los gestores asignados al cliente 
+      operationId: getAllGestorCliente
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+      responses:
+        '200':
+          $ref: '#/components/responses/gestionDeuda'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+    
+  /clientes/{codigo-cliente}/cobranzas/seguimientos:
+    post:
+      summary: seguimientos de cobro a un cliente
+      description: Retorna los gestores asignados al cliente 
+      operationId: getAllSeguimientosCliente
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+      requestBody:
+        $ref: '#/components/requestBodies/seguimientoRequest'
+      responses:
+        '200':
+          $ref: '#/components/responses/seguimientosList'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+   
+components:
+  schemas:
+    seguimientos:
+      type: object
+      properties:
+        metadata:
+          $ref: './familiar-components-v1.0.0.yaml#/components/schemas/metadata'
+        registros:
+          type: array 
+          items: 
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
+  
+  requestBodies:
+    seguimientoRequest:
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/paginadoRequest'
+      required: true
+  responses:
+    gestionDeuda:
+      description: tramo y gestor
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
+    
+    seguimientosList:
+      description: Lista los eventos de cobranzas realizado por un gestor al clientes.
+      content:
+        application/json:
+          schema:
+             $ref: '#/components/schemas/seguimientos'
+
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: 'https://test.com'
+          scopes: {}       
