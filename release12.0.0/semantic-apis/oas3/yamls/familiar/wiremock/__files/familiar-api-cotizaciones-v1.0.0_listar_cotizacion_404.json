@@ -1,0 +1,6 @@
+{
+  "codigo": "404",
+  "tipo": "NoEncontrado",
+  "mensaje": "Atributo invalido",
+  "descripcion": "El codigo de cliente contiene caracteres especiales."
+}

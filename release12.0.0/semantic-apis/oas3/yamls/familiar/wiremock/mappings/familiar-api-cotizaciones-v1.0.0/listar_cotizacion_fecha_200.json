@@ -1,7 +1,8 @@
 {
+    "priority": 2,
     "request": {
         "method": "GET",
-        "urlPattern": "/clientes/123-123/productos/cuentas",
+        "urlPattern": "/servicios/v1/contizaciones/([A-Z]+)?fecha=02/03/2024",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -9,8 +10,8 @@
         }
     },
     "response": {
-        "status": 400,
-        "bodyFileName": "familiar-generico-atributo_invalido_400.json",
+        "status": 200,
+        "bodyFileName": "familiar-api-cotizaciones-v1.0.0_listar_cotizacion_200.json",
         "headers": {
             "Content-Type": "application/json"
         }

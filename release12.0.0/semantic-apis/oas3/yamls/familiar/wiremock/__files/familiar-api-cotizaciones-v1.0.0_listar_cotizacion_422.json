@@ -1,0 +1,5 @@
+{
+  "codigo": "422",
+  "mensaje": "Error validación",
+  "descripcion": "Moneda no válida. La moneda no es númerica"
+}

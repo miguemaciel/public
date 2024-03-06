@@ -1,6 +1,0 @@
-{
-  "codigo": "404",
-  "tipo": "BadRequest",
-  "mensaje": "Atributo invalido",
-  "descripcion": "No se recuperaron datos con el codigo cliente enviado."
-}

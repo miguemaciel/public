@@ -1,7 +1,8 @@
 {
+    "priority": 1,
     "request": {
         "method": "GET",
-        "urlPattern": "/clientes/123-123/productos/cuentas",
+        "urlPattern": "/servicios/v1/cotizaciones/MONEDA",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -9,8 +10,8 @@
         }
     },
     "response": {
-        "status": 400,
-        "bodyFileName": "familiar-generico-atributo_invalido_400.json",
+        "status": 404,
+        "bodyFileName": "familiar-generico-atributo_no_existe_404.json",
         "headers": {
             "Content-Type": "application/json"
         }

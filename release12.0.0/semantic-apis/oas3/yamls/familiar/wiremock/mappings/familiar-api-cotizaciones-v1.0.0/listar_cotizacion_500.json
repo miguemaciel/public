@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/clientes/123-123/productos/cuentas",
+        "urlPattern": "/servicios/v1/cotizaciones/500",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -9,8 +9,8 @@
         }
     },
     "response": {
-        "status": 400,
-        "bodyFileName": "familiar-generico-atributo_invalido_400.json",
+        "status": 500,
+        "bodyFileName": "familiar-generico-error_general_500.json",
         "headers": {
             "Content-Type": "application/json"
         }
