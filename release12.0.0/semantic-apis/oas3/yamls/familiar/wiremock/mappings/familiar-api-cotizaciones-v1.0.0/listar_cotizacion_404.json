@@ -1,8 +1,8 @@
 {
-    "priority": 1,
+   
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/cotizaciones/MONEDA",
+        "urlPattern": "/servicios/v1/cotizaciones/NOTFOUND",
         "headers": {
             "Accept": {
                 "matches": "application/json"

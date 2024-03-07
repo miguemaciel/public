@@ -480,11 +480,15 @@ components:
           type: string
         fechaContacto:
           type: string
+        fechaRespuesta:
+          type: string
         comentario:
           type: string
+        codigoMotivoRetraso:
+          type: string
         deuda:
-          $ref: '#/components/schemas/deuda'
-    deuda:
+          $ref: '#/components/schemas/etapa'
+    etapa:
       type: object
       properties:
         etapa:
@@ -492,7 +496,10 @@ components:
           description: "Etapa de la deuda asignado al cliente"
         monto:
           type: string
-          description: Monto de la deuda
+          description: Monto de la deuda en la etapa
+        estado: 
+          type: string
+          description: Estado de la deuda en la etapa
     prepactadoListar:
       type: object
       properties:
@@ -500,6 +507,7 @@ components:
           type: array 
           items: 
             $ref: '#/components/schemas/prepactado'
+  
   parameters:
     codigo-cliente:
       name: codigo-cliente

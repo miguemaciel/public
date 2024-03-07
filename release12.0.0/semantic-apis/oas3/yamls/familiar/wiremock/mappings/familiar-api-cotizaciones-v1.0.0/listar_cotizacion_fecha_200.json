@@ -1,13 +1,18 @@
 {
-    "priority": 2,
+    "priority": 1,
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/contizaciones/([A-Z]+)?fecha=02/03/2024",
+        "urlPattern": "/servicios/v1/contizaciones/USD",
         "headers": {
             "Accept": {
                 "matches": "application/json"
             }
-        }
+        },
+        "queryParameters": {
+            "fecha": {
+              "equalTo": "02/03/2024"
+            }
+          }
     },
     "response": {
         "status": 200,

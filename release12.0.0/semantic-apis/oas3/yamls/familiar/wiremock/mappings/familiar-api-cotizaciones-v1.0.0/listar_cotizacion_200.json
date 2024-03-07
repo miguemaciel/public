@@ -1,8 +1,8 @@
 {
-    "priority": 3,
+    "priority": 2,
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/cotizaciones/([A-Z]+)",
+        "urlPattern": "/servicios/v1/cotizaciones/GUA",
         "headers": {
             "Accept": {
                 "matches": "application/json"
