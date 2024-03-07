@@ -200,6 +200,8 @@ components:
         - FechaBloqueo
         - FechaMadurez
         - FechaActivacion
+        - FechaExpiracion
+        - FechaExpiracionDeua
       type: string
       description: 'Type of key dates associated with the account (e.g. opening date, closing date) Account/OpeningDate|Account/OpeningDate (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()'
     accountdate:
@@ -273,6 +275,11 @@ components:
         - SaldoRetenido
         - SaldoBloqueado
         - Sobregiro
+        - LineaCredito
+        - LineaCreditoDisponible
+        - DeudaTotal
+        - PagoMinimoActual
+        - DeudaAnterior
       type: string
     debitcreditindicatortvalues:
       enum:
@@ -507,7 +514,72 @@ components:
           type: array 
           items: 
             $ref: '#/components/schemas/prepactado'
-  
+
+    tarjetaIdentificacion:
+      type: object
+      properties:
+        cuenta:
+          $ref: '#/components/schemas/identification'
+        cliente:
+          $ref: '#/components/schemas/identification'
+        tarjeta:
+          $ref: '#/components/schemas/identification'
+        tipo:
+          type: string
+    producto:
+      type: object
+      properties:
+        identificacionCuenta:
+          $ref: '#/components/schemas/identification'
+        producto:
+          $ref: '#/components/schemas/producttype'
+        moneda:
+          $ref: '#/components/schemas/accountcurrency'
+    tarjeta:
+      allOf:
+        - $ref: '#/components/schemas/producto'
+        - type: object
+          properties:
+            tarjeta:
+              $ref: '#/components/schemas/tarjetaIdentificacion'
+    tarjetaResponse:
+      type: object
+      properties:
+        tarjeta: 
+          $ref: '#/components/schemas/tarjeta'
+        pagable:
+          type: boolean
+        configurable:
+          type: boolean
+        balance:
+          type: object
+          properties:
+            saldos:
+              type: array 
+              items: 
+                $ref: '#/components/schemas/accountbalance'
+        fechas:
+          type: object
+          properties:
+          fecha:
+              type: array 
+              items: 
+                $ref: '#/components/schemas/accountdate'
+        adherentes:
+          type: object
+          properties:
+            fecha:
+              type: array 
+              items: 
+                $ref: '#/components/schemas/tarjeta'
+    tarjetaListar:
+      type: object
+      properties:
+        cuentas:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/tarjetaResponse'
+
   parameters:
     codigo-cliente:
       name: codigo-cliente
@@ -537,8 +609,6 @@ components:
       style: simple
       schema:
         type: number
-    
-
 
   responses:
     BadRequest:

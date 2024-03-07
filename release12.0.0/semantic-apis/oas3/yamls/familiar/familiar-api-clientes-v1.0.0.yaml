@@ -9,13 +9,14 @@ info:
 servers:
   - url: https://api-test.familiar.com.py
 security:
-  - default: []    
+  - default: []
+    
 paths:
   '/clientes/{codigo-cliente}/productos/cuentas':
     get:
       summary: Obtener lista de cuentas de un cliente
       description: Obtener informacion sobre todas las cuentas del clientes. Cajas de ahorro, cuentas corrientes, cuentas digitales, etc.
-      operationId: getall
+      operationId: getallcuenta
       parameters:
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
       responses:
@@ -38,7 +39,7 @@ paths:
     get:
       summary: Obtener detalles de una cuenta
       description: Obtiene todos los detalles de una cuenta en especifico, sus saldos y configuracion.
-      operationId: get
+      operationId: getcuenta
       parameters:
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
@@ -83,6 +84,54 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+
+  '/clientes/{codigo-cliente}/productos/tarjetas':
+    get:
+      summary: Obtener lista de tarjetas de un cliente
+      description: Obtener informacion sobre todas las tarjetas del cliente.
+      operationId: getalltarjetas
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+      responses:
+        '200':
+          $ref: '#/components/responses/tarjetaListarResponse'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+
+  '/clientes/{codigo-cliente}/productos/tarjetas/{codigo-cuenta}':
+    get:
+      summary: Obtener detalles de una tarjeta
+      description: Obtiene todos los detalles de una tarjeta en especifico, sus saldos y configuracion.
+      operationId: gettarjeta
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
+      responses:
+        '200':
+          $ref: '#/components/responses/tarjetaResponse'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+
 
   '/clientes/{codigo-cliente}/servicios/cotizaciones/':
     get:
@@ -130,6 +179,18 @@ components:
         application/json:
           schema:
             $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cuenta'
+    tarjetaListarResponse:
+      description: Listar Cuenta
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/tarjetaListar'
+    tarjetaResponse:
+      description: Cuenta
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/tarjetaResponse'
     movimientoList:
       description: Cuenta
       content:
