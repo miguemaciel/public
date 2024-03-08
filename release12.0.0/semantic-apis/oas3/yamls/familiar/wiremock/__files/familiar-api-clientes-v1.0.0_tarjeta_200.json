@@ -16,7 +16,7 @@
         },
         "moneda": {
             "id": "6900",
-            "codigo": "PYG/GUA"
+            "codigo": "GUA"
         },
         "identificacion": {
             "cuenta": {
@@ -152,8 +152,8 @@
                 },
                 "tipo": "Adicional"
             },
-            "pagable": true,
-            "configurable": true
+            "pagable": null,
+            "configurable": null
         }
     ]
 }
