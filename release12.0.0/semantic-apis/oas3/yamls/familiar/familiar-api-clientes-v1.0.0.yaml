@@ -132,6 +132,99 @@ paths:
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
+  '/clientes/{codigo-cliente}/productos/cda':
+    get:
+      summary: Obtener lista de tarjetas de un cliente
+      description: Obtener informacion sobre todas las tarjetas del cliente.
+      operationId: getallcda
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+      responses:
+        '200':
+          $ref: '#/components/responses/cdaListarResponse'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+
+  '/clientes/{codigo-cliente}/productos/cda/{codigo-cuenta}':
+    get:
+      summary: Obtener detalles de un CDA
+      description: Obtiene todos los detalles de un CDA.
+      operationId: getcda
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
+      responses:
+        '200':
+          $ref: '#/components/responses/cdaResponse'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+
+  '/clientes/{codigo-cliente}/productos/prestamos':
+    get:
+      summary: Obtener lista de prestamos de un cliente
+      description: Obtener informacion sobre todas los prestamos del cliente.
+      operationId: getallprestamos
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+      responses:
+        '200':
+          $ref: '#/components/responses/prestamoListarResponse'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+
+  '/clientes/{codigo-cliente}/productos/prestamos/{codigo-cuenta}':
+    get:
+      summary: Obtener detalles de un prestamo
+      description: Obtiene todos los detalles de un prestamo.
+      operationId: getprestamo
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
+      responses:
+        '200':
+          $ref: '#/components/responses/prestamoResponse'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
   '/clientes/{codigo-cliente}/servicios/cotizaciones/':
     get:
@@ -180,17 +273,41 @@ components:
           schema:
             $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cuenta'
     tarjetaListarResponse:
-      description: Listar Cuenta
+      description: Listar Tarjeta
       content:
         application/json:
           schema:
             $ref: './familiar-components-v1.0.0.yaml#/components/schemas/tarjetaListar'
     tarjetaResponse:
-      description: Cuenta
+      description: Tarjeta
       content:
         application/json:
           schema:
             $ref: './familiar-components-v1.0.0.yaml#/components/schemas/tarjetaResponse'
+    cdaListarResponse:
+      description: Listar CDA
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cdaListar'
+    cdaResponse:
+      description: CDA
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cdaResponse'
+    prestamoListarResponse:
+      description: Listar Prestamos
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/prestamoListar'
+    prestamoResponse:
+      description: Prestamo
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/prestamoResponse'
     movimientoList:
       description: Cuenta
       content:

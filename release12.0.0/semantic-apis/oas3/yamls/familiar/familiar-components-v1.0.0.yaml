@@ -50,9 +50,10 @@ components:
         valor:
           type: string
           description: 'Valor o descripcion del codigo'
-        fecha:
-          type: string
-          description: 'Fecha de cambio de valor/codigo.'
+        #Comentamos fecha para ver si es necesario para mas adelante. Migue/Ceci/Magui 08-03-24 
+        #fecha:
+        #  type: string
+        #  description: 'Fecha de cambio de valor/codigo.'
         #StatusInvolvedParty:
         #  $ref: '#/components/schemas/involvedparty'
       required:
@@ -183,6 +184,7 @@ components:
         - CodigoGestor
         - NumeroTarjeta
         - NumeroDocumento
+        - CodigoCLiente
       type: string
       description: ">\r\n* `BBAN` - Basic Bank Account Number (BBAN) - identifier used nationally by financial institutions, ie, in individual countries, generally as part of a National Account Numbering Scheme(s), to uniquely identify the account of a customer. (ISO20022)\n\n.\r\n* `IBAN` - International Bank Account Number (IBAN) - identifier used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 \"Banking and related financial services - International Bank Account Number (IBAN)\" version 1997-10-01, or later revisions. (ISO20022)\n\nAn identifier used internationally by financial institutions to uniquely identify the account of a customer at a financial institution, as described in the latest edition of the international standard ISO 13616. \"Banking and related financial services - International Bank Account Number (IBAN)\". (OBExternalAccountIdentification4Code)\r\n* `UPIC` - Universal Payment Identification Code (UPIC) - identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes. (ISO20022)\r\n* `AccountNumber` - String of characters (mainly numbers) used to identify an account.(ISO20022)\n\nSort Code and Account Number - identifier scheme used in the UK by financial institutions to identify the account of a customer. The identifier is the concatenation of the 6 digit UK sort code and 8 digit account number. (OBExternalAccountIdentification4Code)\nThe regular expression for this identifier is: ^[0-9]{6}[0-9]{8}$\r\n* `PAN` - Primary Account Number - identifier scheme used to identify a card account. (OBExternalAccountIdentification4Code)\r\n* `Paym` - Paym Scheme to make payments via mobile (OBExternalAccountIdentification4Code)\r\n* `Wallet` - A primary and unique account identifier used to identify a wallet.\nAn ASPSP must document on their developer portal, the payment methods that supports this account identifier.(OBExternalAccountIdentification4Code)\r\n"
     identification:
@@ -201,7 +203,11 @@ components:
         - FechaMadurez
         - FechaActivacion
         - FechaExpiracion
-        - FechaExpiracionDeua
+        - FechaUltimoCirerreTarjeta
+        - FechaExpiracionDeuda
+        - FechaEmision
+        - FechaOperacion
+        - FechaExpiracionProximoPago
       type: string
       description: 'Type of key dates associated with the account (e.g. opening date, closing date) Account/OpeningDate|Account/OpeningDate (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()'
     accountdate:
@@ -211,7 +217,7 @@ components:
           $ref: '#/components/schemas/accountdatetypevalues'
         fecha:
           type: string
-      description: 'A characteristic of account which refers to LifecycleDate of account (e.g., ClosingDate, OpeningDate, LiveDate, etc.) '
+      description: 'Fecha y tipo'
     producttypevalues:
       enum:
         - CajaAhorro
@@ -221,6 +227,9 @@ components:
         - CuentaPagoSalario
         - CuentaEfectivo
         - CuentaPrestamo
+        - CDA
+        - Prestamo
+        - TarjetaDeCredito
       type: string
       description: 'The type of current account (e.g. checking, student, small business) OBExternalAccountSubType1Code| ()|Standard|UK Open Banking ()'
     producttype:
@@ -280,6 +289,16 @@ components:
         - DeudaTotal
         - PagoMinimoActual
         - DeudaAnterior
+        - CantidadCapital
+        - CantidadInteres
+        - InteresPagado
+        - MontoPrestamo
+        - SaldoPrestamo
+        - DeudaExpirada
+        - CuotaMensuak
+        - InteresMora
+        - GastosCobro
+        - UltimaCuota
       type: string
     debitcreditindicatortvalues:
       enum:
@@ -287,7 +306,7 @@ components:
         - Credito
       type: string
       description: ">\r\n* `Debit` - Transaction is a debt entry\r\n* `Credit` - Transaction is a credit entry\r\n"
-    accountbalance:
+    productbalance:
       type: object
       properties:
         monto:
@@ -358,7 +377,7 @@ components:
             saldos:
               type: array 
               items: 
-                $ref: '#/components/schemas/accountbalance'
+                $ref: '#/components/schemas/productbalance'
         alias:
           $ref: '#/components/schemas/alias'
       required:
@@ -419,7 +438,7 @@ components:
         transferencia:
           $ref: '#/components/schemas/transferencia'
         saldo:
-          $ref: '#/components/schemas/accountbalance'
+          $ref: '#/components/schemas/productbalance'
         moneda:
           $ref: '#/components/schemas/accountcurrency'
     movimientoList:
@@ -540,45 +559,113 @@ components:
         - $ref: '#/components/schemas/producto'
         - type: object
           properties:
-            tarjeta:
+            identificacion:
               $ref: '#/components/schemas/tarjetaIdentificacion'
+            pagable:
+              type: boolean
+            configurable:
+              type: boolean
     tarjetaResponse:
       type: object
       properties:
         tarjeta: 
           $ref: '#/components/schemas/tarjeta'
-        pagable:
-          type: boolean
-        configurable:
-          type: boolean
+        balances:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/productbalance'
+        fechas:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/accountdate'
+        adherentes:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/tarjeta'
+    tarjetaListar:
+      type: array 
+      items: 
+        $ref: '#/components/schemas/tarjetaResponse'
+    cda:
+      allOf:
+        - $ref: '#/components/schemas/producto'
+        - type: object
+          properties:
+            serie:
+              type: string
+            externalId:
+              type: string
+            plazo:
+              type: string
+    cdaResponse:
+      type: object
+      properties:
+        cda: 
+          $ref: '#/components/schemas/cda'
         balance:
           type: object
           properties:
             saldos:
               type: array 
               items: 
-                $ref: '#/components/schemas/accountbalance'
+                $ref: '#/components/schemas/productbalance'
         fechas:
-          type: object
-          properties:
-          fecha:
-              type: array 
-              items: 
-                $ref: '#/components/schemas/accountdate'
-        adherentes:
           type: object
           properties:
             fecha:
               type: array 
               items: 
-                $ref: '#/components/schemas/tarjeta'
-    tarjetaListar:
+                $ref: '#/components/schemas/accountdate'
+    cdaListar:
       type: object
       properties:
         cuentas:
           type: array 
           items: 
-            $ref: '#/components/schemas/tarjetaResponse'
+            $ref: '#/components/schemas/cdaResponse'
+    prestamo:
+      allOf:
+        - $ref: '#/components/schemas/producto'
+        - type: object
+          properties:
+            serie:
+              plan: string
+            mensaje:
+              type: string
+            modalidad:
+              type: string
+            numeroCuotas:
+              type: string
+            diasAtraso:
+              type: string
+            plazo:
+              type: string
+    prestamoResponse:
+      type: object
+      properties:
+        prestamo: 
+          $ref: '#/components/schemas/prestamo'
+        balance:
+          type: object
+          properties:
+            saldos:
+              type: array 
+              items: 
+                $ref: '#/components/schemas/productbalance'
+        fechas:
+          type: object
+          properties:
+            fechas:
+              type: array 
+              items: 
+                $ref: '#/components/schemas/accountdate'
+    prestamoListar:
+      type: object
+      properties:
+        cuentas:
+          type: array 
+          items: 
+            $ref: '#/components/schemas/prestamoResponse'
 
   parameters:
     codigo-cliente:

@@ -1,0 +1,320 @@
+[
+    {
+        "tarjeta": {
+            "identificacionCuenta": {
+                "tipoIdentificador": "NumeroCuenta",
+                "identificacion": {
+                    "codigo": "0-1572683",
+                    "valor": null,
+                    "fechaEmision": null,
+                    "fechaVencimiento": null
+                }
+            },
+            "producto": {
+                "tipo": "Tarjeta",
+                "codigo": 97,
+                "nombre": "VISA POSI - GRUPO FAMILIAR"
+            },
+            "moneda": {
+                "id": "6900",
+                "codigo": "PYG/GUA"
+            },
+            "identificacion": {
+                "cuenta": {
+                    "tipoIdentificador": "NumeroCuenta",
+                    "identificacion": {
+                        "codigo": "991401110",
+                        "valor": null,
+                        "fechaEmision": null,
+                        "fechaVencimiento": null
+                    }
+                },
+                "cliente": {
+                    "tipoIdentificador": "CodigoCliente",
+                    "identificacion": {
+                        "codigo": "AORY871110",
+                        "valor": "Juan Perez",
+                        "fechaEmision": null,
+                        "fechaVencimiento": null
+                    }
+                },
+                "tarjeta": {
+                    "tipoIdentificador": "NumeroTarjeta",
+                    "identificacion": {
+                        "codigo": "8624100000012085",
+                        "valor": null,
+                        "fechaEmision": null,
+                        "fechaVencimiento": null
+                    }
+                },
+                "tipo": "Titular"
+            },
+            "pagable": true,
+            "configurable": true
+        },
+        "balances": [
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "LineaCredito",
+                "fecha": null,
+                "indicador": null
+            },
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "LineaCreditoDisponible",
+                "fecha": null,
+                "indicador": null
+            },
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "DeudaActual",
+                "fecha": null,
+                "indicador": null
+            },
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "PagoMinimoActual",
+                "fecha": null,
+                "indicador": null
+            },
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "DeudaAnterior",
+                "fecha": null,
+                "indicador": null
+            }
+        ],
+        "fechas": [
+            {
+                "tipo": "FechaUltimoCirerreTarjeta",
+                "fecha": "2022-11-23"
+            },
+            {
+                "tipo": "FechaExpiracion",
+                "fecha": "2022-11-23"
+            },
+            {
+                "tipo": "FechaExpiracionDeuda",
+                "fecha": "2022-11-23"
+            }
+        ],
+        "adherentes": [
+            {
+                "identificacionCuenta": {
+                    "tipoIdentificador": "NumeroCuenta",
+                    "identificacion": {
+                        "codigo": "0-3386963",
+                        "valor": null,
+                        "fechaEmision": null,
+                        "fechaVencimiento": null
+                    }
+                },
+                "producto": {
+                    "tipo": "Tarjeta",
+                    "codigo": 97,
+                    "nombre": "VISA ORO - GRUPO FAMILIAR"
+                },
+                "moneda": {
+                    "id": "6900",
+                    "codigo": "PYG/GUA"
+                },
+                "identificacion": {
+                    "cuenta": {
+                        "tipoIdentificador": "NumeroCuenta",
+                        "identificacion": {
+                            "codigo": "996900312",
+                            "valor": null,
+                            "fechaEmision": null,
+                            "fechaVencimiento": null
+                        }
+                    },
+                    "cliente": {
+                        "tipoIdentificador": "CodigoCliente",
+                        "identificacion": {
+                            "codigo": "CADF960625",
+                            "valor": "REINALDO PEREZ",
+                            "fechaEmision": null,
+                            "fechaVencimiento": null
+                        }
+                    },
+                    "tarjeta": {
+                        "tipoIdentificador": "NumeroTarjeta",
+                        "identificacion": {
+                            "codigo": "4331802416004787",
+                            "valor": null,
+                            "fechaEmision": null,
+                            "fechaVencimiento": null
+                        }
+                    },
+                    "tipo": "Adicional"
+                },
+                "pagable": true,
+                "configurable": true
+            }
+        ]
+    },
+    {
+        "tarjeta": {
+            "identificacionCuenta": {
+                "tipoIdentificador": "NumeroCuenta",
+                "identificacion": {
+                    "codigo": "0-1572683",
+                    "valor": null,
+                    "fechaEmision": null,
+                    "fechaVencimiento": null
+                }
+            },
+            "producto": {
+                "tipo": "Tarjeta",
+                "codigo": 97,
+                "nombre": "VISA POSI - GRUPO FAMILIAR"
+            },
+            "moneda": {
+                "id": "6900",
+                "codigo": "PYG/GUA"
+            },
+            "identificacion": {
+                "cuenta": {
+                    "tipoIdentificador": "NumeroCuenta",
+                    "identificacion": {
+                        "codigo": "991401110",
+                        "valor": null,
+                        "fechaEmision": null,
+                        "fechaVencimiento": null
+                    }
+                },
+                "cliente": {
+                    "tipoIdentificador": "CodigoCliente",
+                    "identificacion": {
+                        "codigo": "AORY871110",
+                        "valor": "Juan Perez",
+                        "fechaEmision": null,
+                        "fechaVencimiento": null
+                    }
+                },
+                "tarjeta": {
+                    "tipoIdentificador": "NumeroTarjeta",
+                    "identificacion": {
+                        "codigo": "8624100000012085",
+                        "valor": null,
+                        "fechaEmision": null,
+                        "fechaVencimiento": null
+                    }
+                },
+                "tipo": "Titular"
+            },
+            "pagable": true,
+            "configurable": true
+        },
+        "balances": [
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "LineaCredito",
+                "fecha": null,
+                "indicador": null
+            },
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "LineaCreditoDisponible",
+                "fecha": null,
+                "indicador": null
+            },
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "DeudaActual",
+                "fecha": null,
+                "indicador": null
+            },
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "PagoMinimoActual",
+                "fecha": null,
+                "indicador": null
+            },
+            {
+                "monto": null,
+                "saldo": "0",
+                "tipo": "DeudaAnterior",
+                "fecha": null,
+                "indicador": null
+            }
+        ],
+        "fechas": [
+            {
+                "tipo": "FechaUltimoCirerreTarjeta",
+                "fecha": "2022-11-23"
+            },
+            {
+                "tipo": "FechaExpiracion",
+                "fecha": "2022-11-23"
+            },
+            {
+                "tipo": "FechaExpiracionDeuda",
+                "fecha": "2022-11-23"
+            }
+        ],
+        "adherentes": [
+            {
+                "identificacionCuenta": {
+                    "tipoIdentificador": "NumeroCuenta",
+                    "identificacion": {
+                        "codigo": "0-3386963",
+                        "valor": null,
+                        "fechaEmision": null,
+                        "fechaVencimiento": null
+                    }
+                },
+                "producto": {
+                    "tipo": "Tarjeta",
+                    "codigo": 97,
+                    "nombre": "VISA ORO - GRUPO FAMILIAR"
+                },
+                "moneda": {
+                    "id": "6900",
+                    "codigo": "PYG/GUA"
+                },
+                "identificacion": {
+                    "cuenta": {
+                        "tipoIdentificador": "NumeroCuenta",
+                        "identificacion": {
+                            "codigo": "996900312",
+                            "valor": null,
+                            "fechaEmision": null,
+                            "fechaVencimiento": null
+                        }
+                    },
+                    "cliente": {
+                        "tipoIdentificador": "CodigoCliente",
+                        "identificacion": {
+                            "codigo": "CADF960625",
+                            "valor": "REINALDO PEREZ",
+                            "fechaEmision": null,
+                            "fechaVencimiento": null
+                        }
+                    },
+                    "tarjeta": {
+                        "tipoIdentificador": "NumeroTarjeta",
+                        "identificacion": {
+                            "codigo": "4331802416004787",
+                            "valor": null,
+                            "fechaEmision": null,
+                            "fechaVencimiento": null
+                        }
+                    },
+                    "tipo": "Adicional"
+                },
+                "pagable": true,
+                "configurable": true
+            }
+        ]
+    }
+]
