@@ -663,22 +663,22 @@ components:
           type: array 
           items: 
             $ref: '#/components/schemas/prestamoResponse'
-    referencetypevalues:
+    contacttypevalues:
       enum:
         - correoElectronico
         - telefonoFijo
         - telefonoMovil
         - telefonoLaboral
         - telefonoAuxiliar
-        - redesSociales
+        - facebook
       type: string
       description: 'Type of key dates associated with the account (e.g. opening date, closing date) Account/OpeningDate|Account/OpeningDate (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()'
-    accountdate:
+    contacto:
       type: object
       properties:
         tipo:
-          $ref: '#/components/schemas/accountdatetypevalues'
-        fecha:
+          $ref: '#/components/schemas/contacttotypevalues'
+        valor:
           type: string
       description: 'Fecha y tipo'
   parameters:
