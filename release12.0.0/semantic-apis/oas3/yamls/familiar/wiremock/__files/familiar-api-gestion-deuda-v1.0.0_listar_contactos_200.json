@@ -1,0 +1,64 @@
+{
+    "referencias": [
+      {
+        "cliente": {
+          "tipoIdentificador": "CodigoCLiente",
+          "identificacion": {
+            "codigo": "ARSO230831",
+            "valor": "ARRUA, SONIA",
+            "fechaEmision": null,
+            "fechaVencimiento": null
+          },
+          "rol": "RP"
+        },
+        "contactos": [
+          {
+            "tipo": "telefonoFijo",
+            "valor": "021370538"
+          },
+          {
+            "tipo": "telefonoMovil",
+            "valor": "0994480286"
+          },
+          {
+            "tipo": "telefonoAuxiliar",
+            "valor": "0991872635"
+          },
+          {
+            "tipo": "correoElectronico",
+            "valor": "magui.cab@gmail.com"
+          }
+        ]
+      },
+      {
+          "cliente": {
+            "tipoIdentificador": "CodigoCLiente",
+            "identificacion": {
+              "codigo": "KUHM850224",
+              "valor": "KAWABATA UESUGUI, HECTOR MANUEL YASUO",
+              "fechaEmision": null,
+              "fechaVencimiento": null
+            },
+            "rol": "RP"
+          },
+          "contactos": [
+            {
+              "tipo": "telefonoFijo",
+              "valor": "021311831"
+            },
+            {
+                "tipo": "telefonoMovil",
+                "valor": "0985612523"
+            },
+            {
+                "tipo": "telefonoAuxiliar",
+                "valor": "0984586235"
+            },
+            {
+                "tipo": "correoElectronico",
+                "valor": "juanalara@hotmail.com"
+            }
+          ]
+        }
+      ]
+  }
