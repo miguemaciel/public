@@ -125,21 +125,31 @@ components:
              properties:
                 codigoEtapa:
                   type: string
+    identificacion:
+         allOf:
+           - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/identification'
+           - type: object
+             properties:
+                rol:
+                  type: string
+    referencia:
+        type: object
+        properties:
+          cliente:  
+            $ref: '#/components/schemas/identificacion' 
+          contactos:
+            type: array 
+            items: 
+             $ref: '#/components/schemas/contacto'
     contacto:
-      type: object
-      properties:
-        cliente:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/identification'
-        rol:
-          type: string
-        lineaBaja:
-          type: string
-        celular:
-          type: string
-        celularAuxiliar1:
-          type: string  
-        correoElectronico:
-          type: string
+          type: object
+          properties:
+              tipo:  
+                $ref: './familiar-components-v1.0.0.yaml#/components/schemas/contacttypevalues'
+              valor:
+                type: string
+
+               
     respuestas:
        type: object
        properties:
@@ -147,14 +157,13 @@ components:
            type: array 
            items: 
              $ref: '#/components/schemas/respuesta'
-    contactos:
-       type: object
-       properties:
-          contactos:
+    referencias:
+         properties:
+          referencias:
            type: array 
            items: 
-             $ref: '#/components/schemas/contacto'
-  
+             $ref: '#/components/schemas/referencia'
+              
   requestBodies:
     seguimientoRequest:
       content:
@@ -185,11 +194,11 @@ components:
              $ref: '#/components/schemas/respuestas'
 
     gestionContactos:
-      description: Lista las respuestas por cada etapa de la gestión de cobranza.
+      description: Lista los contactos por cada operacion de la gestión de cobranza.
       content:
         application/json:
           schema:
-             $ref: '#/components/schemas/contactos'
+             $ref: '#/components/schemas/referencias'
 
   securitySchemes:
     default:
