@@ -10,19 +10,19 @@ components:
     httpError:
       type: object
       properties:
-        codigo:
+        code:
           type: string
           format: string
           description: 'Codigo HTTP de la respuesta'
-        tipo:
+        type:
           type: string
           format: string
           description: 'Nombre de la respuesta HTTP'
-        mensaje:
+        message:
           type: string
           format: string
           description: 'Mensaje de la aplicacion'
-        descripcion:
+        description:
           type: string
           format: string
           description: 'Descripcion del error o validacion para el usuario'
@@ -373,12 +373,9 @@ components:
         moneda:
           $ref: '#/components/schemas/accountcurrency'
         balance:
-          type: object
-          properties:
-            saldos:
-              type: array 
-              items: 
-                $ref: '#/components/schemas/productbalance'
+          type: array 
+          items: 
+            $ref: '#/components/schemas/productbalance'
         alias:
           $ref: '#/components/schemas/alias'
       required:
@@ -667,7 +664,24 @@ components:
           type: array 
           items: 
             $ref: '#/components/schemas/prestamoResponse'
-
+    referencetypevalues:
+      enum:
+        - correoElectronico
+        - telefonoFijo
+        - telefonoMovil
+        - telefonoLaboral
+        - telefonoAuxiliar
+        - redesSociales
+      type: string
+      description: 'Type of key dates associated with the account (e.g. opening date, closing date) Account/OpeningDate|Account/OpeningDate (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022 BM ()'
+    accountdate:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/accountdatetypevalues'
+        fecha:
+          type: string
+      description: 'Fecha y tipo'
   parameters:
     codigo-cliente:
       name: codigo-cliente
