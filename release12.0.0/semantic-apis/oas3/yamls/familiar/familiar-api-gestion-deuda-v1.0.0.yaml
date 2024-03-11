@@ -119,12 +119,12 @@ components:
           items: 
             $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
     respuesta:
-      type: object
-      properties:
-        respuesta:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
-        codigoEtapa:
-          type: string
+         allOf:
+           - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
+           - type: object
+             properties:
+                codigoEtapa:
+                  type: string
     contacto:
       type: object
       properties:
