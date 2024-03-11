@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/cobranzas/contactos/operaciones/([0-9]+)/([0-9]+)",
+        "urlPattern": "cobranzas/respuestas/etapas/RE",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -10,7 +10,7 @@
     },
     "response": {
         "status": 200,
-        "bodyFileName": "familiar-api-gestion-deuda-v1.0.0_listar_contactos_200.json",
+        "bodyFileName": "familiar-api-gestion-deuda-v1.0.0_listar_respuestas_200.json",
         "headers": {
             "Content-Type": "application/json"
         }

@@ -710,7 +710,7 @@ components:
       required: true
       style: simple
       schema:
-        type: number
+        type: string
     codigo-sucursal:
       name: codigo-sucursal
       in: path

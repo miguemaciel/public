@@ -1,0 +1,19 @@
+{
+"respuestas": [
+    {
+      "codigo": "1",
+      "valor": "Pago",
+      "codigoEtapa": "RE"
+    },
+    {
+      "codigo": "2",
+      "valor": "Sin Trabajo",
+      "codigoEtapa": "RE"
+    },
+    {
+      "codigo": "3",
+      "valor": "Promesa de Pago",
+      "codigoEtapa": "RE"
+    }
+  ]
+}
