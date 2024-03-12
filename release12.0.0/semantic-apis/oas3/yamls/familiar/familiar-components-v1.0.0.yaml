@@ -378,6 +378,9 @@ components:
             $ref: '#/components/schemas/productbalance'
         alias:
           $ref: '#/components/schemas/alias'
+        combinada:
+          type: string
+          description: Indica si la cuenta es transaccionable o no.
       required:
         - estadoCuenta
         - identificacion
@@ -496,22 +499,41 @@ components:
           $ref: '#/components/schemas/codeValue'
         gestor:
           $ref: '#/components/schemas/identification'
-        respuesta:
-          $ref: '#/components/schemas/codeValue'
         fechaEvento:
           type: string
         fechaAgendado:
           type: string
+        deuda:
+          $ref: '#/components/schemas/etapa'
+        contacto:
+          $ref: '#/components/schemas/contactoEvento'
+
+    contactoEvento:
+      type: object
+      properties: 
+        nombreContacto:
+          type: string
+        telefonoContacto:  
+          type: string
         fechaContacto:
           type: string
         fechaRespuesta:
-          type: string
+          type: string        
         comentario:
           type: string
+        respuesta:
+          $ref: '#/components/schemas/codeValue'
         codigoMotivoRetraso:
           type: string
-        deuda:
-          $ref: '#/components/schemas/etapa'
+
+    registroAuditoria:
+      type: object
+      properties:
+        usuario:
+          type: string
+        fecha: 
+          type: string
+
     etapa:
       type: object
       properties:
@@ -682,6 +704,15 @@ components:
         valor:
           type: string
       description: 'Fecha y tipo'
+    respuestaExitosa:
+      type: object
+      properties:
+        codigo: 
+          type: string
+          description: Identificador del registro/actualizacion. Ejemplo, sequence en caso de insert, o codigo en caso de update.
+        mensaje:
+          type: string
+          description: mensaje referente al cambio insertado/actualizado.
   parameters:
     codigo-cliente:
       name: codigo-cliente

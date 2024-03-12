@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/clientes/999/productos/cuentas",
+        "urlPattern": "/clientes/500/productos/cuentas",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -9,8 +9,8 @@
         }
     },
     "response": {
-        "status": 404,
-        "bodyFileName": "familiar-generico-atributo_no_existe_404.json",
+        "status": 500,
+        "bodyFileName": "familiar-generico-error_general_500.json",
         "headers": {
             "Content-Type": "application/json"
         }
