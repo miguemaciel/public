@@ -1,0 +1,18 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPattern": "/clientes/([0-9]+)/cobranzas/gestores",
+        "headers": {
+            "Accept": {
+                "matches": "application/json"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "familiar-api-gestion-deuda-v1.0.0_listar_gestores_200.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

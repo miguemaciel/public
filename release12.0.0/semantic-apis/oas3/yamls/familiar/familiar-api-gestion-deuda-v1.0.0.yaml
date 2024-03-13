@@ -135,6 +135,28 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+  /clientes/{codigo-cliente}/cobranzas/operaciones/mora:
+   get:
+      summary: Operaciones con días de mora. 
+      description: Retorna las operaciones con dias de mora por cliente para la gestión de cobranza.
+      operationId: getAllOperacionesMoraCliente
+      parameters:
+         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+      responses:
+        '200':
+          $ref: '#/components/responses/gestionOperacionesMora'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 components:
   schemas:
     seguimientos:
@@ -164,6 +186,15 @@ components:
              properties:
                 rol:
                   type: string
+    operacionMoraCliente:
+         allOf:
+           - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
+           - type: object
+             properties:
+                modalidadProducto:
+                 $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
+                tipoProducto:
+                 $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
     referencia:
         type: object
         properties:
@@ -173,6 +204,20 @@ components:
             type: array 
             items: 
              $ref: '#/components/schemas/contacto'
+    operacionMora:
+         type: object
+         properties:
+          producto:  
+            $ref: '#/components/schemas/operacionMoraCliente' 
+          deuda:
+            $ref: '#/components/schemas/operMora'
+          codigoSucursal:
+            type: number
+          nroOperacion:
+            type: number
+          fechaOperacion:
+            type: string
+        
     contacto:
           type: object
           properties:
@@ -180,8 +225,6 @@ components:
                 $ref: './familiar-components-v1.0.0.yaml#/components/schemas/contacttypevalues'
               valor:
                 type: string
-
-               
     respuestas:
        type: object
        properties:
@@ -195,6 +238,27 @@ components:
            type: array 
            items: 
              $ref: '#/components/schemas/referencia'
+    operacionesMora:
+         properties:
+          operacionesMora:
+           type: array 
+           items: 
+             $ref: '#/components/schemas/operacionMora'
+    operMora:
+      type: object
+      properties:
+        diasMora:
+            type: number
+        fechaVencimiento:
+            type: string
+        deudaVencida:
+            type: number
+        saldoDeuda:
+            type: number
+        fechaAsignacionOperacion:
+            type: string
+        fechaAsignacionFin:
+            type: string
               
   requestBodies:
     
@@ -233,6 +297,12 @@ components:
           schema:
              $ref: '#/components/schemas/referencias'
 
+    gestionOperacionesMora:
+       description: Lista las operaciones en mora por cada cliente para la gestión de cobranza.
+       content:
+        application/json:
+          schema:
+             $ref: '#/components/schemas/operacionesMora'
     respuestaExistosa:
       description: actualizacion de seguimiento
       content:
