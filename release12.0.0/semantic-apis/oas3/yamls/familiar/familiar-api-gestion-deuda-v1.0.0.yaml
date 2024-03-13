@@ -62,14 +62,17 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
  
   /clientes/{codigo-cliente}/cobranzas/seguimientos:
-    post:
+    get:
       summary: seguimientos de cobro a un cliente
       description: Retorna los gestores asignados al cliente 
       operationId: getAllSeguimientosCliente
       parameters:
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-      requestBody:
-        $ref: '#/components/requestBodies/paginadoRequest'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/limite'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/pagina'
+
       responses:
         '200':
           $ref: '#/components/responses/seguimientosList'
@@ -194,12 +197,6 @@ components:
              $ref: '#/components/schemas/referencia'
               
   requestBodies:
-    paginadoRequest:
-      content:
-        application/json:
-          schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/paginadoRequest'
-      required: true
     
     seguimientoRequest:
       content:

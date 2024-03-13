@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/cotizaciones/EUR/sucursales/17",
+        "urlPattern": "/servicios/v1/cotizaciones/EUR/sucursales/17/monedas/GUA",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -10,7 +10,7 @@
     },
     "response": {
         "status": 200,
-        "bodyFileName": "familiar-api-cotizaciones-v1.0.0_listar_cotizacion_sucursal.json",
+        "bodyFileName": "familiar-api-cotizaciones-v1.0.0_listar_cotizacion_moneda_200.json",
         "headers": {
             "Content-Type": "application/json"
         }

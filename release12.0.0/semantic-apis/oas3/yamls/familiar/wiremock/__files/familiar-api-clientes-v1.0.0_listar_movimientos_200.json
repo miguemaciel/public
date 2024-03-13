@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "registrosPorPaginas": 2,
+    "cantidadPaginas": 2,
+    "total": 3,
+    "paginaActual": 1
+  },
+  "registros": [
+    {
+      "transaccion": {
+        "fechaConfirmacion": "27-01-2024 09:23:33",
+        "fechaTransaccion": "27-01-2024 10:23:33",
+        "numero": "9879879897",
+        "descripcion": "TRANSFERENCIAS NACIONALES"
+      },
+      "movimiento": {
+        "id": "34545564",
+        "codigo": "405",
+        "descripcion": "CR-TRANSF.NACIONALES"
+      },
+      "transferencia": {
+        "referencia": "FYAAAAAAAAAA",
+        "banco": "Itau",
+        "cuenta": "71234567",
+        "nombre": "Cliente del otro banco",
+        "documento": "12342345"
+      },
+      "saldo": {
+        "monto": "180000",
+        "saldo": "18000",
+        "tipo": "SaldoDisponible",
+        "fecha": null,
+        "indicador": "Debito"
+      },
+      "moneda": {
+        "id": "6900",
+        "codigo": "PYG"
+      }
+    },
+    {
+      "transaccion": {
+        "fechaConfirmacion": "26-01-2024 09:23:33",
+        "fechaTransaccion": "26-01-2024 10:23:33",
+        "numero": "868678768",
+        "descripcion": "TRANSFERENCIAS NACIONALES"
+      },
+      "movimiento": {
+        "id": "4564654",
+        "codigo": "405",
+        "descripcion": "CR-TRANSF.NACIONALES"
+      },
+      "transferencia": {
+        "referencia": "FYAAAAAAAAAA",
+        "banco": "Itau",
+        "cuenta": "71234567",
+        "nombre": "Cliente del otro banco",
+        "documento": "12342345"
+      },
+      "saldo": {
+        "monto": "180000",
+        "saldo": "18000",
+        "tipo": "SaldoDisponible",
+        "fecha": null,
+        "indicador": "Credito"
+      },
+      "moneda": {
+        "id": "6900",
+        "codigo": "PYG"
+      }
+    }
+  ]
+}

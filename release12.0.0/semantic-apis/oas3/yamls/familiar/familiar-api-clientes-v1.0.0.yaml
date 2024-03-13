@@ -60,15 +60,18 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
   '/clientes/{codigo-cliente}/productos/cuentas/{codigo-cuenta}/movimientos':
-    post:
+    get:
       summary: Moviemntos de una cuenta
       description: Obtiene todos los movimientos de una cuenta de un rango en especifico
       operationId: list
       parameters:
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
-      requestBody:
-        $ref: '#/components/requestBodies/movimientosCuentaRequest'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/limite'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/pagina'
+
       responses:
         '200':
           $ref: '#/components/responses/movimientoList'
@@ -251,13 +254,7 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
 components:
-  requestBodies:
-    movimientosCuentaRequest:
-      content:
-        application/json:
-          schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/paginadoRequest'
-      required: true
+
 
   responses:
     cuentaListarResponse:
