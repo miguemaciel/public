@@ -1,4 +1,10 @@
 {
+  "metadata": {
+    "limite": 2,
+    "paginas": 5,
+    "totalRegistros": 10,
+    "pagina": 1
+  },
   "operacionesMora": [
     {
       "producto": {
@@ -48,7 +54,7 @@
       },
       "codigoSucursal": 14,
       "nroOperacion": 2171262,
-      "fechaOperacion": "12/10/2018"
+      "fechaOperacion": "6/7/2016"
     }
   ]
 }

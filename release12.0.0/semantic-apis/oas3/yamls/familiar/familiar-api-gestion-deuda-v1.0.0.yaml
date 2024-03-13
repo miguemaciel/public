@@ -142,6 +142,10 @@ paths:
       operationId: getAllOperacionesMoraCliente
       parameters:
          - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde'
+         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta'
+         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/limite'
+         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/pagina'
       responses:
         '200':
           $ref: '#/components/responses/gestionOperacionesMora'
@@ -240,6 +244,8 @@ components:
              $ref: '#/components/schemas/referencia'
     operacionesMora:
          properties:
+          metadata:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/metadata'
           operacionesMora:
            type: array 
            items: 
