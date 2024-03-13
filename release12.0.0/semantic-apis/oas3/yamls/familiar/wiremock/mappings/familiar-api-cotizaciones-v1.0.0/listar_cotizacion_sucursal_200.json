@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/cotizaciones/EUR/sucursales/17",
+        "urlPath": "/servicios/v1/cotizaciones/EUR/sucursales/17",
         "headers": {
             "Accept": {
                 "matches": "application/json"

@@ -2,7 +2,7 @@
     "priority": 2,
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/cotizaciones/GUA",
+        "urlPath": "/servicios/v1/cotizaciones/GUA",
         "headers": {
             "Accept": {
                 "matches": "application/json"

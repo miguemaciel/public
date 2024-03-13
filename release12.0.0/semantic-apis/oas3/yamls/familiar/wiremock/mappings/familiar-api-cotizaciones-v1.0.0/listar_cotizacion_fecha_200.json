@@ -2,7 +2,7 @@
     "priority": 1,
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/contizaciones/USD",
+        "urlPath": "/servicios/v1/contizaciones/USD",
         "headers": {
             "Accept": {
                 "matches": "application/json"
