@@ -1,0 +1,34 @@
+{
+    "evento": {
+      "codigo": null,
+      "valor": null
+    },
+    "tigoGestion": {
+      "codigo": 44,
+      "valor": "Area OI Cal 0,11,21,31,40,41,42,50,51,52"
+    },
+    "gestor": {
+      "tipoIdentificador": "CodigoGestor",
+      "identificacion": {
+        "codigo": "patm",
+        "valor": "PEDRO ALEJANDRO TROCHE MOREL",
+        "fechaEmision": null,
+        "fechaVencimiento": null
+      }
+    },
+    "respuesta": {
+      "codigo": null,
+      "valor": null
+    },
+    "fechaEvento": null,
+    "fechaAgendado": null,
+    "fechaContacto": null,
+    "fechaRespuesta": null,
+    "comentario": null,
+    "codigoMotivoRetraso": null,
+    "deuda": {
+      "etapa": "D2",
+      "monto": 688502,
+      "estado": "AC"
+    }
+}

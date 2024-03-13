@@ -1,0 +1,54 @@
+{
+  "operacionesMora": [
+    {
+      "producto": {
+        "codigo": 61,
+        "valor": "MASTER.CLASICA-MATRIZ(10)",
+        "modalidadProducto": {
+          "codigo": 2,
+          "valor": "Tarjetas de Crédito"
+        },
+        "tipoProducto": {
+          "codigo": 9,
+          "valor": "TARJETAS DE CR."
+        }
+      },
+      "deuda": {
+        "diasMora": 143,
+        "fechaVencimiento": "10/12/2021",
+        "deudaVencida": 1440000,
+        "saldoDeuda": 0,
+        "fechaAsignacionOperacion": "4/11/2021",
+        "fechaAsignacionFin": "26/11/2021"
+      },
+      "codigoSucursal": 14,
+      "nroOperacion": 1515034,
+      "fechaOperacion": "6/7/2016"
+    },
+    {
+      "producto": {
+        "codigo": 1,
+        "valor": "PRESTAMO DE CONSUMO",
+        "modalidadProducto": {
+          "codigo": 1,
+          "valor": "Prestamos"
+        },
+        "tipoProducto": {
+          "codigo": 1,
+          "valor": "CONSUMO"
+        }
+      },
+      "deuda": {
+        "diasMora": 11,
+        "fechaVencimiento": "14/9/2019",
+        "deudaVencida": 241000,
+        "saldoDeuda": 0,
+        "fechaAsignacionOperacion": "24/9/2019",
+        "fechaAsignacionFin": "25/9/2019"
+      },
+      "codigoSucursal": 14,
+      "nroOperacion": 2171262,
+      "fechaOperacion": "12/10/2018"
+    }
+  ]
+}
