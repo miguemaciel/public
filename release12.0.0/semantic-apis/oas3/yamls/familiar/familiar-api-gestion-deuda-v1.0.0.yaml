@@ -36,11 +36,11 @@ paths:
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
     
-  /clientes/{codigo-cliente}/cobranzas/seguimientos:
+  /clientes/{codigo-cliente}/cobranzas/seguimiento:
     post:
-      summary: seguimientos de cobro a un cliente
-      description: Retorna los gestores asignados al cliente 
-      operationId: getAllSeguimientosCliente
+      summary: registra un seguimiento a un cliente
+      description: Registra un seguimiento para el cobro de la deuda de un cliente. 
+      operationId: updateSeguimiento
       parameters:
         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
       requestBody:
@@ -60,6 +60,34 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+ 
+  /clientes/{codigo-cliente}/cobranzas/seguimientos:
+    get:
+      summary: seguimientos de cobro a un cliente
+      description: Retorna los gestores asignados al cliente 
+      operationId: getAllSeguimientosCliente
+      parameters:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/limite'
+        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/pagina'
+
+      responses:
+        '200':
+          $ref: '#/components/responses/seguimientosList'
+        '400':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+        '401':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+        '403':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+        '404':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+        '422':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+        '500':
+          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError' 
   
   /cobranzas/respuestas/etapas/{codigo-etapa}:
     get:
@@ -147,6 +175,10 @@ components:
              properties:
                 codigoEtapa:
                   type: string
+    seguimiento:
+         allOf:
+           - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
+           - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/identification'
     identificacion:
          allOf:
            - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/identification'
@@ -229,11 +261,12 @@ components:
             type: string
               
   requestBodies:
+    
     seguimientoRequest:
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/paginadoRequest'
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
       required: true
   responses:
     gestionDeuda:
@@ -270,6 +303,12 @@ components:
         application/json:
           schema:
              $ref: '#/components/schemas/operacionesMora'
+    respuestaExistosa:
+      description: actualizacion de seguimiento
+      content:
+        application/json:
+          schema:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/respuestaExitosa'
 
   securitySchemes:
     default:

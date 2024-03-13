@@ -1,7 +1,8 @@
 {
     "request": {
-        "method": "GET",
-        "urlPattern": "/clientes/([0-9]+)/productos/cuentas/81-25",
+        "method": "POST",
+        "urlPattern": "/clientes/([0-9]+)/productos/cuentas/81-25/movimientos",
+        
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -10,7 +11,7 @@
     },
     "response": {
         "status": 200,
-        "bodyFileName": "familiar-api-clientes-v1.0.0_cuenta_200.json",
+        "bodyFileName": "familiar-api-clientes-v1.0.0_listar_movimientos_200.json",
         "headers": {
             "Content-Type": "application/json"
         }

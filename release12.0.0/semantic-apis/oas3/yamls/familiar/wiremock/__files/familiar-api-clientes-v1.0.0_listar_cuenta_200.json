@@ -4,40 +4,38 @@
       "estadoCuenta": {
         "estado": {
           "codigo": "AC",
-          "valor": "Activo",
-          "fecha": null
+          "valor": "Activo"
         },
         "tipoEstado": "Activa"
       },
-      "identificacion": {
-        "tipoIdentificadorCuenta": "NumeroCuenta",
+      "identificacionCuenta": {
+        "tipoIdentificador": "NumeroCuenta",
         "identificacion": {
           "codigo": "81-25",
           "valor": "Juan Samaniego",
-          "fechaEmision": null,
-          "fechaVencimiento": null
+          "fechaEmision": "string",
+          "fechaVencimiento": "string"
         }
       },
       "fecha": {
         "tipo": "FechaApertura",
         "fecha": "04-01-2023"
       },
-      "relacion": {
-        "codigo": "E",
-        "valor": "Empresa",
-        "fecha": null
-      },
       "producto": {
         "tipo": "CuentaCorriente",
-        "nombre": "Cuenta Corriente",
-        "codigo": "101"
+        "codigo": "101",
+        "nombre": "Cuenta Corriente"
       },
+      "relacion": {
+        "codigo": "E",
+        "valor": "Empresa"
+      },
+      "categoria": null,
       "moneda": {
         "id": "GS",
         "codigo": "6900"
       },
-      "balance": {
-        "saldos": [
+      "balance": [
           {
             "monto": null,
             "saldo": "5000000",
@@ -73,51 +71,52 @@
             "fecha": null,
             "indicador": null
           }
-        ]
-      },
+        ],
       "alias": {
         "tipo": "CI",
         "alias": "4409003"
-      }
+      },
+      "combinada": "true"
     },
     {
       "estadoCuenta": {
         "estado": {
           "codigo": "AC",
-          "valor": "Activo",
-          "fecha": null
+          "valor": "Activo"
         },
         "tipoEstado": "Activa"
       },
-      "identificacion": {
-        "tipoIdentificadorCuenta": "NumeroCuenta",
+      "identificacionCuenta": {
+        "tipoIdentificador": "NumeroCuenta",
         "identificacion": {
-          "codigo": "81-25",
-          "valor": "José Samaniego",
-          "fechaEmision": null,
-          "fechaVencimiento": null
+          "codigo": "81-24",
+          "valor": "Juan Samaniego",
+          "fechaEmision": "string",
+          "fechaVencimiento": "string"
         }
       },
       "fecha": {
         "tipo": "FechaApertura",
         "fecha": "04-01-2023"
       },
+      "producto": {
+        "tipo": "CajaAhorro",
+        "codigo": "25",
+        "nombre": "CAJA DE AHORRO A LA VISTA-MN"
+      },
       "relacion": {
         "codigo": "E",
-        "valor": "Empresa",
-        "fecha": null
+        "valor": "Empresa"
       },
-      "producto": {
-        "tipo": "CuentaCorriente",
-        "nombre": "Cuenta Corriente",
-        "codigo": "101"
+      "categoria": {
+        "codigo": "3",
+        "valor": "CUENTA EMPRESA"
       },
       "moneda": {
         "id": "GS",
         "codigo": "6900"
       },
-      "balance": {
-        "saldos": [
+      "balance": [
           {
             "monto": null,
             "saldo": "5000000",
@@ -153,12 +152,9 @@
             "fecha": null,
             "indicador": null
           }
-        ]
-      },
-      "alias": {
-        "tipo": "CI",
-        "alias": "4409003"
-      }
+        ],
+      "alias": null,
+      "combinada": "false"
     }
   ]
 }

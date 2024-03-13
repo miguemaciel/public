@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/clientes/([0-9]+)/productos/cuentas/81-25",
+        "urlPattern": "/clientes/([0-9]+)/productos/cuentas/400/movimientos",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -9,8 +9,8 @@
         }
     },
     "response": {
-        "status": 200,
-        "bodyFileName": "familiar-api-clientes-v1.0.0_cuenta_200.json",
+        "status": 400,
+        "bodyFileName": "familiar-generico-atributo_invalido_400.json",
         "headers": {
             "Content-Type": "application/json"
         }

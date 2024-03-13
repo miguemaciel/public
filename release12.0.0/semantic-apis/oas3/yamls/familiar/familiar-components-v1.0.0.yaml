@@ -378,6 +378,9 @@ components:
             $ref: '#/components/schemas/productbalance'
         alias:
           $ref: '#/components/schemas/alias'
+        combinada:
+          type: string
+          description: Indica si la cuenta es transaccionable o no.
       required:
         - estadoCuenta
         - identificacion
@@ -448,28 +451,22 @@ components:
           type: array 
           items: 
             $ref: '#/components/schemas/registroTransaccion'
-    paginadoRequest:
-      type: object
-      properties:
-        fechaInicio:
-          type: string
-        fechaFin:
-          type: string
-        limite:
-          type: integer
-        pagina:
-          type: integer
+
     metadata:
       type: object
       properties:
-        registrosPorPagina:
+        limite:
           type: integer
-        CantidadPagina:
+          description: Indica la cantidad de registros por página.
+        paginas:
           type: integer
-        total:
+          description: Indica la cantidad total de páginas.
+        totalRegistros:
           type: integer
-        paginaActual:
+          description: Indica la cantidad total de registros que retorna la consulta.
+        pagina:
           type: integer
+          description: Indica la pagina actual de consulta
     prepactado:
         type: object
         properties:
@@ -496,22 +493,41 @@ components:
           $ref: '#/components/schemas/codeValue'
         gestor:
           $ref: '#/components/schemas/identification'
-        respuesta:
-          $ref: '#/components/schemas/codeValue'
         fechaEvento:
           type: string
         fechaAgendado:
           type: string
+        deuda:
+          $ref: '#/components/schemas/etapa'
+        contacto:
+          $ref: '#/components/schemas/contactoEvento'
+
+    contactoEvento:
+      type: object
+      properties: 
+        nombreContacto:
+          type: string
+        telefonoContacto:  
+          type: string
         fechaContacto:
           type: string
         fechaRespuesta:
-          type: string
+          type: string        
         comentario:
           type: string
+        respuesta:
+          $ref: '#/components/schemas/codeValue'
         codigoMotivoRetraso:
           type: string
-        deuda:
-          $ref: '#/components/schemas/etapa'
+
+    registroAuditoria:
+      type: object
+      properties:
+        usuario:
+          type: string
+        fecha: 
+          type: string
+
     etapa:
       type: object
       properties:
@@ -682,6 +698,15 @@ components:
         valor:
           type: string
       description: 'Fecha y tipo'
+    respuestaExitosa:
+      type: object
+      properties:
+        codigo: 
+          type: string
+          description: Identificador del registro/actualizacion. Ejemplo, sequence en caso de insert, o codigo en caso de update.
+        mensaje:
+          type: string
+          description: mensaje referente al cambio insertado/actualizado.
   parameters:
     codigo-cliente:
       name: codigo-cliente
@@ -725,6 +750,30 @@ components:
       style: simple
       schema:
         type: number
+    pagina: 
+      name: pagina
+      in: query
+      schema:
+        type: number
+      default: 1
+    limite: 
+      name: limite
+      in: query
+      schema:
+        type: number
+      default: 20
+    fechaDesde: 
+      name: fechaDesde
+      in: query
+      schema:
+        type: string
+      required: true
+    fechaHasta: 
+      name: fechaHasta
+      in: query
+      schema:
+        type: string
+      required: true
 
 
   responses:

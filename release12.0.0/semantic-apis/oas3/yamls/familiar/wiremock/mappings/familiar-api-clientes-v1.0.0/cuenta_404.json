@@ -9,8 +9,8 @@
         }
     },
     "response": {
-        "status": 200,
-        "bodyFileName": "familiar-api-clientes-v1.0.0_cuenta_200.json",
+        "status": 404,
+        "bodyFileName": "familiar-generico-atributo_no_existe_404",
         "headers": {
             "Content-Type": "application/json"
         }
