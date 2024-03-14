@@ -1,7 +1,7 @@
 {
     "evento": {
-      "codigo": null,
-      "valor": null
+      "codigo": 42,
+      "valor": "Reclamo Digital"
     },
     "tigoGestion": {
       "codigo": 44,
@@ -17,15 +17,15 @@
       }
     },
     "respuesta": {
-      "codigo": null,
-      "valor": null
+      "codigo": 25,
+      "valor": "Insistencia Gestion Digital"
     },
-    "fechaEvento": null,
-    "fechaAgendado": null,
-    "fechaContacto": null,
-    "fechaRespuesta": null,
-    "comentario": null,
-    "codigoMotivoRetraso": null,
+    "fechaEvento": "06/03/2024",
+    "fechaAgendado": "06/03/2024",
+    "fechaContacto": "15/03/2024",
+    "fechaRespuesta": "13/3/2024 10:10:36",
+    "comentario": "patm:wpp // insistencia 15/03.-",
+    "codigoMotivoRetraso": 0,
     "deuda": {
       "etapa": "D2",
       "monto": 688502,
