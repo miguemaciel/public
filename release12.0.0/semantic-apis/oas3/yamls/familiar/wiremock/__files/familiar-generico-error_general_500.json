@@ -1,6 +1,6 @@
 {
-  "codigo": "500",
-  "tipo": "ServerError",
-  "mensaje": "Error general",
-  "descripcion": "Ha ocurrido un error general, consulte con el administrador"
+  "code": "500",
+  "type": "ServerError",
+  "message": "Error general",
+  "description": "Ha ocurrido un error general, consulte con el administrador"
 }

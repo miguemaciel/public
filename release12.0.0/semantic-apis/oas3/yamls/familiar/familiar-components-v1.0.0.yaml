@@ -708,43 +708,43 @@ components:
           type: string
           description: mensaje referente al cambio insertado/actualizado.
   parameters:
-    codigo-cliente:
-      name: codigo-cliente
+    codigoCliente:
+      name: codigoCliente
       in: path
       required: true
       style: simple
       schema:
         type: string
-    codigo-cuenta:
-      name: codigo-cuenta
+    codigoCuenta:
+      name: codigoCuenta
       in: path
       required: true
       style: simple
       schema:
         type: string
-    tipo-documento:
-      name: tipo-documento
+    tipoDocumento:
+      name: tipoDocumento
       in: path
       required: true
       style: simple
       schema:
         type: string
-    codigo-etapa:
-      name: codigo-etapa
+    codigoEtapa:
+      name: codigoEtapa
       in: path
       required: true
       style: simple
       schema:
         type: string
-    codigo-sucursal:
-      name: codigo-sucursal
+    codigoSucursal:
+      name: codigoSucursal
       in: path
       required: true
       style: simple
       schema:
         type: number
-    numero-operacion:
-      name: numero-operacion
+    numeroOperacion:
+      name: numeroOperacion
       in: path
       required: true
       style: simple
@@ -817,3 +817,9 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/httpError'
+    respuestaExitosa: 
+      description: Response generico para alta y actualización de registros.
+      content: 
+        application/json:
+          schema:
+            $ref: '#/components/schemas/respuestaExitosa'

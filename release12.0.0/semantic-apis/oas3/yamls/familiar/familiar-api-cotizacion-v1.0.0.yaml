@@ -89,14 +89,6 @@ paths:
 
 components:
   schemas:
-    cotizaciones:
-      type: object
-      properties:
-        cotizacion:
-          type: array 
-          items: 
-            $ref: '#/components/schemas/moneda'
-
     moneda:
       allOf:
         - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/accountcurrency'
@@ -177,7 +169,7 @@ components:
             $ref: '#/components/schemas/sucursales'
 
     moneda:
-      description: sucursal
+      description: moneda
       content:
         application/json:
           schema:

@@ -13,89 +13,14 @@ servers:
 security:
   - default: []  
 paths:
-  /clientes/{codigo-cliente}/cobranzas/gestores:
-    get:
-      summary: Gestor asignado
-      description: Retorna los gestores asignados al cliente 
-      operationId: getAllGestorCliente
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-      responses:
-        '200':
-          $ref: '#/components/responses/gestionDeuda'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
-    
-  /clientes/{codigo-cliente}/cobranzas/seguimiento:
-    post:
-      summary: registra un seguimiento a un cliente
-      description: Registra un seguimiento para el cobro de la deuda de un cliente. 
-      operationId: updateSeguimiento
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-      requestBody:
-        $ref: '#/components/requestBodies/seguimientoRequest'
-      responses:
-        '200':
-          $ref: '#/components/responses/seguimientosList'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
- 
-  /clientes/{codigo-cliente}/cobranzas/seguimientos:
-    get:
-      summary: seguimientos de cobro a un cliente
-      description: Retorna los gestores asignados al cliente 
-      operationId: getAllSeguimientosCliente
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/limite'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/pagina'
 
-      responses:
-        '200':
-          $ref: '#/components/responses/seguimientosList'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError' 
-  
-  /cobranzas/respuestas/etapas/{codigo-etapa}:
+  /cobranzas/respuestas/etapas/{codigoEtapa}:
     get:
       summary: Respuestas por Etapa
       description: Retorna las respuestas que pueden registrarse por cada etapa de la gestión de la cobranza
       operationId: getAllRespuestasEtapa
       parameters:
-         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-etapa'
+         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigoEtapa'
       responses:
         '200':
           $ref: '#/components/responses/gestionRespuestas'
@@ -112,14 +37,14 @@ paths:
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
-  /cobranzas/contactos/operaciones/{codigo-sucursal}/{numero-operacion}:
+  /cobranzas/contactos/operaciones/{codigoSucursal}/{numeroOperacion}:
     get:
       summary: Contactos por Operaciones
       description: Retorna los contactos de una operacion para la gestión de la cobranza
       operationId: getAllContactosOperaciones
       parameters:
-         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-sucursal'
-         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/numero-operacion'
+         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigoSucursal'
+         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/numeroOperacion'
       responses:
         '200':
           $ref: '#/components/responses/gestionContactos'
@@ -135,43 +60,10 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
-  /clientes/{codigo-cliente}/cobranzas/operaciones/mora:
-   get:
-      summary: Operaciones con días de mora. 
-      description: Retorna las operaciones con dias de mora por cliente para la gestión de cobranza.
-      operationId: getAllOperacionesMoraCliente
-      parameters:
-         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde'
-         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta'
-         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/limite'
-         - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/pagina'
-      responses:
-        '200':
-          $ref: '#/components/responses/gestionOperacionesMora'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+  
 components:
   schemas:
-    seguimientos:
-      type: object
-      properties:
-        metadata:
-          $ref: './familiar-components-v1.0.0.yaml#/components/schemas/metadata'
-        registros:
-          type: array 
-          items: 
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
+
     respuesta:
          allOf:
            - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
@@ -190,15 +82,7 @@ components:
              properties:
                 rol:
                   type: string
-    operacionMoraCliente:
-         allOf:
-           - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
-           - type: object
-             properties:
-                modalidadProducto:
-                 $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
-                tipoProducto:
-                 $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
+
     referencia:
         type: object
         properties:
@@ -208,19 +92,7 @@ components:
             type: array 
             items: 
              $ref: '#/components/schemas/contacto'
-    operacionMora:
-         type: object
-         properties:
-          producto:  
-            $ref: '#/components/schemas/operacionMoraCliente' 
-          deuda:
-            $ref: '#/components/schemas/operMora'
-          codigoSucursal:
-            type: number
-          nroOperacion:
-            type: number
-          fechaOperacion:
-            type: string
+
         
     contacto:
           type: object
@@ -242,52 +114,16 @@ components:
            type: array 
            items: 
              $ref: '#/components/schemas/referencia'
-    operacionesMora:
-         properties:
-          metadata:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/metadata'
-          operacionesMora:
-           type: array 
-           items: 
-             $ref: '#/components/schemas/operacionMora'
-    operMora:
-      type: object
-      properties:
-        diasMora:
-            type: number
-        fechaVencimiento:
-            type: string
-        deudaVencida:
-            type: number
-        saldoDeuda:
-            type: number
-        fechaAsignacionOperacion:
-            type: string
-        fechaAsignacionFin:
-            type: string
+
+    
               
-  requestBodies:
+  
     
-    seguimientoRequest:
-      content:
-        application/json:
-          schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
-      required: true
+
   responses:
-    gestionDeuda:
-      description: tramo y gestor
-      content:
-        application/json:
-          schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
+   
     
-    seguimientosList:
-      description: Lista los eventos de cobranzas realizado por un gestor al clientes.
-      content:
-        application/json:
-          schema:
-             $ref: '#/components/schemas/seguimientos'
+
 
     gestionRespuestas:
       description: Lista las respuestas por cada etapa de la gestión de cobranza.
@@ -302,19 +138,6 @@ components:
         application/json:
           schema:
              $ref: '#/components/schemas/referencias'
-
-    gestionOperacionesMora:
-       description: Lista las operaciones en mora por cada cliente para la gestión de cobranza.
-       content:
-        application/json:
-          schema:
-             $ref: '#/components/schemas/operacionesMora'
-    respuestaExistosa:
-      description: actualizacion de seguimiento
-      content:
-        application/json:
-          schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/respuestaExitosa'
 
   securitySchemes:
     default:

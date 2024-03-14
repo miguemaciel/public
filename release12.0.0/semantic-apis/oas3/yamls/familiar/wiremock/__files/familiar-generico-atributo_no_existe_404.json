@@ -1,5 +1,5 @@
 {
-  "codigo": "404",
-  "mensaje": "Recurso no encontrado",
-  "descripcion": "No se recuperaron datos con el codigo enviado."
+  "code": "404",
+  "message": "Recurso no encontrado",
+  "description": "No se recuperaron datos con el codigo enviado."
 }

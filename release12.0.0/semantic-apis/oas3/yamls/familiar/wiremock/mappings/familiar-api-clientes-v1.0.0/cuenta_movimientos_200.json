@@ -2,7 +2,7 @@
     "priority":2,
     "request": {
         "method": "GET",
-        "urlPattern": "/clientes/123-123/productos/cuentas/81-25/movimientos",
+        "urlPath": "/clientes/123-123/productos/cuentas/81-25/movimientos",
         
         "headers": {
             "Accept": {

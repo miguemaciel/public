@@ -1,328 +1,366 @@
 openapi: 3.0.1
 info:
   title: Clientes
-  description: 'Este servicio obtiene datos relacioandos al Clientes, sus productos y servicios, movimientos y configuracion relacionada al cliente'
+  description: "Servicios relacionados al cliente. Ejemplo: sus productos y servicios, cobranzas, deudas. Configuraciones."
   contact:
     name: Banco Familiar
-    email: 'desarrollo_bf@familiar.com.py'
-  version: v1
+    email: "desarrollo_bf@familiar.com.py"
+  version: v2
 servers:
   - url: https://api-test.familiar.com.py
 security:
   - default: []
-    
+
 paths:
-  '/clientes/{codigo-cliente}/productos/cuentas':
+  "/clientes/{codigoCliente}/productos/cuentas":
     get:
       summary: Obtener lista de cuentas de un cliente
       description: Obtener informacion sobre todas las cuentas del clientes. Cajas de ahorro, cuentas corrientes, cuentas digitales, etc.
       operationId: getallcuenta
       parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
       responses:
-        '200':
-          $ref: '#/components/responses/cuentaListarResponse'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+        "200":
+          $ref: "#/components/responses/cuentaListarResponse"
+        "400":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
+        "401":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
+        "403":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
+        "404":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
+        "422":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
+        "500":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
 
-  '/clientes/{codigo-cliente}/productos/cuentas/{codigo-cuenta}':
+  "/clientes/{codigoCliente}/productos/cuentas/{codigoCuenta}":
     get:
       summary: Obtener detalles de una cuenta
       description: Obtiene todos los detalles de una cuenta en especifico, sus saldos y configuracion.
       operationId: getcuenta
       parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCuenta"
       responses:
-        '200':
-          $ref: '#/components/responses/cuentaResponse'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+        "200":
+          $ref: "#/components/responses/cuentaResponse"
+        "400":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
+        "401":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
+        "403":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
+        "404":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
+        "422":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
+        "500":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
 
-  '/clientes/{codigo-cliente}/productos/cuentas/{codigo-cuenta}/movimientos':
+  "/clientes/{codigoCliente}/productos/cuentas/{codigoCuenta}/movimientos":
     get:
-      summary: Moviemntos de una cuenta
-      description: Obtiene todos los movimientos de una cuenta de un rango en especifico
+      summary: Movimientos de una cuenta
+      description: Obtiene todos los movimientos de una cuenta de un rango en específico
       operationId: list
       parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/limite'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/pagina'
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCuenta"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/limite"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/pagina"
 
       responses:
-        '200':
-          $ref: '#/components/responses/movimientoList'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+        "200":
+          $ref: "#/components/responses/movimientoList"
+        "400":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
+        "401":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
+        "403":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
+        "404":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
+        "422":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
+        "500":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
 
-  '/clientes/{codigo-cliente}/productos/tarjetas':
-    get:
-      summary: Obtener lista de tarjetas de un cliente
-      description: Obtener informacion sobre todas las tarjetas del cliente.
-      operationId: getalltarjetas
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-      responses:
-        '200':
-          $ref: '#/components/responses/tarjetaListarResponse'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
-
-  '/clientes/{codigo-cliente}/productos/tarjetas/{codigo-cuenta}':
-    get:
-      summary: Obtener detalles de una tarjeta
-      description: Obtiene todos los detalles de una tarjeta en especifico, sus saldos y configuracion.
-      operationId: gettarjeta
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
-      responses:
-        '200':
-          $ref: '#/components/responses/tarjetaResponse'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
-
-  '/clientes/{codigo-cliente}/productos/cda':
-    get:
-      summary: Obtener lista de tarjetas de un cliente
-      description: Obtener informacion sobre todas las tarjetas del cliente.
-      operationId: getallcda
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-      responses:
-        '200':
-          $ref: '#/components/responses/cdaListarResponse'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
-
-  '/clientes/{codigo-cliente}/productos/cda/{codigo-cuenta}':
-    get:
-      summary: Obtener detalles de un CDA
-      description: Obtiene todos los detalles de un CDA.
-      operationId: getcda
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
-      responses:
-        '200':
-          $ref: '#/components/responses/cdaResponse'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
-
-  '/clientes/{codigo-cliente}/productos/prestamos':
-    get:
-      summary: Obtener lista de prestamos de un cliente
-      description: Obtener informacion sobre todas los prestamos del cliente.
-      operationId: getallprestamos
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-      responses:
-        '200':
-          $ref: '#/components/responses/prestamoListarResponse'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
-
-  '/clientes/{codigo-cliente}/productos/prestamos/{codigo-cuenta}':
-    get:
-      summary: Obtener detalles de un prestamo
-      description: Obtiene todos los detalles de un prestamo.
-      operationId: getprestamo
-      parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta'
-      responses:
-        '200':
-          $ref: '#/components/responses/prestamoResponse'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
-
-  '/clientes/{codigo-cliente}/servicios/cotizaciones/':
+  "/clientes/{codigoCliente}/servicios/cotizaciones":
     get:
       summary: Obtiene las tasas de cambio prepactada con un cliente
       description: Devuelve las tasas de cambio prepactada de un cliente
       operationId: getCotizacioPrepactada
       parameters:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente'
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
 
       responses:
-        '200':
-          $ref: '#/components/responses/prepactadoListar'
-        '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
-        '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
-        '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
-        '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
-        '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
-        '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+        "200":
+          $ref: "#/components/responses/prepactadoListar"
+        "400":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
+        "401":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
+        "403":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
+        "404":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
+        "422":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
+        "500":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
+ 
+  "/clientes/{codigoCliente}/cobranzas/gestores":
+    get:
+      summary: Gestor asignado
+      description: Retorna el útlimo gestor asignado al cliente
+      operationId: getAllGestorCliente
+      parameters:
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+      responses:
+        "200":
+          $ref: "#/components/responses/gestionDeuda"
+        "400":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
+        "401":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
+        "403":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
+        "404":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
+        "422":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
+        "500":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
+
+  "/clientes/{codigoCliente}/cobranzas/seguimientos":
+    post:
+      summary: registra un seguimiento de cobro realizado a un cliente
+      description: Registra un seguimiento para el cobro de la deuda de un cliente.
+      operationId: updateSeguimientobyCliente
+      parameters:
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+      requestBody:
+        $ref: "#/components/requestBodies/seguimientoRequest"
+      responses:
+        "200":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/respuestaExitosa"
+        "400":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
+        "401":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
+        "403":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
+        "404":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
+        "422":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
+        "500":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
+    get:
+      summary: seguimientos de cobro a un cliente
+      description: Retorna los gestores asignados al cliente
+      operationId: getAllSeguimientosCliente
+      parameters:
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/limite"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/pagina"
+
+      responses:
+        "200":
+          $ref: "#/components/responses/seguimientosList"
+        "400":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
+        "401":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
+        "403":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
+        "404":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
+        "422":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
+        "500":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
+
+  "/clientes/{codigoCliente}/cobranzas/operaciones/mora":
+    get:
+      summary: Operaciones con días de mora.
+      description: Retorna las operaciones con dias de mora por cliente para la gestión de cobranza.
+      operationId: getAllOperacionesMoraCliente
+      parameters:
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/limite"
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/pagina"
+      responses:
+        "200":
+          $ref: "#/components/responses/gestionOperacionesMora"
+        "400":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
+        "401":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
+        "403":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
+        "404":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
+        "422":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
+        "500":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
 
 components:
-
-
+  schemas:
+    seguimientos:
+      type: object
+      properties:
+        metadata:
+          $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/metadata"
+        registros:
+          type: array
+          items:
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
+    operacionMora:
+      type: object
+      properties:
+        producto:
+          $ref: "#/components/schemas/operacionMoraCliente"
+        deuda:
+          $ref: "#/components/schemas/operMora"
+        codigoSucursal:
+          type: number
+        nroOperacion:
+          type: number
+        fechaOperacion:
+          type: string
+    operacionesMora:
+      properties:
+        metadata:
+          $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/metadata"
+        operacionesMora:
+          type: array
+          items:
+            $ref: "#/components/schemas/operacionMora"
+    operacionMoraCliente:
+      allOf:
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/codeValue"
+        - type: object
+          properties:
+            modalidadProducto:
+              $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/codeValue"
+            tipoProducto:
+              $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/codeValue"
+    operMora:
+      type: object
+      properties:
+        diasMora:
+          type: number
+        fechaVencimiento:
+          type: string
+        deudaVencida:
+          type: number
+        saldoDeuda:
+          type: number
+        fechaAsignacionOperacion:
+          type: string
+        fechaAsignacionFin:
+          type: string
+  requestBodies:
+    seguimientoRequest:
+      content:
+        application/json:
+          schema:
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
+      required: true
   responses:
     cuentaListarResponse:
       description: Listar Cuenta
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cuentaListar'
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/cuentaListar"
     cuentaResponse:
       description: Cuenta
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cuenta'
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/cuenta"
     tarjetaListarResponse:
       description: Listar Tarjeta
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/tarjetaListar'
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/tarjetaListar"
     tarjetaResponse:
       description: Tarjeta
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/tarjetaResponse'
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/tarjetaResponse"
     cdaListarResponse:
       description: Listar CDA
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cdaListar'
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/cdaListar"
     cdaResponse:
       description: CDA
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cdaResponse'
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/cdaResponse"
     prestamoListarResponse:
       description: Listar Prestamos
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/prestamoListar'
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/prestamoListar"
     prestamoResponse:
       description: Prestamo
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/prestamoResponse'
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/prestamoResponse"
     movimientoList:
       description: Cuenta
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/movimientoList'
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/movimientoList"
     prepactadoListar:
       description: lista de operaciones prepactadas
       content:
         application/json:
           schema:
-            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/prepactadoListar'  
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/prepactadoListar"
 
+    gestionDeuda:
+      description: tramo y gestor
+      content:
+        application/json:
+          schema:
+            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
+
+    seguimientosList:
+      description: Lista los eventos de cobranzas realizado por un gestor al clientes.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/seguimientos"
+    gestionOperacionesMora:
+      description: Lista las operaciones en mora por cada cliente para la gestión de cobranza.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/operacionesMora"
   securitySchemes:
     default:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: 'https://test.com'
-          scopes: {}      
-    
+          authorizationUrl: "https://test.com"
+          scopes: {}
