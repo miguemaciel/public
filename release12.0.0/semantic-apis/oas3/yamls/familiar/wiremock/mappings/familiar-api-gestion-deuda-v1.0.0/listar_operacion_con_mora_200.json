@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/clientes/([0-9]+)/cobranzas/operaciones/mora",
+        "urlPath": "/clientes/123-123/cobranzas/operaciones/mora",
         "headers": {
             "Accept": {
                 "matches": "application/json"
