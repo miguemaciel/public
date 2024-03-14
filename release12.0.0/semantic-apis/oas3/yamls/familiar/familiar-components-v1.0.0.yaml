@@ -755,14 +755,14 @@ components:
       in: query
       schema:
         type: number
-      default: 1
+        default: 1
       description: Número de página
     limite: 
       name: limite
       in: query
       schema:
         type: number
-      default: 20
+        default: 20
       description: Cantidad de registros por página
     fechaDesde: 
       name: fechaDesde
