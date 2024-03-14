@@ -1,13 +1,19 @@
 {
+    "priority":2,
     "request": {
-        "method": "POST",
-        "urlPattern": "/clientes/([0-9]+)/productos/cuentas/81-25/movimientos",
+        "method": "GET",
+        "urlPattern": "/clientes/123-123/productos/cuentas/81-25/movimientos",
         
         "headers": {
             "Accept": {
                 "matches": "application/json"
             }
-        }
+        },
+        "queryParameters": {
+            "fechaHasta": {
+              "equalTo": "01/03/2024"
+            }
+          }
     },
     "response": {
         "status": 200,

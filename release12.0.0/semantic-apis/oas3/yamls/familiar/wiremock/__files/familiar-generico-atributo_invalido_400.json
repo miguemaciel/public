@@ -1,6 +1,6 @@
 {
-  "codigo": "400",
-  "tipo": "BadRequest",
-  "mensaje": "Atributo invalido",
-  "descripcion": "El codigo contiene caracteres especiales."
+  "code": "400",
+  "type": "BadRequest",
+  "message": "Atributo invalido",
+  "description": "El codigo contiene caracteres especiales."
 }

@@ -1,6 +1,0 @@
-{
-  "code": "400",
-  "type": "BadRequest",
-  "message": "Atributo invalido",
-  "description": "El codigo de cliente contiene caracteres especiales."
-}

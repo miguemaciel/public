@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "registrosPorPaginas": 2,
-    "cantidadPaginas": 2,
-    "total": 3,
-    "paginaActual": 1
+    "limite": 2,
+    "paginas": 2,
+    "totalRegistros": 3,
+    "pagina": 1
   },
   "registros": [
     {

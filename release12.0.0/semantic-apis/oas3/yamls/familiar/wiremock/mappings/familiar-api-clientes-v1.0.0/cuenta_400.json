@@ -1,7 +1,8 @@
 {
+    "priority":1,
     "request": {
         "method": "GET",
-        "urlPattern": "/clientes/([0-9]+)/productos/cuentas/81-25",
+        "urlPath": "/clientes/123-123/productos/cuentas/81-400",
         "headers": {
             "Accept": {
                 "matches": "application/json"
