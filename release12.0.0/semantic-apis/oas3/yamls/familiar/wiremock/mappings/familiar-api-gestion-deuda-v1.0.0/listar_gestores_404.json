@@ -1,7 +1,8 @@
 {
+   
     "request": {
         "method": "GET",
-        "urlPattern": "/cobranzas/respuestas/etapas/RE",
+        "urlPattern": "/clientes/12345/cobranzas/gestores",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -9,8 +10,8 @@
         }
     },
     "response": {
-        "status": 200,
-        "bodyFileName": "familiar-api-gestion-deuda-v1.0.0_listar_respuestas_200.json",
+        "status": 404,
+        "bodyFileName": "familiar-generico-atributo_no_existe_404.json",
         "headers": {
             "Content-Type": "application/json"
         }

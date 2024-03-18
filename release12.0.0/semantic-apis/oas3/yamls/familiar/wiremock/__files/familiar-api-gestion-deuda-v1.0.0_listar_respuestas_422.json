@@ -1,0 +1,5 @@
+{
+    "codigo": "422",
+    "mensaje": "Error validación",
+    "descripcion": "Etapa no válida. La Etapa no es númerica"
+}

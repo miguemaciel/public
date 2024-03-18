@@ -1,0 +1,5 @@
+{
+    "codigo": "422",
+    "mensaje": "Error validación",
+    "descripcion": "Código de Cliente no válido. El código de cliente no es numérico. "
+}

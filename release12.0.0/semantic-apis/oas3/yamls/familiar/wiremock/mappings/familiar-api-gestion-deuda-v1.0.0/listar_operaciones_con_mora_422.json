@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/cobranzas/respuestas/etapas/RE",
+        "urlPattern": "/clientes/422/cobranzas/operaciones/mora",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -9,8 +9,8 @@
         }
     },
     "response": {
-        "status": 200,
-        "bodyFileName": "familiar-api-gestion-deuda-v1.0.0_listar_respuestas_200.json",
+        "status": 400,
+        "bodyFileName": "familiar-api-gestion-deuda-v1.0.0_listar_operaciones_con_mora_422.json",
         "headers": {
             "Content-Type": "application/json"
         }
