@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: Cotización de Divisas API
+  title: Cotización de Divisas aplicacion
   description: API para obtener taza de cambios.
   contact:
     name: Banco Familiar
@@ -11,7 +11,7 @@ servers:
 security:
   - default: []  
 paths:
-  /cotizaciones/{codigoMoneda}:
+  /cotizaciones/monedas/{codigoMoneda}:
     get:
       summary: Tasa de cambio de todas las sucursales.
       description: Obtiene las tasas de cambio actuales de todas las sucursales desde una moneda base hacia otras monedas. 
@@ -35,7 +35,7 @@ paths:
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
-  /cotizaciones/{codigoMoneda}/sucursales/{sucursal}:
+  /cotizaciones/monedas/{codigoMoneda}/sucursales/{sucursal}:
     get:
       summary: Tasa de cambio de una sucursal
       description: Obtiene las tasas de cambio actuales de una sucursal desde una moneda base hacia otras monedas. 
@@ -60,7 +60,7 @@ paths:
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
 
-  /cotizaciones/{codigoMoneda}/sucursales/{sucursal}/monedas/{codigoMonedaDestino}:
+  /cotizaciones/monedas{codigoMoneda}/sucursales/{sucursal}/monedasDestino/{codigoMonedaDestino}:
     get:    
       summary: Tasa de cambio de una moneda especifica en una sucursal.
       operationId: getCotizacionesSucursalMoneda
@@ -104,7 +104,8 @@ components:
       properties:
         nombreSucursal:
           type: string
-          description: Nombre de la sucursal
+        codigoSucursal:
+          type: string
         cotizaciones:
           type: array 
           items: 

@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPath": "/ffliar/cotizaciones.php"
+    },
+    "response": {
+        "status": 200,
+        "body":"&efectivocompra1=8.180&efectivoventa1=8.320&chequecompra1=8.200&chequeventa1=8.350&efectivocompra2=8.450&efectivoventa2=9.090&chequecompra2=8.600&chequeventa2=9.180&efectivocompra3=2.300&efectivoventa3=2.470&chequecompra3=0&chequeventa3=0&efectivocompra4=1&efectivoventa4=8&chequecompra4=0&chequeventa4=0",
+        "headers": {
+            "Content-Type": "text/html"
+        }
+    }
+}

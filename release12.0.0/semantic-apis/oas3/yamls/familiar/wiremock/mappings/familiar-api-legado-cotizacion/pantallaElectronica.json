@@ -1,0 +1,13 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPath": "/PantallaElectronica_2/ws_pantallaElectronica"
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "familiar-api-legado-cotizacion_pantalla-electronica.xml",
+        "headers": {
+            "Content-Type": "text/xml"
+        }
+    }
+}

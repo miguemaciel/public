@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+    <S:Body>
+        <ns2:sucursalResponse xmlns:ns2="http://pantallaElectronica/">
+            <return>*datos*a=7180.a=7300.a=7400.a=8020.a=1250.a=1450.a=o1.a=o7.</return>
+        </ns2:sucursalResponse>
+    </S:Body>
+</S:Envelope>

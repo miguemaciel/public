@@ -2,7 +2,7 @@
    
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/cotizaciones/NOTFOUND",
+        "urlPattern": "/cotizaciones/monedas/NOTFOUND",
         "headers": {
             "Accept": {
                 "matches": "application/json"

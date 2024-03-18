@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/clientes/888/productos/cuentas",
+        "urlPattern": "/clientes/401/productos/cuentas",
         "headers": {
             "Accept": {
                 "matches": "application/json"

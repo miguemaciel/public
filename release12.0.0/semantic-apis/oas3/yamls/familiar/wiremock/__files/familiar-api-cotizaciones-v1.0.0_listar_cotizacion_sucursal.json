@@ -1,28 +1,30 @@
 {
-  "monedaOrigen": "GS",
-  "sucursales": [
+  "nombreSucursal": "BF",
+  "codigoSucursal": "98",
+  "cotizaciones": [
     {
-      "nombreSucursal": "25 DE MAYO",
-      "cotizaciones": [
-        {
-          "id": "1",
-          "codigo": "USD",
-          "compra": 7000,
-          "venta": 7300
-        },
-        {
-          "id": "2",
-          "codigo": "EUR",
-          "compra": 7600,
-          "venta": 8300
-        },
-        {
-          "id": "5",
-          "codigo": "CHF",
-          "compra": 0,
-          "venta": 0
-        }
-      ]
+      "id": "1",
+      "codigo": "USD",
+      "compra": 7180,
+      "venta": 7320
+    },
+    {
+      "id": "2",
+      "codigo": "EUR",
+      "compra": 7450,
+      "venta": 8090
+    },
+    {
+      "id": "9",
+      "codigo": "BRL",
+      "compra": 1300,
+      "venta": 1470
+    },
+    {
+      "id": "10",
+      "codigo": "ARS",
+      "compra": 1,
+      "venta": 8
     }
   ]
-}  
+}

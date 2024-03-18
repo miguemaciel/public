@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/cotizaciones/EUR/sucursales/401/monedas/GUA",
+        "urlPath": "/cotizaciones/monedas/EUR/sucursales/401/monedas/PYG",
         "headers": {
             "Accept": {
                 "matches": "application/json"

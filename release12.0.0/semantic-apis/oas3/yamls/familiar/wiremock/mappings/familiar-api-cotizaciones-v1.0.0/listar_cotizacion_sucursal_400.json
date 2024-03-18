@@ -2,7 +2,7 @@
     "priority": 2,
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/cotizaciones/EUR/sucursales/400",
+        "urlPattern": "/cotizaciones/monedas/EUR/sucursales/400",
         "headers": {
             "Accept": {
                 "matches": "application/json"

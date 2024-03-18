@@ -1,44 +1,64 @@
 {
-    "monedaOrigen": "GS",
-    "fecha": "28/02/2024 13:59:59",
+    "monedaOrigen": "PYG",
+    "fecha": "2024-02-05 13:59:59",
     "sucursales": [
       {
-        "nombreSucursal": "25 DE MAYO",
+        "nombreSucursal": "CASA MATRIZ",
+        "codigoSucursal": "0",
         "cotizaciones": [
           {
             "id": "1",
             "codigo": "USD",
             "compra": 7000,
-            "venta": 7300
+            "venta": 7400
           },
           {
             "id": "2",
             "codigo": "EUR",
-            "compra": 7600,
-            "venta": 8300
+            "compra": 7650,
+            "venta": 7800
           },
           {
-            "id": "5",
-            "codigo": "CHF",
-            "compra": 0,
-            "venta": 0
+            "id": "9",
+            "codigo": "REA",
+            "compra": 1300,
+            "venta": 1470
+          },
+          {
+            "id": "10",
+            "codigo": "PES",
+            "compra": 1,
+            "venta": 8
           }
         ]
       },
       {
-        "nombreSucursal": "CENTRO",
+        "nombreSucursal": "BF",
+        "codigoSucursal": "98",
         "cotizaciones": [
             {
                 "id": "1",
                 "codigo": "USD",
-                "compra": 7000,
-                "venta": 7300
+                "compra": 7180,
+                "venta": 7320
               },
               {
                 "id": "2",
                 "codigo": "EUR",
-                "compra": 7600,
-                "venta": 8300
+                "compra": 7450,
+                "venta": 8090
+              },
+              {
+                "id": "9",
+                "codigo": "REA",
+                "compra": 1300,
+                "venta": 1470
+              },
+              {
+                "id": "10",
+                "codigo": "PES",
+                "compra": 1,
+                "venta": 8
               }
         ]
       }

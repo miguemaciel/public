@@ -2,7 +2,7 @@
     "priority": 1,
     "request": {
         "method": "GET",
-        "urlPath": "/servicios/v1/contizaciones/USD",
+        "urlPath": "/cotizaciones/monedas/PYG",
         "headers": {
             "Accept": {
                 "matches": "application/json"

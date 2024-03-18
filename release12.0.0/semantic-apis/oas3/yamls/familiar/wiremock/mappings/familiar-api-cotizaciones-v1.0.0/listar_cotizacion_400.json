@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPattern": "/servicios/v1/cotizaciones/123-GUA",
+        "urlPattern": "/cotizaciones/monedas/123-GUA",
         "headers": {
             "Accept": {
                 "matches": "application/json"
