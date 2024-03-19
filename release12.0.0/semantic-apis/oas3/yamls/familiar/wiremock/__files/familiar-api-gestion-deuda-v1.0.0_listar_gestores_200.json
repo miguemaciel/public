@@ -30,5 +30,7 @@
       "etapa": "D2",
       "monto": 688502,
       "estado": "AC"
-    }
+    },
+    "nombreContacto": null,
+    "telefonoContacto": null
 }

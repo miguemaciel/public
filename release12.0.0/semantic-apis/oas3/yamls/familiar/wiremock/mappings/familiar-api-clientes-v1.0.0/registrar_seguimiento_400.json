@@ -1,0 +1,18 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPattern": "/clientes/400/cobranzas/seguimientos",
+        "headers": {
+            "Accept": {
+                "matches": "application/json"
+            }
+        }
+    },
+    "response": {
+        "status": 400,
+        "bodyFileName": "familiar-generico-atributo_invalido_400.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

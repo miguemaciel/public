@@ -1,0 +1,82 @@
+{
+  "metadata": {
+    "limite": 2,
+    "paginas": 5,
+    "totalRegistros": 10,
+    "pagina": 1
+  },
+  "registros": [
+    {
+    "evento": {
+      "codigo": 1,
+      "valor": "Llamada telefónica"
+    },
+    "tigoGestion": {
+      "codigo": 67,
+      "valor": "Calif. 40,41,42,50,51,52 (Urbano/Celular"
+    },
+    "gestor": {
+      "tipoIdentificador": "CodigoGestor",
+      "identificacion": {
+        "codigo": "lrpm",
+        "valor": "LAURA RAQUEL PANIAGUA MARTINEZ",
+        "fechaEmision": null,
+        "fechaVencimiento": null
+      }
+    },
+    "respuesta": {
+      "codigo": 23,
+      "valor": "Promesa de pago"
+    },
+    "fechaEvento": "25/09/2017",
+    "fechaAgendado": "11/09/2017",
+    "fechaContacto": "03/10/2017",
+    "fechaRespuesta": "25/9/2017 13:38:49",
+    "comentario": "aux:0973157933 c/cp ab ptmo 30/9 x bc.-",
+    "codigoMotivoRetraso": 0,
+    "deuda": {
+      "etapa": "RS",
+      "monto": 124220,
+      "estado": "CA"
+    },
+    "nombreContacto": "Cecilia Godoy",
+    "telefonoContacto": "0981258652"
+  },
+  {
+    "evento": {
+      "codigo": 1,
+      "valor": "Llamada telefónica"
+    },
+    "tigoGestion": {
+      "codigo": 67,
+      "valor": "Calif. 40,41,42,50,51,52 (Urbano/Celular"
+    },
+    "gestor": {
+      "tipoIdentificador": "CodigoGestor",
+      "identificacion": {
+        "codigo": "lrpm",
+        "valor": "LAURA RAQUEL PANIAGUA MARTINEZ",
+        "fechaEmision": null,
+        "fechaVencimiento": null
+      }
+    },
+    "respuesta": {
+      "codigo": 23,
+      "valor": "Promesa de pago"
+    },
+    "fechaEvento": "20/09/2017",
+    "fechaAgendado": "11/09/2017",
+    "fechaContacto": "23/09/2017",
+    "fechaRespuesta": "21/9/2017 17:04:00",
+    "comentario": "aux 0973157933 c/cp dic q no tiene el dinero ab el 23/09 x ptmo al facmonto corta.-",
+    "codigoMotivoRetraso": 0,
+    "deuda": {
+      "etapa": "RS",
+      "monto": 124220,
+      "estado": "CA"
+    },
+    "nombreContacto": null,
+    "telefonoContacto": null
+  }
+]
+}

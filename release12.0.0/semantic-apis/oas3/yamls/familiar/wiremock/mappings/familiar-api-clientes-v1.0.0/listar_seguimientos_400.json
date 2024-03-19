@@ -1,7 +1,7 @@
 {
     "request": {
         "method": "GET",
-        "urlPath": "/clientes/123-123/cobranzas/seguimientos",
+        "urlPattern": "/clientes/400/cobranzas/seguimientos",
         "headers": {
             "Accept": {
                 "matches": "application/json"
@@ -9,8 +9,8 @@
         }
     },
     "response": {
-        "status": 200,
-        "bodyFileName": "familiar-api-gestion-deuda-v1.0.0_listar_seguimientos.json",
+        "status": 400,
+        "bodyFileName": "familiar-generico-atributo_invalido_400.json",
         "headers": {
             "Content-Type": "application/json"
         }

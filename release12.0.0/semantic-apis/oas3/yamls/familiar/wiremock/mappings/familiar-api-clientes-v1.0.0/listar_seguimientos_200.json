@@ -1,0 +1,18 @@
+{
+    "request": {
+        "method": "GET",
+        "urlPath": "/clientes/123-123/cobranzas/seguimientos",
+        "headers": {
+            "Accept": {
+                "matches": "application/json"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "familiar-api-clientes-v1.0.0_listar_seguimientos_200.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}
