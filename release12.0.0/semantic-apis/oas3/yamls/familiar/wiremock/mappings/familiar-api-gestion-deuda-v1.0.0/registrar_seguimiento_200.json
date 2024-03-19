@@ -1,0 +1,18 @@
+{
+    "request": {
+        "method": "POST",
+        "urlPath": "/clientes/123-123/cobranzas/seguimientos",
+        "headers": {
+            "Accept": {
+                "matches": "application/json"
+            }
+        }
+    },
+    "response": {
+        "status": 200,
+        "bodyFileName": "familiar-generico-exitoso.json",
+        "headers": {
+            "Content-Type": "application/json"
+        }
+    }
+}

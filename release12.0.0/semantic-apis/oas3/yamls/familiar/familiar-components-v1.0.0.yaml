@@ -493,32 +493,28 @@ components:
           $ref: '#/components/schemas/codeValue'
         gestor:
           $ref: '#/components/schemas/identification'
+        respuesta:
+            $ref: '#/components/schemas/codeValue'
         fechaEvento:
           type: string
         fechaAgendado:
           type: string
+        fechaContacto:
+            type: string
+        fechaRespuesta:
+            type: string  
+        comentario:
+              type: string
+        codigoMotivoRetraso:
+              type: string
         deuda:
           $ref: '#/components/schemas/etapa'
-        contacto:
-          $ref: '#/components/schemas/contactoEvento'
-
-    contactoEvento:
-      type: object
-      properties: 
         nombreContacto:
           type: string
         telefonoContacto:  
           type: string
-        fechaContacto:
-          type: string
-        fechaRespuesta:
-          type: string        
-        comentario:
-          type: string
-        respuesta:
-          $ref: '#/components/schemas/codeValue'
-        codigoMotivoRetraso:
-          type: string
+      
+
 
     registroAuditoria:
       type: object

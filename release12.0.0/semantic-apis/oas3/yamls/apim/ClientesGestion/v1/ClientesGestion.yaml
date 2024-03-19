@@ -1,0 +1,1485 @@
+openapi: 3.0.1
+info:
+  title: ClientesGestion
+  description: >-
+    Servicios relacionados al cliente. Ejemplo: sus productos y servicios,
+    cobranzas, deudas. Configuraciones.
+  contact:
+    name: Banco Familiar
+    email: desarrollo_bf@familiar.com.py
+  version: v1
+servers:
+  - url: 'https://api-test.familiar.com.py'
+security:
+  - default: []
+paths:
+  '/clientes/{codigoCliente}/productos/cuentas':
+    get:
+      summary: Obtener lista de cuentas de un cliente
+      description: >-
+        Obtener informacion sobre todas las cuentas del clientes. Cajas de
+        ahorro, cuentas corrientes, cuentas digitales, etc.
+      operationId: getallcuenta
+      parameters:
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Listar Cuenta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cuentaListar'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/cuentas/{codigoCuenta}':
+    get:
+      summary: Obtener detalles de una cuenta
+      description: >-
+        Obtiene todos los detalles de una cuenta en especifico, sus saldos y
+        configuracion.
+      operationId: getcuenta
+      parameters:
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: codigoCuenta
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Cuenta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cuenta'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/cuentas/{codigoCuenta}/movimientos':
+    get:
+      summary: Movimientos de una cuenta
+      description: Obtiene todos los movimientos de una cuenta de un rango en específico
+      operationId: list
+      parameters:
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: codigoCuenta
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: fechaDesde
+          in: query
+          description: Fecha de inicio de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: fechaHasta
+          in: query
+          description: Fecha de fin de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: limite
+          in: query
+          description: Cantidad de registros por página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
+        - name: pagina
+          in: query
+          description: Número de página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Cuenta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/movimientoList'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/servicios/cotizaciones':
+    get:
+      summary: Obtiene las tasas de cambio prepactada con un cliente
+      description: Devuelve las tasas de cambio prepactada de un cliente
+      operationId: getCotizacioPrepactada
+      parameters:
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: lista de operaciones prepactadas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prepactadoListar'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/cobranzas/gestores':
+    get:
+      summary: Gestor asignado
+      description: Retorna el útlimo gestor asignado al cliente
+      operationId: getAllGestorCliente
+      parameters:
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: tramo y gestor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/evento'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/cobranzas/seguimientos':
+    get:
+      summary: seguimientos de cobro a un cliente
+      description: Retorna los gestores asignados al cliente
+      operationId: getAllSeguimientosCliente
+      parameters:
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: fechaDesde
+          in: query
+          description: Fecha de inicio de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: fechaHasta
+          in: query
+          description: Fecha de fin de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: limite
+          in: query
+          description: Cantidad de registros por página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
+        - name: pagina
+          in: query
+          description: Número de página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: Lista los eventos de cobranzas realizado por un gestor al clientes.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/seguimientos'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+    post:
+      summary: registra un seguimiento de cobro realizado a un cliente
+      description: Registra un seguimiento para el cobro de la deuda de un cliente.
+      operationId: updateSeguimientobyCliente
+      parameters:
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        $ref: '#/components/requestBodies/seguimientoRequest'
+      responses:
+        '200':
+          description: Response generico para alta y actualización de registros.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/respuestaExitosa'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/cobranzas/operaciones/mora':
+    get:
+      summary: Operaciones con días de mora.
+      description: >-
+        Retorna las operaciones con dias de mora por cliente para la gestión de
+        cobranza.
+      operationId: getAllOperacionesMoraCliente
+      parameters:
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: fechaDesde
+          in: query
+          description: Fecha de inicio de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: fechaHasta
+          in: query
+          description: Fecha de fin de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: limite
+          in: query
+          description: Cantidad de registros por página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
+        - name: pagina
+          in: query
+          description: Número de página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
+      responses:
+        '200':
+          description: >-
+            Lista las operaciones en mora por cada cliente para la gestión de
+            cobranza.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operacionesMora'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+components:
+  schemas:
+    seguimientos:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/metadata'
+        registros:
+          type: array
+          items:
+            $ref: '#/components/schemas/evento'
+    operacionMora:
+      type: object
+      properties:
+        producto:
+          $ref: '#/components/schemas/operacionMoraCliente'
+        deuda:
+          $ref: '#/components/schemas/operMora'
+        codigoSucursal:
+          type: number
+        nroOperacion:
+          type: number
+        fechaOperacion:
+          type: string
+    operacionesMora:
+      properties:
+        metadata:
+          $ref: '#/components/schemas/metadata'
+        operacionesMora:
+          type: array
+          items:
+            $ref: '#/components/schemas/operacionMora'
+    operacionMoraCliente:
+      allOf:
+        - $ref: '#/components/schemas/codeValue'
+        - type: object
+          properties:
+            modalidadProducto:
+              $ref: '#/components/schemas/codeValue'
+            tipoProducto:
+              $ref: '#/components/schemas/codeValue'
+    operMora:
+      type: object
+      properties:
+        diasMora:
+          type: number
+        fechaVencimiento:
+          type: string
+        deudaVencida:
+          type: number
+        saldoDeuda:
+          type: number
+        fechaAsignacionOperacion:
+          type: string
+        fechaAsignacionFin:
+          type: string
+    cuentaListar:
+      type: object
+      properties:
+        cuentas:
+          type: array
+          items:
+            $ref: '#/components/schemas/cuenta'
+    cuenta:
+      required:
+        - balance
+        - estadoCuenta
+        - identificacion
+        - moneda
+        - producto
+        - relacion
+      type: object
+      properties:
+        estadoCuenta:
+          $ref: '#/components/schemas/estadocuenta'
+        identificacionCuenta:
+          $ref: '#/components/schemas/identification'
+        fecha:
+          $ref: '#/components/schemas/accountdate'
+        producto:
+          $ref: '#/components/schemas/producttype'
+        relacion:
+          $ref: '#/components/schemas/codeValue'
+        categoria:
+          $ref: '#/components/schemas/codeValue'
+        moneda:
+          $ref: '#/components/schemas/accountcurrency'
+        balance:
+          type: array
+          items:
+            $ref: '#/components/schemas/productbalance'
+        alias:
+          $ref: '#/components/schemas/alias'
+        combinada:
+          type: string
+          description: Indica si la cuenta es transaccionable o no.
+      description: >-
+        Details of the linked account Account|Account 
+        (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022
+        BM ()
+    estadocuenta:
+      required:
+        - tipoEstado
+      type: object
+      properties:
+        estado:
+          $ref: '#/components/schemas/codeValue'
+        tipoEstado:
+          $ref: '#/components/schemas/accountstatustypevalues'
+      description: >-
+        A characteristic of account which refers to the LifecycleStatus of
+        account like opened, closed, blocked, etc.
+
+
+        Specifies the current state of an account. (ISO20022)
+    codeValue:
+      required:
+        - codigo
+        - valor
+      type: object
+      properties:
+        codigo:
+          type: string
+          description: Abreviatura o codigo
+        valor:
+          type: string
+          description: Valor o descripcion del codigo
+      description: >-
+        The tracked status (e.g. under construction or repair, inhabited,
+        vacant).
+    accountstatustypevalues:
+      type: string
+      description: ">\r\n* `Enabled` - Account can be used for its intended purpose.\r\n* `Disabled` - Account cannot be used for its intended purpose, either temporarily or permanently.\r\n* `Deleted` - Account cannot be used any longer.\r\n* `Proforma` - Account is temporary and can be partially used for its intended purpose. The account will be fully available for use when the account servicer has received all relevant documents.\r\n* `Pending` - Account change is pending approval.\r\n"
+      enum:
+        - Activa
+        - Inactiva
+        - Deshabilitada
+        - Eliminada
+        - Proforma
+        - Pendiente
+    identification:
+      type: object
+      properties:
+        tipoIdentificador:
+          $ref: '#/components/schemas/identificationtypevalues'
+        identificacion:
+          $ref: '#/components/schemas/identifier'
+      description: >-
+        The associated account number in any suitable format (e.g. IBAN)
+        AccountIdentification |AccountIdentification 
+        (https://www.iso20022.org/standardsrepository/type/AccountIdentification)|Standard|ISO20022
+        BM ()
+    identificationtypevalues:
+      type: string
+      description: ">\r\n* `BBAN` - Basic Bank Account Number (BBAN) - identifier used nationally by financial institutions, ie, in individual countries, generally as part of a National Account Numbering Scheme(s), to uniquely identify the account of a customer. (ISO20022)\n\n.\r\n* `IBAN` - International Bank Account Number (IBAN) - identifier used internationally by financial institutions to uniquely identify the account of a customer. Further specifications of the format and content of the IBAN can be found in the standard ISO 13616 \"Banking and related financial services - International Bank Account Number (IBAN)\" version 1997-10-01, or later revisions. (ISO20022)\n\nAn identifier used internationally by financial institutions to uniquely identify the account of a customer at a financial institution, as described in the latest edition of the international standard ISO 13616. \"Banking and related financial services - International Bank Account Number (IBAN)\". (OBExternalAccountIdentification4Code)\r\n* `UPIC` - Universal Payment Identification Code (UPIC) - identifier used by the New York Clearing House to mask confidential data, such as bank accounts and bank routing numbers. UPIC numbers remain with business customers, regardless of banking relationship changes. (ISO20022)\r\n* `AccountNumber` - String of characters (mainly numbers) used to identify an account.(ISO20022)\n\nSort Code and Account Number - identifier scheme used in the UK by financial institutions to identify the account of a customer. The identifier is the concatenation of the 6 digit UK sort code and 8 digit account number. (OBExternalAccountIdentification4Code)\nThe regular expression for this identifier is: ^[0-9]{6}[0-9]{8}$\r\n* `PAN` - Primary Account Number - identifier scheme used to identify a card account. (OBExternalAccountIdentification4Code)\r\n* `Paym` - Paym Scheme to make payments via mobile (OBExternalAccountIdentification4Code)\r\n* `Wallet` - A primary and unique account identifier used to identify a wallet.\nAn ASPSP must document on their developer portal, the payment methods that supports this account identifier.(OBExternalAccountIdentification4Code)\r\n"
+      enum:
+        - NumeroCuenta
+        - CodigoGestor
+        - NumeroTarjeta
+        - NumeroDocumento
+        - CodigoCLiente
+    identifier:
+      type: object
+      properties:
+        codigo:
+          type: string
+        valor:
+          type: string
+        fechaEmision:
+          type: string
+        fechaVencimiento:
+          type: string
+      description: >-
+        Identifier within the parent organisation for the product. Must be
+        unique in the organisation. GenericIdentification|GenericIdentification
+        (https://www.iso20022.org/standardsrepository/type/GenericIdentification)|Standard|ISO20022
+        BM ()
+    accountdate:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/accountdatetypevalues'
+        fecha:
+          type: string
+      description: Fecha y tipo
+    accountdatetypevalues:
+      type: string
+      description: >-
+        Type of key dates associated with the account (e.g. opening date,
+        closing date) Account/OpeningDate|Account/OpeningDate
+        (https://www.iso20022.org/standardsrepository/type/Account)|Standard|ISO20022
+        BM ()
+      enum:
+        - FechaApertura
+        - FechaCierre
+        - FechaBloqueo
+        - FechaMadurez
+        - FechaActivacion
+        - FechaExpiracion
+        - FechaUltimoCirerreTarjeta
+        - FechaExpiracionDeuda
+        - FechaEmision
+        - FechaOperacion
+        - FechaExpiracionProximoPago
+    producttype:
+      type: object
+      properties:
+        tipo:
+          $ref: '#/components/schemas/producttypevalues'
+        codigo:
+          type: string
+        nombre:
+          type: string
+      description: >-
+        Specifies the category of account like payment account, loan account,
+        cash account, securities account, etc. 
+    producttypevalues:
+      type: string
+      description: >-
+        The type of current account (e.g. checking, student, small business)
+        OBExternalAccountSubType1Code| ()|Standard|UK Open Banking ()
+      enum:
+        - CajaAhorro
+        - CuentaCorriente
+        - CuentaDebito
+        - CuentaCredito
+        - CuentaPagoSalario
+        - CuentaEfectivo
+        - CuentaPrestamo
+        - CDA
+        - Prestamo
+        - TarjetaDeCredito
+    accountcurrency:
+      type: object
+      properties:
+        id:
+          type: string
+        codigo:
+          type: string
+      description: >-
+        The primary account currency CurrencyCode|CurrencyCode
+        (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022
+        BM ()
+    productbalance:
+      required:
+        - saldo
+        - tipo
+      type: object
+      properties:
+        monto:
+          type: string
+        saldo:
+          type: string
+        tipo:
+          $ref: '#/components/schemas/balancetypevalues'
+        fecha:
+          type: string
+        indicador:
+          $ref: '#/components/schemas/debitcreditindicatortvalues'
+      description: ' Balance|Balance (https://www.iso20022.org/standardsrepository/type/Balance)|Standard|ISO20022 BM ()'
+    balancetypevalues:
+      type: string
+      enum:
+        - SaldoDisponible
+        - SaldoActual
+        - SaldoRetenido
+        - SaldoBloqueado
+        - Sobregiro
+        - LineaCredito
+        - LineaCreditoDisponible
+        - DeudaTotal
+        - PagoMinimoActual
+        - DeudaAnterior
+        - CantidadCapital
+        - CantidadInteres
+        - InteresPagado
+        - MontoPrestamo
+        - SaldoPrestamo
+        - DeudaExpirada
+        - CuotaMensuak
+        - InteresMora
+        - GastosCobro
+        - UltimaCuota
+    debitcreditindicatortvalues:
+      type: string
+      description: ">\r\n* `Debit` - Transaction is a debt entry\r\n* `Credit` - Transaction is a credit entry\r\n"
+      enum:
+        - Debito
+        - Credito
+    alias:
+      type: object
+      properties:
+        tipo:
+          type: string
+        alias:
+          type: string
+    httpError:
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Codigo HTTP de la respuesta
+          format: string
+        type:
+          type: string
+          description: Nombre de la respuesta HTTP
+          format: string
+        message:
+          type: string
+          description: Mensaje de la aplicacion
+          format: string
+        description:
+          type: string
+          description: Descripcion del error o validacion para el usuario
+          format: string
+      description: Atributos de un mensaje de error generico
+    movimientoList:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/metadata'
+        registros:
+          type: array
+          items:
+            $ref: '#/components/schemas/registroTransaccion'
+    metadata:
+      type: object
+      properties:
+        limite:
+          type: integer
+          description: Indica la cantidad de registros por página.
+        paginas:
+          type: integer
+          description: Indica la cantidad total de páginas.
+        totalRegistros:
+          type: integer
+          description: Indica la cantidad total de registros que retorna la consulta.
+        pagina:
+          type: integer
+          description: Indica la pagina actual de consulta
+    registroTransaccion:
+      type: object
+      properties:
+        transaccion:
+          $ref: '#/components/schemas/transaccion'
+        movimiento:
+          $ref: '#/components/schemas/movimiento'
+        transferencia:
+          $ref: '#/components/schemas/transferencia'
+        saldo:
+          $ref: '#/components/schemas/productbalance'
+        moneda:
+          $ref: '#/components/schemas/accountcurrency'
+    transaccion:
+      type: object
+      properties:
+        fechaConfirmacion:
+          type: string
+        fechaTransaccion:
+          type: string
+        numero:
+          type: string
+        descripcion:
+          type: string
+    movimiento:
+      type: object
+      properties:
+        id:
+          type: string
+        codigo:
+          type: string
+        descripcion:
+          type: string
+    transferencia:
+      type: object
+      properties:
+        referencia:
+          type: string
+        banco:
+          type: string
+        cuenta:
+          type: string
+        nombre:
+          type: string
+        documento:
+          type: string
+    prepactadoListar:
+      type: object
+      properties:
+        movimientos:
+          type: array
+          items:
+            $ref: '#/components/schemas/prepactado'
+    prepactado:
+      type: object
+      properties:
+        identificador:
+          type: string
+        codigoCliente:
+          type: string
+        monedaBase:
+          type: string
+        monedaDestino:
+          type: string
+        monto:
+          type: string
+        fecha:
+          type: string
+        estado:
+          type: string
+    evento:
+      type: object
+      properties:
+        evento:
+          $ref: '#/components/schemas/codeValue'
+        tigoGestion:
+          $ref: '#/components/schemas/codeValue'
+        gestor:
+          $ref: '#/components/schemas/identification'
+        fechaEvento:
+          type: string
+        fechaAgendado:
+          type: string
+        deuda:
+          $ref: '#/components/schemas/etapa'
+        contacto:
+          $ref: '#/components/schemas/contactoEvento'
+    etapa:
+      type: object
+      properties:
+        etapa:
+          type: string
+          description: Etapa de la deuda asignado al cliente
+        monto:
+          type: string
+          description: Monto de la deuda en la etapa
+        estado:
+          type: string
+          description: Estado de la deuda en la etapa
+    contactoEvento:
+      type: object
+      properties:
+        nombreContacto:
+          type: string
+        telefonoContacto:
+          type: string
+        fechaContacto:
+          type: string
+        fechaRespuesta:
+          type: string
+        comentario:
+          type: string
+        respuesta:
+          $ref: '#/components/schemas/codeValue'
+        codigoMotivoRetraso:
+          type: string
+    respuestaExitosa:
+      type: object
+      properties:
+        codigo:
+          type: string
+          description: >-
+            Identificador del registro/actualizacion. Ejemplo, sequence en caso
+            de insert, o codigo en caso de update.
+        mensaje:
+          type: string
+          description: mensaje referente al cambio insertado/actualizado.
+    tarjetaListar:
+      type: array
+      items:
+        $ref: '#/components/schemas/tarjetaResponse'
+    tarjetaResponse:
+      type: object
+      properties:
+        tarjeta:
+          $ref: '#/components/schemas/tarjeta'
+        balances:
+          type: array
+          items:
+            $ref: '#/components/schemas/productbalance'
+        fechas:
+          type: array
+          items:
+            $ref: '#/components/schemas/accountdate'
+        adherentes:
+          type: array
+          items:
+            $ref: '#/components/schemas/tarjeta'
+    tarjeta:
+      allOf:
+        - $ref: '#/components/schemas/producto'
+        - type: object
+          properties:
+            identificacion:
+              $ref: '#/components/schemas/tarjetaIdentificacion'
+            pagable:
+              type: boolean
+            configurable:
+              type: boolean
+    producto:
+      type: object
+      properties:
+        identificacionCuenta:
+          $ref: '#/components/schemas/identification'
+        producto:
+          $ref: '#/components/schemas/producttype'
+        moneda:
+          $ref: '#/components/schemas/accountcurrency'
+    tarjetaIdentificacion:
+      type: object
+      properties:
+        cuenta:
+          $ref: '#/components/schemas/identification'
+        cliente:
+          $ref: '#/components/schemas/identification'
+        tarjeta:
+          $ref: '#/components/schemas/identification'
+        tipo:
+          type: string
+    cdaListar:
+      type: object
+      properties:
+        cuentas:
+          type: array
+          items:
+            $ref: '#/components/schemas/cdaResponse'
+    cdaResponse:
+      type: object
+      properties:
+        cda:
+          $ref: '#/components/schemas/cda'
+        balance:
+          type: object
+          properties:
+            saldos:
+              type: array
+              items:
+                $ref: '#/components/schemas/productbalance'
+        fechas:
+          type: object
+          properties:
+            fecha:
+              type: array
+              items:
+                $ref: '#/components/schemas/accountdate'
+    cda:
+      allOf:
+        - $ref: '#/components/schemas/producto'
+        - type: object
+          properties:
+            serie:
+              type: string
+            externalId:
+              type: string
+            plazo:
+              type: string
+    prestamoListar:
+      type: object
+      properties:
+        cuentas:
+          type: array
+          items:
+            $ref: '#/components/schemas/prestamoResponse'
+    prestamoResponse:
+      type: object
+      properties:
+        prestamo:
+          $ref: '#/components/schemas/prestamo'
+        balance:
+          type: object
+          properties:
+            saldos:
+              type: array
+              items:
+                $ref: '#/components/schemas/productbalance'
+        fechas:
+          type: object
+          properties:
+            fechas:
+              type: array
+              items:
+                $ref: '#/components/schemas/accountdate'
+    prestamo:
+      allOf:
+        - $ref: '#/components/schemas/producto'
+        - type: object
+          properties:
+            serie: {}
+            mensaje:
+              type: string
+            modalidad:
+              type: string
+            numeroCuotas:
+              type: string
+            diasAtraso:
+              type: string
+            plazo:
+              type: string
+  responses:
+    cuentaListarResponse:
+      description: Listar Cuenta
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/cuentaListar'
+    cuentaResponse:
+      description: Cuenta
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/cuenta'
+    tarjetaListarResponse:
+      description: Listar Tarjeta
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/tarjetaListar'
+    tarjetaResponse:
+      description: Tarjeta
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/tarjetaResponse'
+    cdaListarResponse:
+      description: Listar CDA
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/cdaListar'
+    cdaResponse:
+      description: CDA
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/cdaResponse'
+    prestamoListarResponse:
+      description: Listar Prestamos
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/prestamoListar'
+    prestamoResponse:
+      description: Prestamo
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/prestamoResponse'
+    movimientoList:
+      description: Cuenta
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/movimientoList'
+    prepactadoListar:
+      description: lista de operaciones prepactadas
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/prepactadoListar'
+    gestionDeuda:
+      description: tramo y gestor
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/evento'
+    seguimientosList:
+      description: Lista los eventos de cobranzas realizado por un gestor al clientes.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/seguimientos'
+    gestionOperacionesMora:
+      description: >-
+        Lista las operaciones en mora por cada cliente para la gestión de
+        cobranza.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/operacionesMora'
+    BadRequest:
+      description: BadRequest
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/httpError'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/httpError'
+    Forbidden:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/httpError'
+    NotFound:
+      description: NotFound
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/httpError'
+    UnprocessableEntity:
+      description: TooManyRequests
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/httpError'
+    InternalServerError:
+      description: InternalServerError
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/httpError'
+    respuestaExitosa:
+      description: Response generico para alta y actualización de registros.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/respuestaExitosa'
+  parameters:
+    codigoCliente:
+      name: codigoCliente
+      in: path
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+    codigoCuenta:
+      name: codigoCuenta
+      in: path
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: string
+    fechaDesde:
+      name: fechaDesde
+      in: query
+      description: Fecha de inicio de búsqueda
+      required: true
+      style: form
+      explode: true
+      schema:
+        type: string
+    fechaHasta:
+      name: fechaHasta
+      in: query
+      description: Fecha de fin de búsqueda
+      required: true
+      style: form
+      explode: true
+      schema:
+        type: string
+    limite:
+      name: limite
+      in: query
+      description: Cantidad de registros por página
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: number
+    pagina:
+      name: pagina
+      in: query
+      description: Número de página
+      required: false
+      style: form
+      explode: true
+      schema:
+        type: number
+  requestBodies:
+    seguimientoRequest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/evento'
+      required: true
+  securitySchemes:
+    default:
+      type: oauth2
+      flows:
+        implicit:
+          authorizationUrl: 'https://test.com'
+          scopes: {}
+x-wso2-auth-header: Authorization
+x-wso2-cors:
+  corsConfigurationEnabled: false
+  accessControlAllowOrigins:
+    - '*'
+  accessControlAllowCredentials: false
+  accessControlAllowHeaders:
+    - authorization
+    - Access-Control-Allow-Origin
+    - Content-Type
+    - SOAPAction
+    - apikey
+    - Internal-Key
+  accessControlAllowMethods:
+    - GET
+    - PUT
+    - POST
+    - DELETE
+    - PATCH
+    - OPTIONS
+x-wso2-production-endpoints:
+  urls:
+    - 'http://tl-mock-as1.bfamiliar.com.py:9080'
+  type: http
+x-wso2-sandbox-endpoints:
+  urls:
+    - 'http://tl-mock-as1.bfamiliar.com.py:9080'
+  type: http
+x-wso2-basePath: /clientesGestion/v1
+x-wso2-transports:
+  - http
+  - https
+x-wso2-application-security:
+  security-types:
+    - oauth2
+    - api_key
+  optional: false
+x-wso2-response-cache:
+  enabled: false
+  cacheTimeoutInSeconds: 300
