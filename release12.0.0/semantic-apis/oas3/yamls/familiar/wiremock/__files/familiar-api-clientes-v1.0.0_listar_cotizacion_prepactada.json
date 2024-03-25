@@ -7,7 +7,11 @@
         "monedaDestino": "USD",
         "monto": "7300",
         "fecha": "2023-11-06T08:58:32Z",
-        "estado": "PL"
+        "estado": "PL",
+        "tipoOperacion": {
+          "codigo": "12",
+          "valor": "VENTA TRANSFERENCIA"
+        }
       },
       {
         "identificador": "193",
@@ -16,7 +20,11 @@
         "monedaDestino": "USD",
         "monto": "7290",
         "fecha": "2023-11-05T08:58:32Z",
-        "estado": "PL"
+        "estado": "PL",
+        "tipoOperacion": {
+          "codigo": "12",
+          "valor": "VENTA TRANSFERENCIA"
+        }
       }
     ]
   }

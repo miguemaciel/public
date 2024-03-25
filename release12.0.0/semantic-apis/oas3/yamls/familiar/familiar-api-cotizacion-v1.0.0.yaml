@@ -98,6 +98,8 @@ components:
               type: number
             venta:
               type: number
+            tipoOperacion:
+              $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
 
     sucursales:
       type: object

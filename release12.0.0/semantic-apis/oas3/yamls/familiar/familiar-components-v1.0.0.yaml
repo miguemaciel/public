@@ -347,6 +347,8 @@ components:
           type: string
         codigo:
           type: string
+        descripcion:
+          type: string
       description: The primary account currency CurrencyCode|CurrencyCode (https://www.iso20022.org/standardsrepository/type/CurrencyCode)|Standard|ISO20022 BM ()
     alias:
       type: object
@@ -484,6 +486,8 @@ components:
             type: string
           estado:
             type: string
+          tipoOperacion:
+            $ref: '#/components/schemas/codeValue'
     evento:
       type: object
       properties:
@@ -514,8 +518,10 @@ components:
         telefonoContacto:  
           type: string
         fechaAsignacionInicial:
-          type: string
-        
+            type: string
+      
+
+
     registroAuditoria:
       type: object
       properties:
@@ -639,7 +645,7 @@ components:
         - type: object
           properties:
             serie:
-              plan: string
+              type: string
             mensaje:
               type: string
             modalidad:

@@ -10,25 +10,51 @@
             "id": "1",
             "codigo": "USD",
             "compra": 7000,
-            "venta": 7400
+            "venta": 7400,
+            "tipoOperacion": {
+                "codigo": "12",
+                "valor": "VENTA TRANSFERENCIA"
+            }
+          },
+          {
+            "id": "1",
+            "codigo": "USD",
+            "compra": 7000,
+            "venta": 7410,
+            "tipoOperacion": {
+                "codigo": "16",
+                "valor": "COMPRA TRANSFERENCIA - WEB"
+            }
           },
           {
             "id": "2",
             "codigo": "EUR",
             "compra": 7650,
-            "venta": 7800
-          },
+            "venta": 7800,
+            "tipoOperacion": {
+              "codigo": "12",
+              "valor": "VENTA TRANSFERENCIA"
+            }
+          }, 
           {
             "id": "9",
             "codigo": "REA",
             "compra": 1300,
-            "venta": 1470
+            "venta": 1470,
+            "tipoOperacion": {
+              "codigo": "12",
+              "valor": "VENTA TRANSFERENCIA"
+            }
           },
           {
             "id": "10",
             "codigo": "PES",
             "compra": 1,
-            "venta": 8
+            "venta": 8,
+            "tipoOperacion": {
+              "codigo": "12",
+              "valor": "VENTA TRANSFERENCIA"
+            }
           }
         ]
       },
@@ -40,25 +66,41 @@
                 "id": "1",
                 "codigo": "USD",
                 "compra": 7180,
-                "venta": 7320
+                "venta": 7320,
+                "tipoOperacion": {
+                  "codigo": "12",
+                  "valor": "VENTA TRANSFERENCIA"
+                }
               },
               {
                 "id": "2",
                 "codigo": "EUR",
                 "compra": 7450,
-                "venta": 8090
+                "venta": 8090,
+                "tipoOperacion": {
+                  "codigo": "12",
+                  "valor": "VENTA TRANSFERENCIA"
+                }
               },
               {
                 "id": "9",
                 "codigo": "REA",
                 "compra": 1300,
-                "venta": 1470
+                "venta": 1470,
+                "tipoOperacion": {
+                  "codigo": "12",
+                  "valor": "VENTA TRANSFERENCIA"
+                }
               },
               {
                 "id": "10",
                 "codigo": "PES",
                 "compra": 1,
-                "venta": 8
+                "venta": 8,
+                "tipoOperacion": {
+                  "codigo": "12",
+                  "valor": "VENTA TRANSFERENCIA"
+                }
               }
         ]
       }

@@ -2,5 +2,9 @@
   "id": "1",
   "codigo": "USD",
   "compra": 7000,
-  "venta": 7300
+  "venta": 7300,
+  "tipoOperacion": {
+    "codigo": "12",
+    "valor": "VENTA TRANSFERENCIA"
+  }
 }

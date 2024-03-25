@@ -2,29 +2,45 @@
   "nombreSucursal": "BF",
   "codigoSucursal": "98",
   "cotizaciones": [
-    {
-      "id": "1",
-      "codigo": "USD",
-      "compra": 7180,
-      "venta": 7320
-    },
-    {
-      "id": "2",
-      "codigo": "EUR",
-      "compra": 7450,
-      "venta": 8090
-    },
-    {
-      "id": "9",
-      "codigo": "BRL",
-      "compra": 1300,
-      "venta": 1470
-    },
-    {
-      "id": "10",
-      "codigo": "ARS",
-      "compra": 1,
-      "venta": 8
-    }
+      {
+          "id": "1",
+          "codigo": "USD",
+          "compra": 7180,
+          "venta": 7320,
+          "tipoOperacion": {
+            "codigo": "12",
+            "valor": "VENTA TRANSFERENCIA"
+          }
+        },
+        {
+          "id": "2",
+          "codigo": "EUR",
+          "compra": 7450,
+          "venta": 8090,
+          "tipoOperacion": {
+            "codigo": "12",
+            "valor": "VENTA TRANSFERENCIA"
+          }
+        },
+        {
+          "id": "9",
+          "codigo": "REA",
+          "compra": 1300,
+          "venta": 1470,
+          "tipoOperacion": {
+            "codigo": "12",
+            "valor": "VENTA TRANSFERENCIA"
+          }
+        },
+        {
+          "id": "10",
+          "codigo": "PES",
+          "compra": 1,
+          "venta": 8,
+          "tipoOperacion": {
+            "codigo": "12",
+            "valor": "VENTA TRANSFERENCIA"
+          }
+        }
   ]
 }
