@@ -40,7 +40,8 @@
       "estado": "CA"
     },
     "nombreContacto": "Cecilia Godoy",
-    "telefonoContacto": "0981258652"
+    "telefonoContacto": "0981258652",
+    "fechaAsignacionInicial": "15/02/2023"
   },
   {
     "evento": {
@@ -76,7 +77,8 @@
       "estado": "CA"
     },
     "nombreContacto": null,
-    "telefonoContacto": null
+    "telefonoContacto": null,
+    "fechaAsignacionInicial": "15/02/2023"
   }
 ]
 }

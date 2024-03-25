@@ -32,5 +32,6 @@
       "estado": "AC"
     },
     "nombreContacto": null,
-    "telefonoContacto": null
+    "telefonoContacto": null,
+    "fechaAsignacionInicial": "15/02/2023"
 }

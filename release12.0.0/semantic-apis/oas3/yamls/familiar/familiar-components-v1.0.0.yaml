@@ -513,9 +513,9 @@ components:
           type: string
         telefonoContacto:  
           type: string
-      
-
-
+        fechaAsignacionInicial:
+          type: string
+        
     registroAuditoria:
       type: object
       properties:

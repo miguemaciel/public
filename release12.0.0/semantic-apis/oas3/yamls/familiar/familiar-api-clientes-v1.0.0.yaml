@@ -494,6 +494,31 @@ paths:
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
         '500':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
+  
+  "/clientes/{codigoCliente}/cobranzas/asignaciones/gestores":
+    post:
+      summary: Asigna un gestor a un cliente en la gestión de cobranzas. 
+      description: Registra y asigna un gestor a un cliente en la gestón de cobranzas. 
+      operationId: updateAsignacionGestorbyCliente
+      parameters:
+        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+      requestBody:
+        $ref: "#/components/requestBodies/asignarGestorRequest"
+      responses:
+        "200":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/respuestaExitosa"
+        "400":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
+        "401":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
+        "403":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
+        "404":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
+        "422":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
+        "500":
+          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
         
 components:
   schemas:
@@ -551,13 +576,25 @@ components:
           type: string
         fechaAsignacionFin:
           type: string
+  
+       
   requestBodies:
     seguimientoRequest:
       content:
         application/json:
           schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
-      required: true
+           allOf:
+             - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
+             - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/registroAuditoria"
+               required: true
+    asignarGestorRequest:
+      content:
+        application/json:
+          schema:
+            allOf:
+             - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
+             - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/registroAuditoria"
+               required: true
   responses:
     cuentaListarResponse:
       description: Listar Cuenta
