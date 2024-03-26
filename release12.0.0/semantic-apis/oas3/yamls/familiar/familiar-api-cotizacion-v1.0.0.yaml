@@ -73,7 +73,7 @@ paths:
 
       responses:
         '200':
-          $ref: '#/components/responses/moneda'
+          $ref: '#/components/responses/cotizaciones'
         '400':
           $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
         '401':
@@ -89,17 +89,17 @@ paths:
 
 components:
   schemas:
-    moneda:
-      allOf:
-        - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/accountcurrency'
-        - type: object
-          properties:
-            compra:
-              type: number
-            venta:
-              type: number
-            tipoOperacion:
-              $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
+    cotizacion:
+      type: object
+      properties:
+        moneda:
+          $ref: './familiar-components-v1.0.0.yaml#/components/schemas/accountcurrency'
+        compra:
+          type: number
+        venta:
+          type: number
+        tipoOperacion:
+          type: string
 
     sucursales:
       type: object
@@ -111,7 +111,7 @@ components:
         cotizaciones:
           type: array 
           items: 
-            $ref: '#/components/schemas/moneda'
+            $ref: '#/components/schemas/cotizacion'
 
     pizarra:
       type: object
@@ -171,12 +171,12 @@ components:
           schema:
             $ref: '#/components/schemas/sucursales'
 
-    moneda:
+    cotizaciones:
       description: moneda
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/moneda'   
+            $ref: '#/components/schemas/cotizacion'   
     
 
   securitySchemes:

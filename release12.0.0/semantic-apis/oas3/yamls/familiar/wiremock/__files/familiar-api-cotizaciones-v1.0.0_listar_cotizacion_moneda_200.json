@@ -1,10 +1,10 @@
 {
-  "id": "1",
-  "codigo": "USD",
-  "compra": 7000,
-  "venta": 7300,
-  "tipoOperacion": {
-    "codigo": "12",
-    "valor": "VENTA TRANSFERENCIA"
-  }
+  "moneda": {
+    "id": "1",
+    "codigo": "USD",
+    "descripcion": "DOLARES AMERICANOS"
+  },
+  "compra": 7200,
+  "venta": 7380,
+  "tipoOperacion": "EFECTIVO"
 }

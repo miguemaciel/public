@@ -7,28 +7,64 @@
       "codigoSucursal": "0",
       "cotizaciones": [
         {
-          "id": "1",
-          "codigo": "USD",
-          "compra": 7000,
-          "venta": 7400
+          "moneda": {
+            "id": "1",
+            "codigo": "USD",
+            "descripcion": "DOLARES AMERICANOS"
+          },
+          "compra": 7200,
+          "venta": 7380,
+          "tipoOperacion": "EFECTIVO"
         },
         {
-          "id": "2",
-          "codigo": "EUR",
-          "compra": 7650,
-          "venta": 7800
+          "moneda": {
+            "id": "1",
+            "codigo": "USD",
+            "descripcion": "DOLARES AMERICANOS"
+          },
+          "compra": 7280,
+          "venta": 7430,
+          "tipoOperacion": "CHEQUE"
         },
         {
-          "id": "9",
-          "codigo": "REA",
+          "moneda": {
+            "id": "2",
+            "codigo": "EUR",
+            "descripcion": "EUROS"
+          },
+          "compra": 7600,
+          "venta": 8250,
+          "tipoOperacion": "EFECTIVO"
+        }, 
+        {
+          "moneda": {
+            "id": "2",
+            "codigo": "EUR",
+            "descripcion": "EUROS"
+          },
+          "compra": 7660,
+          "venta": 8250,
+          "tipoOperacion": "CHEQUE"
+        },
+        {
+          "moneda": {
+            "id": "9",
+            "codigo": "BRL",
+            "descripcion": "REALES"
+          },
           "compra": 1300,
-          "venta": 1470
+          "venta": 1470,
+          "tipoOperacion": "EFECTIVO"
         },
         {
-          "id": "10",
-          "codigo": "PES",
+          "moneda": {
+            "id": "10",
+            "codigo": "ARS",
+            "descripcion": "PESO ARGENTINO"
+          },
           "compra": 1,
-          "venta": 8
+          "venta": 8,
+          "tipoOperacion": "EFECTIVO"
         }
       ]
     },
@@ -36,30 +72,66 @@
       "nombreSucursal": "BF",
       "codigoSucursal": "98",
       "cotizaciones": [
-          {
-              "id": "1",
-              "codigo": "USD",
-              "compra": 7180,
-              "venta": 7320
-            },
-            {
-              "id": "2",
-              "codigo": "EUR",
-              "compra": 7450,
-              "venta": 8090
-            },
-            {
-              "id": "9",
-              "codigo": "REA",
-              "compra": 1300,
-              "venta": 1470
-            },
-            {
-              "id": "10",
-              "codigo": "PES",
-              "compra": 1,
-              "venta": 8
-            }
+        {
+          "moneda": {
+            "id": "1",
+            "codigo": "USD",
+            "descripcion": "DOLARES AMERICANOS"
+          },
+          "compra": 7200,
+          "venta": 7380,
+          "tipoOperacion": "EFECTIVO"
+        },
+        {
+          "moneda": {
+            "id": "1",
+            "codigo": "USD",
+            "descripcion": "DOLARES AMERICANOS"
+          },
+          "compra": 7280,
+          "venta": 7430,
+          "tipoOperacion": "CHEQUE"
+        },
+        {
+          "moneda": {
+            "id": "2",
+            "codigo": "EUR",
+            "descripcion": "EUROS"
+          },
+          "compra": 7600,
+          "venta": 8250,
+          "tipoOperacion": "EFECTIVO"
+        }, 
+        {
+          "moneda": {
+            "id": "2",
+            "codigo": "EUR",
+            "descripcion": "EUROS"
+          },
+          "compra": 7660,
+          "venta": 8250,
+          "tipoOperacion": "CHEQUE"
+        },
+        {
+          "moneda": {
+            "id": "9",
+            "codigo": "BRL",
+            "descripcion": "REALES"
+          },
+          "compra": 1300,
+          "venta": 1470,
+          "tipoOperacion": "EFECTIVO"
+        },
+        {
+          "moneda": {
+            "id": "10",
+            "codigo": "ARS",
+            "descripcion": "PESO ARGENTINO"
+          },
+          "compra": 1,
+          "venta": 8,
+          "tipoOperacion": "EFECTIVO"
+        }
       ]
     }
   ]

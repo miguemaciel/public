@@ -7,54 +7,64 @@
         "codigoSucursal": "0",
         "cotizaciones": [
           {
-            "id": "1",
-            "codigo": "USD",
-            "compra": 7000,
-            "venta": 7400,
-            "tipoOperacion": {
-                "codigo": "12",
-                "valor": "VENTA TRANSFERENCIA"
-            }
+            "moneda": {
+              "id": "1",
+              "codigo": "USD",
+              "descripcion": "DOLARES AMERICANOS"
+            },
+            "compra": 7200,
+            "venta": 7380,
+            "tipoOperacion": "EFECTIVO"
           },
           {
-            "id": "1",
-            "codigo": "USD",
-            "compra": 7000,
-            "venta": 7410,
-            "tipoOperacion": {
-                "codigo": "16",
-                "valor": "COMPRA TRANSFERENCIA - WEB"
-            }
+            "moneda": {
+              "id": "1",
+              "codigo": "USD",
+              "descripcion": "DOLARES AMERICANOS"
+            },
+            "compra": 7280,
+            "venta": 7430,
+            "tipoOperacion": "CHEQUE"
           },
           {
-            "id": "2",
-            "codigo": "EUR",
-            "compra": 7650,
-            "venta": 7800,
-            "tipoOperacion": {
-              "codigo": "12",
-              "valor": "VENTA TRANSFERENCIA"
-            }
+            "moneda": {
+              "id": "2",
+              "codigo": "EUR",
+              "descripcion": "EUROS"
+            },
+            "compra": 7600,
+            "venta": 8250,
+            "tipoOperacion": "EFECTIVO"
           }, 
           {
-            "id": "9",
-            "codigo": "REA",
-            "compra": 1300,
-            "venta": 1470,
-            "tipoOperacion": {
-              "codigo": "12",
-              "valor": "VENTA TRANSFERENCIA"
-            }
+            "moneda": {
+              "id": "2",
+              "codigo": "EUR",
+              "descripcion": "EUROS"
+            },
+            "compra": 7660,
+            "venta": 8250,
+            "tipoOperacion": "CHEQUE"
           },
           {
-            "id": "10",
-            "codigo": "PES",
+            "moneda": {
+              "id": "9",
+              "codigo": "BRL",
+              "descripcion": "REALES"
+            },
+            "compra": 1300,
+            "venta": 1470,
+            "tipoOperacion": "EFECTIVO"
+          },
+          {
+            "moneda": {
+              "id": "10",
+              "codigo": "ARS",
+              "descripcion": "PESO ARGENTINO"
+            },
             "compra": 1,
             "venta": 8,
-            "tipoOperacion": {
-              "codigo": "12",
-              "valor": "VENTA TRANSFERENCIA"
-            }
+            "tipoOperacion": "EFECTIVO"
           }
         ]
       },
@@ -62,46 +72,66 @@
         "nombreSucursal": "BF",
         "codigoSucursal": "98",
         "cotizaciones": [
-            {
-                "id": "1",
-                "codigo": "USD",
-                "compra": 7180,
-                "venta": 7320,
-                "tipoOperacion": {
-                  "codigo": "12",
-                  "valor": "VENTA TRANSFERENCIA"
-                }
-              },
-              {
-                "id": "2",
-                "codigo": "EUR",
-                "compra": 7450,
-                "venta": 8090,
-                "tipoOperacion": {
-                  "codigo": "12",
-                  "valor": "VENTA TRANSFERENCIA"
-                }
-              },
-              {
-                "id": "9",
-                "codigo": "REA",
-                "compra": 1300,
-                "venta": 1470,
-                "tipoOperacion": {
-                  "codigo": "12",
-                  "valor": "VENTA TRANSFERENCIA"
-                }
-              },
-              {
-                "id": "10",
-                "codigo": "PES",
-                "compra": 1,
-                "venta": 8,
-                "tipoOperacion": {
-                  "codigo": "12",
-                  "valor": "VENTA TRANSFERENCIA"
-                }
-              }
+          {
+            "moneda": {
+              "id": "1",
+              "codigo": "USD",
+              "descripcion": "DOLARES AMERICANOS"
+            },
+            "compra": 7200,
+            "venta": 7380,
+            "tipoOperacion": "EFECTIVO"
+          },
+          {
+            "moneda": {
+              "id": "1",
+              "codigo": "USD",
+              "descripcion": "DOLARES AMERICANOS"
+            },
+            "compra": 7280,
+            "venta": 7430,
+            "tipoOperacion": "CHEQUE"
+          },
+          {
+            "moneda": {
+              "id": "2",
+              "codigo": "EUR",
+              "descripcion": "EUROS"
+            },
+            "compra": 7600,
+            "venta": 8250,
+            "tipoOperacion": "EFECTIVO"
+          }, 
+          {
+            "moneda": {
+              "id": "2",
+              "codigo": "EUR",
+              "descripcion": "EUROS"
+            },
+            "compra": 7660,
+            "venta": 8250,
+            "tipoOperacion": "CHEQUE"
+          },
+          {
+            "moneda": {
+              "id": "9",
+              "codigo": "BRL",
+              "descripcion": "REALES"
+            },
+            "compra": 1300,
+            "venta": 1470,
+            "tipoOperacion": "EFECTIVO"
+          },
+          {
+            "moneda": {
+              "id": "10",
+              "codigo": "ARS",
+              "descripcion": "PESO ARGENTINO"
+            },
+            "compra": 1,
+            "venta": 8,
+            "tipoOperacion": "EFECTIVO"
+          }
         ]
       }
     ]
