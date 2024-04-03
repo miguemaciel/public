@@ -709,77 +709,61 @@ components:
         mensaje:
           type: string
           description: mensaje referente al cambio insertado/actualizado.
-  parameters:
-    codigoCliente:
-      name: codigoCliente
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-    codigoCuenta:
-      name: codigoCuenta
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-    tipoDocumento:
-      name: tipoDocumento
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-    codigoEtapa:
-      name: codigoEtapa
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: string
-    codigoSucursal:
-      name: codigoSucursal
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: number
-    numeroOperacion:
-      name: numeroOperacion
-      in: path
-      required: true
-      style: simple
-      schema:
-        type: number
-    pagina: 
-      name: pagina
-      in: query
-      schema:
-        type: number
-        default: 1
-      description: Número de página
-    limite: 
-      name: limite
-      in: query
-      schema:
-        type: number
-        default: 20
-      description: Cantidad de registros por página
-    fechaDesde: 
-      name: fechaDesde
-      in: query
-      schema:
-        type: string
-      required: true
-      description: Fecha de inicio de búsqueda
-    fechaHasta: 
-      name: fechaHasta
-      in: query
-      schema:
-        type: string
-      description: Fecha de fin de búsqueda
-      required: true
+    seguimientos:
+      type: object
+      properties:
+        metadata:
+          $ref: './familiar-components-v1.0.0.yaml#/components/schemas/metadata'
+        registros:
+          type: array
+          items:
+            $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
+    operacionMora:
+      type: object
+      properties:
+        producto:
+          $ref: '#/components/schemas/operacionMoraCliente'
+        deuda:
+          $ref: '#/components/schemas/operMora'
+        codigoSucursal:
+          type: number
+        nroOperacion:
+          type: number
+        fechaOperacion:
+          type: string
+    operacionesMora:
+      properties:
+        metadata:
+          $ref: './familiar-components-v1.0.0.yaml#/components/schemas/metadata'
+        operacionesMora:
+          type: array
+          items:
+            $ref: '#/components/schemas/operacionMora'
+    operacionMoraCliente:
+      allOf:
+        - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
+        - type: object
+          properties:
+            modalidadProducto:
+              $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
+            tipoProducto:
+              $ref: './familiar-components-v1.0.0.yaml#/components/schemas/codeValue'
+    operMora:
+      type: object
+      properties:
+        diasMora:
+          type: number
+        fechaVencimiento:
+          type: string
+        deudaVencida:
+          type: number
+        saldoDeuda:
+          type: number
+        fechaAsignacionOperacion:
+          type: string
+        fechaAsignacionFin:
+          type: string
+
 
 
   responses:

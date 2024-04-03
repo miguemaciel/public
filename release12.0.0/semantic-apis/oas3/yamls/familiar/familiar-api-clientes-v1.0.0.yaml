@@ -1,707 +1,1340 @@
 openapi: 3.0.1
 info:
-  title: Clientes
-  description: "Servicios relacionados al cliente. Ejemplo: sus productos y servicios, cobranzas, deudas. Configuraciones."
+  title: ClientesGestion
+  description: >-
+    Servicios relacionados al cliente. Ejemplo: sus productos y servicios,
+    cobranzas, deudas. Configuraciones.
   contact:
     name: Banco Familiar
-    email: "desarrollo_bf@familiar.com.py"
-  version: v2
+    email: desarrollo_bf@familiar.com.py
+  version: v1
 servers:
-  - url: https://api-test.familiar.com.py
+  - url: 'https://api-test.familiar.com.py'
 security:
   - default: []
-
 paths:
-  "/clientes/{codigoCliente}/productos/cuentas":
+  '/clientes/{codigoCliente}/productos/cuentas':
     get:
       summary: Obtener lista de cuentas de un cliente
-      description: Obtener informacion sobre todas las cuentas del clientes. Cajas de ahorro, cuentas corrientes, cuentas digitales, etc.
+      description: >-
+        Obtener informacion sobre todas las cuentas del clientes. Cajas de
+        ahorro, cuentas corrientes, cuentas digitales, etc.
       operationId: getallcuenta
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/cuentaListarResponse"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/productos/cuentas/{codigoCuenta}":
+        '200':
+          description: Listar Cuenta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cuentaListar'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/cuentas/{codigoCuenta}':
     get:
       summary: Obtener detalles de una cuenta
-      description: Obtiene todos los detalles de una cuenta en especifico, sus saldos y configuracion.
+      description: >-
+        Obtiene todos los detalles de una cuenta en especifico, sus saldos y
+        configuracion.
       operationId: getcuenta
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCuenta"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: codigoCuenta
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/cuentaResponse"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/productos/cuentas/{codigoCuenta}/movimientos":
+        '200':
+          description: Cuenta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cuenta'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/cuentas/{codigoCuenta}/movimientos':
     get:
       summary: Movimientos de una cuenta
       description: Obtiene todos los movimientos de una cuenta de un rango en específico
       operationId: list
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCuenta"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/limite"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/pagina"
-
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: codigoCuenta
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: fechaDesde
+          in: query
+          description: Fecha de inicio de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: fechaHasta
+          in: query
+          description: Fecha de fin de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: limite
+          in: query
+          description: Cantidad de registros por página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
+        - name: pagina
+          in: query
+          description: Número de página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
       responses:
-        "200":
-          $ref: "#/components/responses/movimientoList"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/servicios/cotizaciones":
+        '200':
+          description: Cuenta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/movimientoList'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/servicios/cotizaciones':
     get:
       summary: Obtiene las tasas de cambio prepactada con un cliente
       description: Devuelve las tasas de cambio prepactada de un cliente
       operationId: getCotizacioPrepactada
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
-
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/prepactadoListar"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/cobranzas/gestores":
+        '200':
+          description: lista de operaciones prepactadas
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prepactadoListar'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/cobranzas/gestores':
     get:
       summary: Gestor asignado
       description: Retorna el útlimo gestor asignado al cliente
       operationId: getAllGestorCliente
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/gestionDeuda"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/cobranzas/seguimientos":
-    post:
-      summary: registra un seguimiento de cobro realizado a un cliente
-      description: Registra un seguimiento para el cobro de la deuda de un cliente.
-      operationId: updateSeguimientobyCliente
-      parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
-      requestBody:
-        $ref: "#/components/requestBodies/seguimientoRequest"
-      responses:
-        "200":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/respuestaExitosa"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
+        '200':
+          description: tramo y gestor
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/evento'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/cobranzas/seguimientos':
     get:
       summary: seguimientos de cobro a un cliente
       description: Retorna los gestores asignados al cliente
       operationId: getAllSeguimientosCliente
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/limite"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/pagina"
-
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: fechaDesde
+          in: query
+          description: Fecha de inicio de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: fechaHasta
+          in: query
+          description: Fecha de fin de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: limite
+          in: query
+          description: Cantidad de registros por página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
+        - name: pagina
+          in: query
+          description: Número de página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
       responses:
-        "200":
-          $ref: "#/components/responses/seguimientosList"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/cobranzas/operaciones/mora":
+        '200':
+          description: Lista los eventos de cobranzas realizado por un gestor al clientes.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/seguimientos'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+    post:
+      summary: registra un seguimiento de cobro realizado a un cliente
+      description: Registra un seguimiento para el cobro de la deuda de un cliente.
+      operationId: updateSeguimientobyCliente
+      parameters:
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+      requestBody:
+        $ref: '#/components/requestBodies/seguimientoRequest'
+      responses:
+        '200':
+          description: Response generico para alta y actualización de registros.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/respuestaExitosa'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/cobranzas/operaciones/mora':
     get:
       summary: Operaciones con días de mora.
-      description: Retorna las operaciones con dias de mora por cliente para la gestión de cobranza.
+      description: >-
+        Retorna las operaciones con dias de mora por cliente para la gestión de
+        cobranza.
       operationId: getAllOperacionesMoraCliente
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaDesde"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/fechaHasta"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/limite"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/pagina"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: fechaDesde
+          in: query
+          description: Fecha de inicio de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: fechaHasta
+          in: query
+          description: Fecha de fin de búsqueda
+          required: true
+          style: form
+          explode: true
+          schema:
+            type: string
+        - name: limite
+          in: query
+          description: Cantidad de registros por página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
+        - name: pagina
+          in: query
+          description: Número de página
+          required: false
+          style: form
+          explode: true
+          schema:
+            type: number
       responses:
-        "200":
-          $ref: "#/components/responses/gestionOperacionesMora"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-          "/clientes/{codigo-cliente}/productos/tarjetas":
-            get:
-              summary: Obtener lista de tarjetas de un cliente
-              description: Obtener informacion sobre todas las tarjetas del cliente.
-              operationId: getalltarjetas
-              parameters:
-                - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente"
-              responses:
-                "200":
-                  $ref: "#/components/responses/tarjetaListarResponse"
-                "400":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-                "401":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-                "403":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-                "404":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-                "422":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-                "500":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-          "/clientes/{codigo-cliente}/productos/tarjetas/{codigo-cuenta}":
-            get:
-              summary: Obtener detalles de una tarjeta
-              description: Obtiene todos los detalles de una tarjeta en especifico, sus saldos y configuracion.
-              operationId: gettarjeta
-              parameters:
-                - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente"
-                - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta"
-              responses:
-                "200":
-                  $ref: "#/components/responses/tarjetaResponse"
-                "400":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-                "401":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-                "403":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-                "404":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-                "422":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-                "500":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-          "/clientes/{codigo-cliente}/productos/cda":
-            get:
-              summary: Obtener lista de tarjetas de un cliente
-              description: Obtener informacion sobre todas las tarjetas del cliente.
-              operationId: getallcda
-              parameters:
-                - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente"
-              responses:
-                "200":
-                  $ref: "#/components/responses/cdaListarResponse"
-                "400":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-                "401":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-                "403":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-                "404":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-                "422":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-                "500":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-          "/clientes/{codigo-cliente}/productos/cda/{codigo-cuenta}":
-            get:
-              summary: Obtener detalles de un CDA
-              description: Obtiene todos los detalles de un CDA.
-              operationId: getcda
-              parameters:
-                - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente"
-                - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta"
-              responses:
-                "200":
-                  $ref: "#/components/responses/cdaResponse"
-                "400":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-                "401":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-                "403":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-                "404":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-                "422":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-                "500":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-          "/clientes/{codigo-cliente}/productos/prestamos":
-            get:
-              summary: Obtener lista de prestamos de un cliente
-              description: Obtener informacion sobre todas los prestamos del cliente.
-              operationId: getallprestamos
-              parameters:
-                - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente"
-              responses:
-                "200":
-                  $ref: "#/components/responses/prestamoListarResponse"
-                "400":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-                "401":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-                "403":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-                "404":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-                "422":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-                "500":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-          "/clientes/{codigo-cliente}/productos/prestamos/{codigo-cuenta}":
-            get:
-              summary: Obtener detalles de un prestamo
-              description: Obtiene todos los detalles de un prestamo.
-              operationId: getprestamo
-              parameters:
-                - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigo-cliente"
-                - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigo-cuenta"
-              responses:
-                "200":
-                  $ref: "#/components/responses/prestamoResponse"
-                "400":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-                "401":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-                "403":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-                "404":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-                "422":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-                "500":
-                  $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-  "/clientes/{codigoCliente}/productos/tarjetas":
+        '200':
+          description: >-
+            Lista las operaciones en mora por cada cliente para la gestión de
+            cobranza.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/operacionesMora'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  /clientes/producto/cuentas/debitoCredito/bloqueo:
+    post:
+      description: >-
+        Realiza un bloqueo de un movimiento de débito de la cuenta del cliente a
+        una cuenta definida de BF.
+      parameters: []
+      responses:
+        '200':
+          description: ok
+      security:
+        - default: []
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  /clientes/producto/cuentas/debitoCredito:
+    post:
+      parameters: []
+      responses:
+        '200':
+          description: >-
+            Confirma la operacion de movimiento de debito  de la cuenta del 
+            cliente a una cuenta definida de Banco Familiar.
+      security:
+        - default: []
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/tarjetas':
     get:
       summary: Obtener lista de tarjetas de un cliente
       description: Obtener informacion sobre todas las tarjetas del cliente.
       operationId: getalltarjetas
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/tarjetaListarResponse"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/productos/tarjetas/{codigoCuenta}":
+        '200':
+          description: Listar Tarjeta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tarjetaListar'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/tarjetas/{codigoCuenta}':
     get:
       summary: Obtener detalles de una tarjeta
-      description: Obtiene todos los detalles de una tarjeta en especifico, sus saldos y configuracion.
+      description: >-
+        Obtiene todos los detalles de una tarjeta en especifico, sus saldos y
+        configuracion.
       operationId: gettarjeta
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCuenta"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: codigoCuenta
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/tarjetaResponse"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/productos/cda":
+        '200':
+          description: Tarjeta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/tarjetaResponse'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/cda':
     get:
       summary: Obtener lista de tarjetas de un cliente
       description: Obtener informacion sobre todas las tarjetas del cliente.
       operationId: getallcda
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/cdaListarResponse"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/productos/cda/{codigoCuenta}":
+        '200':
+          description: Listar CDA
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cdaListar'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/cda/{codigoCuenta}':
     get:
       summary: Obtener detalles de un CDA
       description: Obtiene todos los detalles de un CDA.
       operationId: getcda
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCuenta"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: codigoCuenta
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/cdaResponse"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/productos/prestamos":
+        '200':
+          description: CDA
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cdaResponse'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/prestamos':
     get:
       summary: Obtener lista de prestamos de un cliente
       description: Obtener informacion sobre todas los prestamos del cliente.
       operationId: getallprestamos
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/prestamoListarResponse"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
-  "/clientes/{codigoCliente}/productos/prestamos/{codigoCuenta}":
+        '200':
+          description: Listar Prestamos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prestamoListar'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/productos/prestamos/{codigoCuenta}':
     get:
       summary: Obtener detalles de un prestamo
       description: Obtiene todos los detalles de un prestamo.
       operationId: getprestamo
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCuenta"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+        - name: codigoCuenta
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
         '200':
-          $ref: '#/components/responses/prestamoResponse'
+          description: Prestamo
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/prestamoResponse'
         '400':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/BadRequest'
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
         '401':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Unauthorized'
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
         '403':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/Forbidden'
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
         '404':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/NotFound'
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
         '422':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity'
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
         '500':
-          $ref: './familiar-components-v1.0.0.yaml#/components/responses/InternalServerError'
-  
-  "/clientes/{codigoCliente}/cobranzas/asignaciones/gestores":
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/{codigoCliente}/cobranzas/asignaciones/gestores':
     post:
-      summary: Asigna un gestor a un cliente en la gestión de cobranzas. 
-      description: Registra y asigna un gestor a un cliente en la gestón de cobranzas. 
+      summary: Asigna un gestor a un cliente en la gestión de cobranzas.
+      description: Registra y asigna un gestor a un cliente en la gestón de cobranzas.
       operationId: updateAsignacionGestorbyCliente
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCliente"
+        - name: codigoCliente
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       requestBody:
-        $ref: "#/components/requestBodies/asignarGestorRequest"
+        $ref: '#/components/requestBodies/asignarGestorRequest'
       responses:
-        "200":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/respuestaExitosa"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-        
-
-  "/clientes/productos/cuentas/{codigoCuenta}":
+        '200':
+          description: Response generico para alta y actualización de registros.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/respuestaExitosa'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
+  '/clientes/productos/cuentas/{codigoCuenta}':
     get:
       summary: Obtener detalles de una cuenta
-      description: Obtiene todos los detalles de una cuenta en especifico, sus saldos y configuracion.
+      description: >-
+        Obtiene todos los detalles de una cuenta en especifico, sus saldos y
+        configuracion.
       operationId: getcuentasincliente
       parameters:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/parameters/codigoCuenta"
+        - name: codigoCuenta
+          in: path
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
       responses:
-        "200":
-          $ref: "#/components/responses/cuentaResponse"
-        "400":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/BadRequest"
-        "401":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Unauthorized"
-        "403":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/Forbidden"
-        "404":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/NotFound"
-        "422":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/UnprocessableEntity"
-        "500":
-          $ref: "./familiar-components-v1.0.0.yaml#/components/responses/InternalServerError"
-
+        '200':
+          description: Cuenta
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/cuenta'
+        '400':
+          description: BadRequest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '404':
+          description: NotFound
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '422':
+          description: TooManyRequests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/httpError'
+      security:
+        - default: []
+      x-throttling-tier: Unlimited
+      x-auth-type: Application & Application User
+      x-wso2-application-security:
+        security-types:
+          - oauth2
+          - api_key
+        optional: false
 components:
   schemas:
+    httpError:
+      $ref: ./familiar-components-v1.0.0.yaml#/components/schemas/httpError
+    prepactadoListar:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/prepactadoListar'
+    cuentaListar:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cuentaListar'
+    cuenta:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cuenta'
+    movimientoList:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/movimientoList'
+    evento:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
+    respuestaExitosa:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/respuestaExitosa'
+    tarjetaResponse:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/tarjetaResponse'
+    prestamoResponse:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/prestamoResponse'
+    tarjetaListar:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/tarjetaListar'
+    cdaListar:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cdaListar'
     seguimientos:
-      type: object
-      properties:
-        metadata:
-          $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/metadata"
-        registros:
-          type: array
-          items:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/seguimientos'
+    cdaResponse:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/cdaResponse'
+    prestamoListar:
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/prestamoListar'
     operacionMora:
-      type: object
-      properties:
-        producto:
-          $ref: "#/components/schemas/operacionMoraCliente"
-        deuda:
-          $ref: "#/components/schemas/operMora"
-        codigoSucursal:
-          type: number
-        nroOperacion:
-          type: number
-        fechaOperacion:
-          type: string
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/operacionMora'
     operacionesMora:
-      properties:
-        metadata:
-          $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/metadata"
-        operacionesMora:
-          type: array
-          items:
-            $ref: "#/components/schemas/operacionMora"
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/operacionesMora'
     operacionMoraCliente:
-      allOf:
-        - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/codeValue"
-        - type: object
-          properties:
-            modalidadProducto:
-              $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/codeValue"
-            tipoProducto:
-              $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/codeValue"
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/operacionMoraCliente'
     operMora:
-      type: object
-      properties:
-        diasMora:
-          type: number
-        fechaVencimiento:
-          type: string
-        deudaVencida:
-          type: number
-        saldoDeuda:
-          type: number
-        fechaAsignacionOperacion:
-          type: string
-        fechaAsignacionFin:
-          type: string
-  
-       
+      $ref: './familiar-components-v1.0.0.yaml#/components/schemas/operMora'
+
   requestBodies:
     seguimientoRequest:
       content:
         application/json:
           schema:
-           allOf:
-             - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
-             - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/registroAuditoria"
-               required: true
+            allOf:
+              - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
+              - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/registroAuditoria'
+                required: true
     asignarGestorRequest:
       content:
         application/json:
           schema:
             allOf:
-             - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
-             - $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/registroAuditoria"
-               required: true
-  responses:
-    cuentaListarResponse:
-      description: Listar Cuenta
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/cuentaListar"
-    cuentaResponse:
-      description: Cuenta
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/cuenta"
-    tarjetaListarResponse:
-      description: Listar Tarjeta
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/tarjetaListar"
-    tarjetaResponse:
-      description: Tarjeta
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/tarjetaResponse"
-    cdaListarResponse:
-      description: Listar CDA
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/cdaListar"
-    cdaResponse:
-      description: CDA
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/cdaResponse"
-    prestamoListarResponse:
-      description: Listar Prestamos
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/prestamoListar"
-    prestamoResponse:
-      description: Prestamo
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/prestamoResponse"
-    movimientoList:
-      description: Cuenta
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/movimientoList"
-    prepactadoListar:
-      description: lista de operaciones prepactadas
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/prepactadoListar"
+              - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/evento'
+              - $ref: './familiar-components-v1.0.0.yaml#/components/schemas/registroAuditoria'
+                required: true
 
-    gestionDeuda:
-      description: tramo y gestor
-      content:
-        application/json:
-          schema:
-            $ref: "./familiar-components-v1.0.0.yaml#/components/schemas/evento"
-
-    seguimientosList:
-      description: Lista los eventos de cobranzas realizado por un gestor al clientes.
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/seguimientos"
-    gestionOperacionesMora:
-      description: Lista las operaciones en mora por cada cliente para la gestión de cobranza.
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/operacionesMora"
   securitySchemes:
     default:
       type: oauth2
       flows:
         implicit:
-          authorizationUrl: "https://test.com"
+          authorizationUrl: 'https://test.com'
           scopes: {}
+x-wso2-auth-header: Authorization
+x-wso2-cors:
+  corsConfigurationEnabled: false
+  accessControlAllowOrigins:
+    - '*'
+  accessControlAllowCredentials: false
+  accessControlAllowHeaders:
+    - authorization
+    - Access-Control-Allow-Origin
+    - Content-Type
+    - SOAPAction
+    - apikey
+    - Internal-Key
+  accessControlAllowMethods:
+    - GET
+    - PUT
+    - POST
+    - DELETE
+    - PATCH
+    - OPTIONS
+x-wso2-production-endpoints:
+  urls:
+    - 'https://api-test.familiar.com.py'
+  type: http
+x-wso2-sandbox-endpoints:
+  urls:
+    - 'https://api-test.familiar.com.py'
+  type: http
+x-wso2-basePath: /clientesgestion/v1
+x-wso2-transports:
+  - http
+  - https
+x-wso2-application-security:
+  security-types:
+    - oauth2
+    - api_key
+  optional: false
+x-wso2-response-cache:
+  enabled: false
+  cacheTimeoutInSeconds: 300
